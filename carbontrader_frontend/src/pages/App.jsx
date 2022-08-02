@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from '../assets/icons/logo.svg';
+import './styles/App.scss';
 
 
 function App() {
@@ -20,6 +20,9 @@ function App() {
         Learn React
       </a>
     </header>
+    <main>
+      
+    </main>
   </div>
   );
 }

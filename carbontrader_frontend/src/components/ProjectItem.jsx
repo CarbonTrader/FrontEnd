@@ -3,19 +3,18 @@ import '../styles/ProjectItem.scss';
 import Image from '../assets/img/ProjectExample.jpg'
 
 
-const ProjectItem = () => {
+const ProjectItem = (props) => {
 	
 
 	return (
 		<div className="ProjectItem">
 			<div className='ProjectItem-Image'>
-				<img src={Image} alt="" />
+				<img src={props.imageURL} alt="" />
 			</div>
 			<div className="ProjectItem-info">
 				<div>
-					<p className='ProjectItem-title'>Proyecto Alpha</p>
-					<p className='ProjectItem-description'>Lorem ipsum dolor sit amet, i. Lorem ipsum dolor 
-					sit amet, consectetur adipiscing elit. Nulla molestie, lorem sit amet dignissim viverra, est dolor dapibus dui, quis aliquet neque erat commodo arcu</p>
+					<p className='ProjectItem-title'>{props.title}</p>
+					<p className='ProjectItem-description'>{props.description}</p>
 				</div>
 			</div>
 		</div>

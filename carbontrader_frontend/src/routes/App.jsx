@@ -18,7 +18,6 @@ function App() {
         <Route exact path="/" element={<ProjectInfo imageURL={project.imageURL} title={project.title} description={project.description} />} />
         <Route exact path="/" element={<Checkout/>} />
       </Routes>
-
     </BrowserRouter>
   );
 }

@@ -1,0 +1,47 @@
+@import 'vars';
+
+.ProjectItem {
+    margin-top: 2%;
+	min-width: 100px;
+    min-height: 180px;
+    margin-left: 2%;
+    background: #FDFDFD;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.125);
+    border-radius: 10px;
+    display: flex;
+    &:hover{
+        background-color: var(--selection-green);
+        cursor: pointer;
+    }
+    .ProjectItem-Image{
+        margin: 1% 1%;
+        max-width: 300px;
+        img {
+            width: 98%;
+            height: 95%;
+            border-radius: 20px;
+            object-fit: cover;            
+        }
+        
+    }
+     
+
+    .ProjectItem-title{    
+        font-weight:var(--title-weight) ;
+        text-transform: uppercase;
+        text-align: center;
+        font-size:20px ;
+    }    
+    .ProjectItem-description{      
+        width: 90%;
+        font-size: 18px;
+        margin: auto;
+        color: rgba(60, 60, 67, 0.6)
+    }
+    
+}
+
+
+
+
+

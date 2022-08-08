@@ -1,0 +1,18 @@
+@use 'vars';
+
+.container_title {
+    display: flex;
+    font-family: 'Inter', sans-serif;
+    font-size: 70px;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    margin-top: 2%;
+    .firstPart{
+        color: #94FFAB;
+    }
+    .secondPart{
+        color:#FFFFFF
+    }
+}

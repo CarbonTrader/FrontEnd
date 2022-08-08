@@ -1,0 +1,60 @@
+@use 'vars';
+
+.container {
+    border-radius: 10px;
+    width: 40vw;
+    height: 50vh;
+    margin: auto;
+    margin-top: 2vh;
+    padding-top: 10vh;
+    background-color: #C2FFDB;
+    .formContainer {
+        display: flex;
+        flex-direction: column;
+        height: 30vh;
+        margin: auto;   
+        width: 20vw;
+        .formContainer_box {
+            margin-top: 5vh;
+            display: flex;
+            flex-direction: column;
+            label {
+                font-size: 20px;
+                font-family: 'Inter', sans-serif;
+            }
+            input {
+                height: 40px;
+                margin-top: 8px;
+                background: #FFFFFF;
+                border: none;
+                border-radius: 5px;
+            }
+        }
+
+        .formContainer_buttonContainer {
+            background-color: aqua;
+            margin-top: 10%;
+            display: flex;
+        }
+
+        .formContainer_button {
+            color: white;
+            height: 50px;
+            width: 100%;
+            cursor: pointer;
+            background-color: #57D983;
+            font-size: 12px;
+            border: none;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            &:hover{
+                background-color: white;
+                color: black;
+            }
+        }
+       
+
+
+    }
+
+}

@@ -1,9 +1,8 @@
-
-
 import '../styles/App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from "../pages/Home";
 import '../styles/global.scss';
+import Checkout from '../components/Checkout'
 import ProjectInfo from '../components/ProjectInfo'
 
 function App() {
@@ -17,8 +16,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/" element={<ProjectInfo imageURL={project.imageURL} title={project.title} description={project.description} />} />
+        <Route exact path="/" element={<Checkout/>} />
       </Routes>
-
     </BrowserRouter>
   );
 }

@@ -3,6 +3,7 @@
 .ProjectItem {
     margin-top: 2%;
 	min-width: 100px;
+    max-width: 90%;
     min-height: 180px;
     margin-left: 2%;
     background: #FDFDFD;
@@ -24,8 +25,8 @@
         }
         
     }
+    
      
-
     .ProjectItem-title{    
         font-weight:var(--title-weight) ;
         text-transform: uppercase;
@@ -36,7 +37,15 @@
         width: 90%;
         font-size: 18px;
         margin: auto;
-        color: rgba(60, 60, 67, 0.6)
+        color: rgba(60, 60, 67, 0.6);
+        
+    }
+    .subtitle{
+        color: black;
+        margin-left: 0;
+        width: fit-content;
+        font-weight: 700;
+        display:inline;
     }
     
 }

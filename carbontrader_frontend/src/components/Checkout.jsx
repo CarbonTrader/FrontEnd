@@ -4,7 +4,7 @@ import '../styles/Checkout.scss';
 const Checkout = () => {
 
 return(
-    <section className='InfoContainer'>
+    <section className='InfoCheckoutContainer'>
         <p className='firstText'>¿Cuántos créditos?</p>
         <div className='Checkout-CreditsOptions'>        
             <div>10</div>

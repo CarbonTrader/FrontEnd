@@ -1,13 +1,13 @@
 @import 'vars';
 
 .main-container {
-    background-color: white;
     height: 85vh;
     width: 90vw;
     border-radius: 15px;
     box-shadow: 0px 2px 60px rgba(0, 0, 0, 0.25);
     margin: auto;
     padding-left: 2%;
+
     .textContainer {
         margin-left: 2%;
         .main-titleFirst {
@@ -16,27 +16,39 @@
             text-transform: uppercase;
             font-weight: var(--title-weight);
         }
+
         .main-titleSecond {
             text-transform: uppercase;
             font-weight: var(--title-weight);
             color: var(--title-color);
         }
+
         p {
-            width: 50%;
+            width: 80%;
             color: var(--auxiliary-text-color);
             margin-bottom: 0;
             text-transform: uppercase;
         }
     }
-    .ProjectList {
 
-        width: 55%;
-        max-height: 60vh;
-        scroll-behavior: smooth;
-        overflow-y: scroll;
+    .ProjectList-container {
+        margin-top: 1%;
+        margin-right:1% ;
+        display: flex;
+        flex-direction: row;
 
+        .ProjectList-listItems {
+           
+            width: 55%;
+            max-height: 60vh;
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+        }
 
+        .Proyect-info{
+            width: 42%;
+            height: 60vh;
+        }
     }
-
 
 }

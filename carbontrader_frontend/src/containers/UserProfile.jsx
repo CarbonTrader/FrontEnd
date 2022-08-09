@@ -19,7 +19,7 @@ const UserProfile = ({trader}) => {
                         <ProfileInfo traderName={trader.name} traderEmail={trader.email}/>
                     </div>
                     <div label = "Transacciones">
-                        <TraderTransactionList traderTransactionList = {trader.transactions}/>
+                        <TraderTransactionList transactionList = {trader.transactions}/>
                     </div>
                     <div label = "Mi billetera">
                         <MyWallet />

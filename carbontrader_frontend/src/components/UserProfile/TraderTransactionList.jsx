@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { collection, onSnapshot, query } from "firebase/firestore";
 import {db} from '../../firebase'
 import axios from 'axios';
+import '../../styles/Tabs.css';
 
 // TODO: Encontrar una manera de poblar la tabla con los datos en tiempo real.
 const TraderTransactionList = ({transactionList}) => {

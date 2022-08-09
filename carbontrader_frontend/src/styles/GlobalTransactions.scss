@@ -1,0 +1,39 @@
+.transactions-container {
+  margin: auto;
+  background-color: var(--very-light-green);
+  width: 90%;
+
+  h2 {
+    font-size: 20px;
+    color: aqua;
+  }
+  table {
+    .table-header{
+      &:hover{
+        color: black;
+        background-color: var(--very-light-green);
+      }
+    }
+    margin: auto;
+    color: rgba(60, 60, 67, 0.6);
+    font-size: 15px;
+    width: 95%;
+    height: fit-content;
+    th {
+      font-size: 20px;
+      color: black;
+      height: 30px;
+      text-align: center;
+    }
+    td {
+      text-align: center;     
+    }
+    tr{
+    &:hover{
+      color: black;
+      background-color: beige;
+      cursor: pointer;
+    }
+    }
+  }
+}

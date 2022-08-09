@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import '../styles/App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from "../pages/Home";
+import GlobalTransactions from '../containers/GlobalTransactions';
 import '../styles/global.scss';
 import Checkout from '../components/Checkout'
 import ProjectInfo from '../components/ProjectInfo'
@@ -16,7 +17,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route exact path="/" element={<Header />} />
+        <Route exact path="/" element={<GlobalTransactions />} />
         <Route exact path="/" element={<Home />} />
         <Route exact path="/" element={<ProjectInfo imageURL={project.imageURL} title={project.title} description={project.description} />} />
         <Route exact path="/" element={<Checkout/>} />

@@ -7,7 +7,7 @@ import Home from "../pages/Home";
 import Header from '../components/Header'
 import Checkout from '../components/Checkout'
 import ProjectInfo from '../components/ProjectInfo'
-import UserProfile from '../containers/UserProfile';
+import InvestorProfile from '../pages/UserProfile/InvestorProfile/InvestorProfile';
 
 function App() {
   const project = {
@@ -15,7 +15,7 @@ function App() {
     "imageURL": "https://alkilautos.com/blog/wp-content/uploads/2019/03/D.jpg",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie, lorem sit amet dignissim viverra, est dolor dapibus dui, quis aliquet neque erat commodo arcu.",
   }
-  const trader = {
+  const investor = {
     "name": "Cristóbal",
     "email": "email123@gmail.com",
     "password": "122445",
@@ -49,7 +49,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/profile" element={<UserProfile trader = {trader}/> } />
+        <Route exact path="/" element={<InvestorProfile investor = {investor}/> } />
       </Routes>
     </BrowserRouter>
   );

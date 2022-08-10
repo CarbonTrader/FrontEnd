@@ -1,12 +1,12 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { collection, onSnapshot, query } from "firebase/firestore";
-import {db} from '../../firebase'
+import {db} from '../../../firebase'
 import axios from 'axios';
 
 // TODO: Separar las "columnas" de la tabla con un espacio más grande.
 // TODO: Separar las "filas" de la tabla con más espacio.
-const ProfileInfo = ({traderName, traderEmail}) => {
+const ProfileInfo = ({investorName, investorEmail}) => {
     return (
         <section className = 'ProfileInfo'>
             <div style = {{float : "left"}}>
@@ -22,10 +22,10 @@ const ProfileInfo = ({traderName, traderEmail}) => {
             <div>
                 <table className = "UserInfoAndSettings">
                     <tr>
-                        <td>{traderName}</td>
+                        <td>{investorName}</td>
                     </tr>
                     <tr>
-                        <td>{traderEmail}</td>
+                        <td>{investorEmail}</td>
                     </tr>
                     <tr>
                         <a href='/'> Modificar contraseña </a>

@@ -11,7 +11,6 @@ const InvestorProfile = ({ investor }) => {
   return (
     <section className = "investor-profile-container">
       <div>
-        {/*¿Cómo se deberían documentar los tipos de usuario que existen en la plataforma*/}
         <BasicInfoBanner name={investor.name} userType={"Inversionista"} />
       </div>
       <div>

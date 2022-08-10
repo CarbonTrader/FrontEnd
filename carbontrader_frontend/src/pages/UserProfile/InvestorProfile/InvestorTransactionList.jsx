@@ -5,7 +5,13 @@ import {db} from '../../../firebase'
 import axios from 'axios';
 import '../../../styles/Tabs.css';
 
-import Table from '@mui/material/Table';
+import TableContainer from "@material-ui/core/TableContainer";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+import TableHead from "@material-ui/core/TableHead";
+import TableCell from "@material-ui/core/TableCell";
 
 const InvestorTransactionList = ({transactionList}) => {
     var rows = transactionList.map( (transaction) => (
@@ -20,6 +26,22 @@ const InvestorTransactionList = ({transactionList}) => {
     return (  
         <section className = 'InvestorTransactionList'>
             <div>
+                <TableContainer>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Tipo de transacción</TableCell>
+                                <TableCell>Serial</TableCell>
+                                <TableCell>Fuente</TableCell>
+                                <TableCell>Destino</TableCell>
+                                <TableCell>Fecha</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+
+                        </TableBody>
+                    </Table>
+                </TableContainer>
                 <table className = "InvestorTransactionTable">
                     <th>
                         <td>Tipo de transacción</td>

@@ -21,28 +21,28 @@ function App() {
     "password": "122445",
     "transactions":[
       {
-        "buyer_pk":"1",
+        "buyer_pk":"64f6796080e9d292...",
         "carbontrader_serial":"1",
         "hash":"1",
-        "seller_pk": "2",
+        "seller_pk": "b99bb445c1721382...",
         "timestamp":"111",
         "transaction_type":"Compra"
       },
       {
-        "buyer_pk":"1",
+        "buyer_pk":"64f6796080e9d292...",
         "carbontrader_serial":"1",
         "hash":"1",
-        "seller_pk": "2",
-        "timestamp":"111",
+        "seller_pk": "0592b0b489e78ba1...",
+        "timestamp":"222",
         "transaction_type":"Compra"
       },
       {
-        "buyer_pk":"1",
+        "buyer_pk":"ecf80ad14629dba8...",
         "carbontrader_serial":"1",
         "hash":"1",
-        "seller_pk": "2",
-        "timestamp":"111",
-        "transaction_type":"Compra"
+        "seller_pk": "64f6796080e9d292...",
+        "timestamp":"333",
+        "transaction_type":"Venta"
       }
     ]
   }

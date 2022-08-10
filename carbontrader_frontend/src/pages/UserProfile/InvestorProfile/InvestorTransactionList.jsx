@@ -5,6 +5,8 @@ import {db} from '../../../firebase'
 import axios from 'axios';
 import '../../../styles/Tabs.css';
 
+import Table from '@mui/material/Table';
+
 const InvestorTransactionList = ({transactionList}) => {
     var rows = transactionList.map( (transaction) => (
         <tr>

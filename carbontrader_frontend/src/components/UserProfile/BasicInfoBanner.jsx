@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import profile_pic_icon from '../../assets/icons/world_icon.png'
+import profile_pic_icon from '../../assets/icons/avatar_icon.svg'
 
 const BasicInfoBanner = ({name, userType}) => {
     return (

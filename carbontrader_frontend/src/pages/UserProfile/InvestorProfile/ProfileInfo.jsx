@@ -8,7 +8,7 @@ import axios from 'axios';
 // TODO: Separar las "filas" de la tabla con más espacio.
 const ProfileInfo = ({investorName, investorEmail}) => {
     return (
-        <section className = 'ProfileInfo'>
+        <section className = 'ProfileInfo' style={{padding: "15px"}}>
             <div style = {{float : "left"}}>
                 <table className = "UserInfoTableFields">
                     <tr>

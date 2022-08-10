@@ -17,6 +17,9 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
+/* * *
+InvestorTransactionList corresponde al módulo de la página de perfil de usuario en que se muestran todas las transacciones registradas en las que ha incurrido un Inversionista.
+* * */
 const InvestorTransactionList = ({transactionList}) => {
 
     const headCells = [

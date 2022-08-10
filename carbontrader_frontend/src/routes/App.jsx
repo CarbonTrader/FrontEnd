@@ -16,7 +16,8 @@ function App() {
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie, lorem sit amet dignissim viverra, est dolor dapibus dui, quis aliquet neque erat commodo arcu.",
   }
   const investor = {
-    "name": "Cristóbal",
+    "first_name": "Cristóbal",
+    "last_name": "Castrillón",
     "email": "email123@gmail.com",
     "password": "122445",
     "transactions":[

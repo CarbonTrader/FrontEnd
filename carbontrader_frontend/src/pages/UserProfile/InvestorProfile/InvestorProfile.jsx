@@ -10,25 +10,21 @@ import MyWallet from "./MyWallet";
 const InvestorProfile = ({ investor }) => {
   return (
     <section className = "investor-profile-container">
-      <div>
-        <BasicInfoBanner name={investor.name} userType={"Inversionista"} />
-      </div>
-      <div>
-        <UserProfileTabs>
-          <div label = "Perfil">
-            <ProfileInfo
-              investorName = {investor.name}
-              investorEmail = {investor.email}
-            />
-          </div>
-          <div label = "Transacciones">
-            <InvestorTransactionList transactionList = {investor.transactions} />
-          </div>
-          <div label = "Mi billetera">
-            <MyWallet />
-          </div>
-        </UserProfileTabs>
-      </div>
+      <BasicInfoBanner name = {investor.first_name + ' ' + investor.last_name} userType = {"Inversionista"} />
+      <UserProfileTabs>
+        <div label = "Perfil">
+          <ProfileInfo
+            investorName = {investor.first_name + ' ' + investor.last_name}
+            investorEmail = {investor.email}
+          />
+        </div>
+        <div label = "Transacciones">
+          <InvestorTransactionList transactionList = {investor.transactions} />
+        </div>
+        <div label = "Mi billetera">
+          <MyWallet />
+        </div>
+      </UserProfileTabs>
     </section>
   );
 };

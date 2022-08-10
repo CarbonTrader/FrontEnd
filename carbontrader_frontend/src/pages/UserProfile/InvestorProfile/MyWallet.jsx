@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 
 /* * * 
 MyWallet corresponde al módulo de la página de perfil de usuario Inversionista que muestra información de cada uno de los créditos de los que el Inversionista es poseedor.
- * * */
+* * */
 const MyWallet = ({credit_records}) => {
 
     const headCells = [

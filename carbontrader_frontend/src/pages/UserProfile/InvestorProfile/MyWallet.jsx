@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { collection, onSnapshot, query } from "firebase/firestore";
 import { db } from "../../../firebase";
 import axios from "axios";
-import useTable from "./useTable"
+import useTable from "../../../components/useTable"
 import { TableBody, TableRow,  Paper, TableCell, makeStyles, Toolbar, InputAdornment } from "@material-ui/core";
 import Controls from "../../../components/controls/Controls"
 import { Search } from "@material-ui/icons";
@@ -117,8 +117,9 @@ const MyWallet = ({credit_records}) => {
                     <TblHead />
                     <TableBody>
                         {
-                            records.map(item =>
+                            records.map(item => 
                                 (<TableRow key={item.carbontrader_serial}>
+                                    {/* TODO: Definir qué campo debe ser la key para cada fila */}
                                     <TableCell>{item.project_name}</TableCell>
                                     <TableCell>{item.carbontrader_serial}</TableCell>
                                 </TableRow>)

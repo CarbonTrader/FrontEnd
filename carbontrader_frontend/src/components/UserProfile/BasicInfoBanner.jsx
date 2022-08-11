@@ -12,8 +12,8 @@ const BasicInfoBanner = ({name, userType}) => {
                     float: 'top'
                 }}>
                 <div style = {{paddingTop: '15px'}}>
-                    <div style={{float : 'left', paddingRight : '15px', paddingLeft : '15px'}}>
-                        <img src={profile_pic_icon} alt = "" height = {100} width = {100}/>
+                    <div style={{float : 'left', paddingRight : '30px', paddingLeft : '15px', paddingBottom: '10px'}}>
+                        <img src={profile_pic_icon} alt = "" />
                     </div>
                     <div style={{float: 'left', paddingTop: '5px'}}>
                         <h2 className='investorName' style = {{color: "#FFFFFF"}}>{name}</h2>

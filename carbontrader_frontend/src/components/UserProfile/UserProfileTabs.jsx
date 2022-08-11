@@ -28,10 +28,9 @@ class UserProfileTabs extends Component {
 
     return (
       <div className="tabs">
-        <ol className="tab-list" style = {{margin: "0px", paddingLeft: "15px", paddingTop: "15px", backgroundImage: "linear-gradient(to right, #49B26D, #22E163 48%)", float: "top"}}>
+        <ol className="tab-list" style = {{marginTop: "0px", paddingLeft: "30px", paddingTop: "15px", backgroundImage: "linear-gradient(to right, #49B26D, #22E163 48%)", float: "top-left"}}>
           {children.map((child) => {
             const { label } = child.props;
-
             return (
               <Tab
                 activeTab={activeTab}

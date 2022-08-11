@@ -39,7 +39,7 @@ const MyWallet = ({ credit_records }) => {
         let target = e.target;
         setFilterFn({
             fn: items => {
-                if (target.value == "")
+                if (target.value === "")
                     return items;
                 else
                     return items.filter(x => x.project_name.toLowerCase().includes(target.value))

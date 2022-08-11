@@ -37,19 +37,6 @@ const InvestorTransactionList = ({ transactionList }) => {
         recordsAfterPagingAndSorting
     } = useTable(transactionList, headCells, filterFn);
 
-    // TODO: La siguiente función debe ser modificada de acuerdo al modelo de los créditos del Inversionista.
-    const handleSearch = e => {
-        let target = e.target;
-        setFilterFn({
-            fn: items => {
-                if (target.value == "")
-                    return items;
-                else
-                    return items.filter(x => x.project_name.toLowerCase().includes(target.value))
-            }
-        })
-    }
-
     return (
         <section className='InvestorTransactionList'>
             <div>

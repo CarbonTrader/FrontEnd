@@ -1,9 +1,6 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import { collection, onSnapshot, query } from "firebase/firestore";
-import { db } from '../../../firebase'
-import axios from 'axios';
-import { TableContainer, Table, TableBody, TableRow, Paper, TableHead, TableCell, makeStyles } from "@material-ui/core";
+import { useState } from 'react';
+import { Table, TableBody, TableRow, Paper, TableCell, makeStyles } from "@material-ui/core";
 import '../../../styles/Tabs.css';
 import useTable from "../../../components/useTable"
 

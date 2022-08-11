@@ -1,6 +1,4 @@
 import React from "react";
-import { useEffect, useState } from "react";
-
 import BasicInfoBanner from "../../../components/UserProfile/BasicInfoBanner";
 import UserProfileTabs from "../../../components/UserProfile/UserProfileTabs";
 import ProfileInfo from "./ProfileInfo";

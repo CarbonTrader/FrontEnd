@@ -5,7 +5,7 @@ const Login =() =>{
     return(
        
         <div className="container_title">
-            <p className="firstPart">carbon</p><p className="secondPart">trader</p>
+            <p className="title-firstPart">carbon</p><p className="title-secondPart">trader</p>
         </div>
         
     )

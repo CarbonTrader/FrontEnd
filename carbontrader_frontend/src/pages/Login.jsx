@@ -1,29 +1,34 @@
 import React from "react";
-import '../styles/Login.scss';
-import Title from '../components/Name'
+import '../styles/Login.scss'
+import '../styles/global.scss'
 
-const Login =() =>{
-    return(     
-        <>
-            <Title/>
-           <div className="container">
-            <form className="formContainer">
-                <div className="formContainer_box">
-                    <label> Nombre</label>
-                    <input placeholder="Ingresa tu contraseña"/>      
-                </div>   
-                <div className="formContainer_box" >
-                    <label> Contraseña</label>
-                    <input placeholder="Ingresa tu contraseña"/>      
-                </div>  
-                <div className="formContainer_buttonContainer">
-                    <button className="formContainer_button"> Ingresar</button> 
-                </div>                
-            </form>
-        </div>
-        </>  
-     
-        
+
+
+const Login = () => {
+
+    return (
+        <main className="globalContainer">
+            <div className="mainRegisterContainer">
+                <form>
+                    <div className="form-mainContainer">
+                        <h1>Login</h1>
+                        <p>Bienvenido a carbontrader</p>
+                        <div className="inputsContainer">
+                            <input id="userInput" type="text" placeholder="Ingrese su usuario" />
+                            <input id="passwordInput" type="password" placeholder="Ingrese su contraseña" />
+                        </div>
+                        <div className="buttonLoginContainer">
+                            <button className="loginButton"> Registrarse</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </main>
+
+
+
     )
 }
 

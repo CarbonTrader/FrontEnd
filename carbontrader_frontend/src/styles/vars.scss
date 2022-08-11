@@ -1,10 +1,12 @@
-:root{
-    --very-light-green:#EBF7F0;
-    --selection-green:#C2FFDB;
-    --background-color: #FFFFFF;
-    --project-card-background:#FDFDFD;
-    --title-color: black;
-    --title-weight: 700;
-    --auxiliary-text-color:#3C3C4399;
-    --a: linear-gradient(90deg, #57D983 27.1%, rgba(31, 209, 92, 0.56) 87.18%, rgba(34, 225, 99, 0.57) 87.18%);
-    }
+:root {
+  --dark-green: #49b36d; //--dark-green:#49B36D;
+  --green: #57d983;
+  --light-green: #c2ffdb; //--light-green:#C2FFDB;
+  --very-light-green: #ebf7f0; //--very-light-green:#EBF7F0;
+  --lime-green: #daf7a6; //--lime-green:  #DAF7A6;
+  --white: #ffffff; //--white: #FFFFFF;
+  --very-light-grey: #fdfdfd; //--very-light-grey:#FDFDFD;
+  --black: black;
+  --light-black: #3c3c4399;
+  --intense-weight: 700;
+}

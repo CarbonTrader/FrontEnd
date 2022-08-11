@@ -28,7 +28,7 @@ const InvestorTransactionList = ({ transactionList }) => {
         { id: 'timestamp', label: 'Fecha' },
     ]
     const classes = useStyles();
-    const [filterFn, setFilterFn] = useState({ fn: items => { return items; } })
+    const [filterFn] = useState({ fn: items => { return items; } })
 
     const {
         TblContainer,

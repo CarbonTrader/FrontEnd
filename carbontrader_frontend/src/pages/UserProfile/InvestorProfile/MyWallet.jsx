@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import useTable from "../../../components/useTable"
 import { TableBody, TableRow, Paper, TableCell, makeStyles, Toolbar, InputAdornment } from "@material-ui/core";
 import Controls from "../../../components/controls/Controls"
@@ -34,7 +33,6 @@ const MyWallet = ({ credit_records }) => {
         recordsAfterPagingAndSorting
     } = useTable(credit_records, headCells, filterFn);
 
-    // TODO: La siguiente función debe ser modificada de acuerdo al modelo de los créditos del Inversionista.
     const handleSearch = e => {
         let target = e.target;
         setFilterFn({
@@ -42,7 +40,7 @@ const MyWallet = ({ credit_records }) => {
                 if (target.value === "")
                     return items;
                 else
-                    return items.filter(x => x.project_name.toLowerCase().includes(target.value))
+                    return items.filter(x => x.project_name.toLowerCase().includes(target.value.toLowerCase()))
             }
         })
     }

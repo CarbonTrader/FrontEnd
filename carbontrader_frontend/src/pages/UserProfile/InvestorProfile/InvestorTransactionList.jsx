@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState }  from 'react';
 import { Table, TableBody, TableRow, Paper, TableCell, makeStyles } from "@material-ui/core";
 import '../../../styles/Tabs.css';
 import useTable from "../../../components/useTable"

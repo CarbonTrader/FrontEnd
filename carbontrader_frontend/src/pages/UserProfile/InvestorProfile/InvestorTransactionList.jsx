@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { collection, onSnapshot, query } from "firebase/firestore";
-import {db} from '../../../firebase'
+import { db } from '../../../firebase'
 import axios from 'axios';
 import { TableContainer, Table, TableBody, TableRow, Paper, TableHead, TableCell, makeStyles } from "@material-ui/core";
 import '../../../styles/Tabs.css';
@@ -10,7 +10,8 @@ import useTable from "../../../components/useTable"
 const useStyles = makeStyles(theme => ({
     pageContent: {
         margin: theme.spacing(5),
-        padding: theme.spacing(3)
+        padding: theme.spacing(3),
+        position: 'relative'
     },
     searchInput: {
         width: '75%'
@@ -20,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 /* * *
 InvestorTransactionList corresponde al módulo de la página de perfil de usuario en que se muestran todas las transacciones registradas en las que ha incurrido un Inversionista.
 * * */
-const InvestorTransactionList = ({transactionList}) => {
+const InvestorTransactionList = ({ transactionList }) => {
 
     const headCells = [
         { id: 'transaction_type', label: 'Tipo de transacción' },
@@ -52,15 +53,15 @@ const InvestorTransactionList = ({transactionList}) => {
         })
     }
 
-    return (  
-        <section className = 'InvestorTransactionList'>
+    return (
+        <section className='InvestorTransactionList'>
             <div>
                 <Paper className={classes.pageContent}>
                     <TblContainer>
                         <Table>
-                            <TblHead/>
+                            <TblHead />
                             <TableBody>
-                                {transactionList.map( (transaction) => (
+                                {recordsAfterPagingAndSorting().map((transaction) => (
                                     <TableRow>
                                         <TableCell>{transaction.transaction_type}</TableCell>
                                         <TableCell>{transaction.carbontrader_serial}</TableCell>
@@ -72,7 +73,7 @@ const InvestorTransactionList = ({transactionList}) => {
                             </TableBody>
                         </Table>
                     </TblContainer>
-                    <TblPagination/>
+                    <TblPagination />
                 </Paper>
             </div>
         </section>

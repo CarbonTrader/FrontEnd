@@ -27,8 +27,11 @@ class UserProfileTabs extends Component {
     } = this;
 
     return (
-      <div className="tabs">
-        <ol className="tab-list" style = {{marginTop: "0px", paddingLeft: "30px", paddingTop: "15px", backgroundImage: "linear-gradient(to right, #49B26D, #22E163 48%)", float: "top-left"}}>
+      <div className="tabs" style = {{display: 'inline-block', width: '100%'}}>
+        <ol className="tab-list"
+          style = {{
+            marginTop: "0px", 
+            backgroundImage: "linear-gradient(to right, #49B26D, #22E163 48%)",}}>
           {children.map((child) => {
             const { label } = child.props;
             return (

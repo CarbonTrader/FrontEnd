@@ -4,7 +4,7 @@ import { collection, onSnapshot, query } from "firebase/firestore";
 import { db } from "../../../firebase";
 import axios from "axios";
 import useTable from "../../../components/useTable"
-import { TableBody, TableRow,  Paper, TableCell, makeStyles, Toolbar, InputAdornment } from "@material-ui/core";
+import { TableBody, TableRow, Paper, TableCell, makeStyles, Toolbar, InputAdornment } from "@material-ui/core";
 import Controls from "../../../components/controls/Controls"
 import { Search } from "@material-ui/icons";
 
@@ -21,57 +21,13 @@ const useStyles = makeStyles(theme => ({
 /* * * 
 MyWallet corresponde al módulo de la página de perfil de usuario Inversionista que muestra información de cada uno de los créditos de los que el Inversionista es poseedor.
 * * */
-const MyWallet = ({credit_records}) => {
+const MyWallet = ({ credit_records }) => {
 
     const headCells = [
         { id: 'project_name', label: 'Nombre del Proyecto' },
         { id: 'carbontrader_serial', label: 'Serial' },
     ]
     const classes = useStyles();
-    // TODO: La siguiente línea corresponde a una mejor práctica. Por ahora se queman los datos.
-    //const records = useState(employeeService.getAllEmployees())
-    const records = [
-        {
-            "project_name": "Proyecto Alpha",
-            "carbontrader_serial": "1"
-        },
-        {
-            "project_name": "Proyecto Beta",
-            "carbontrader_serial": "2"
-        },
-        {
-            "project_name": "Proyecto Delta",
-            "carbontrader_serial": "3"
-        },
-        {
-            "project_name": "Proyecto Epsilon",
-            "carbontrader_serial": "4"
-        },
-        {
-            "project_name": "Proyecto Theta",
-            "carbontrader_serial": "5"
-        },
-        {
-            "project_name": "Proyecto Alpha",
-            "carbontrader_serial": "1"
-        },
-        {
-            "project_name": "Proyecto Beta",
-            "carbontrader_serial": "2"
-        },
-        {
-            "project_name": "Proyecto Delta",
-            "carbontrader_serial": "3"
-        },
-        {
-            "project_name": "Proyecto Epsilon",
-            "carbontrader_serial": "4"
-        },
-        {
-            "project_name": "Proyecto Theta",
-            "carbontrader_serial": "5"
-        }
-    ]
     const [filterFn, setFilterFn] = useState({ fn: items => { return items; } })
 
     const {
@@ -79,8 +35,8 @@ const MyWallet = ({credit_records}) => {
         TblHead,
         TblPagination,
         recordsAfterPagingAndSorting
-    } = useTable(records, headCells, filterFn);
-    
+    } = useTable(credit_records, headCells, filterFn);
+
     // TODO: La siguiente función debe ser modificada de acuerdo al modelo de los créditos del Inversionista.
     const handleSearch = e => {
         let target = e.target;
@@ -117,17 +73,17 @@ const MyWallet = ({credit_records}) => {
                     <TblHead />
                     <TableBody>
                         {
-                            records.map(item => 
-                                (<TableRow key={item.carbontrader_serial}>
-                                    {/* TODO: Definir qué campo debe ser la key para cada fila */}
-                                    <TableCell>{item.project_name}</TableCell>
-                                    <TableCell>{item.carbontrader_serial}</TableCell>
-                                </TableRow>)
+                            recordsAfterPagingAndSorting().map(item =>
+                            (<TableRow key={item.carbontrader_serial}>
+                                {/* TODO: Definir qué campo debe ser la key para cada fila */}
+                                <TableCell>{item.project_name}</TableCell>
+                                <TableCell>{item.carbontrader_serial}</TableCell>
+                            </TableRow>)
                             )
                         }
                     </TableBody>
                 </TblContainer>
-                <TblPagination/>
+                <TblPagination />
             </Paper>
         </section>
     );

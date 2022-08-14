@@ -18,11 +18,11 @@ const ProjectItem = ({project}) => {
 			</div>
 			<div className="ProjectItem-info">
 				<div>
-					<p className='ProjectItem-title'>{project.project}</p>
-					<p className='ProjectItem-description'><p className='subtitle'>Sector:</p>{project.Sector}.</p>
-					<p className='ProjectItem-description '><p className='subtitle'>Verificador:</p>{project.verifier}.</p>
-					<p className='ProjectItem-description '><p className='subtitle'>Criterio de evaluación:</p>{project.evaluation_criteria}.</p>
-					<p className='ProjectItem-description '><p className='subtitle'>Método de cuantificación:</p>{project.Quantification_methodology}.</p>
+					<h1 className='ProjectItem-title'>{project.project}</h1>
+					<p className='ProjectItem-description'><p className='subtitle'>Sector: </p>{project.Sector}.</p>
+					<p className='ProjectItem-description '><p className='subtitle'>Verificador: </p>{project.verifier}.</p>
+					<p className='ProjectItem-description '><p className='subtitle'>Criterio de evaluación: </p>{project.evaluation_criteria}.</p>
+					<p className='ProjectItem-description '><p className='subtitle'>Método de cuantificación: </p>{project.Quantification_methodology}.</p>
 				</div>
 			</div>
 		</div>

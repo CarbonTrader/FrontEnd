@@ -1,0 +1,33 @@
+.userTransactionsContainer {
+    .userTransactions {
+      &-tableContainer {
+        width: 90%;
+        margin: auto;
+        max-height: 60vh;
+        scroll-behavior: smooth;
+        overflow-y: scroll;
+        background-color: #ebf7f0;
+  
+        table {
+          width: 100%;
+          th {
+            height: 100%;
+            font-size: 15px;
+            background-color: #c2ffdb;
+          }
+          tr {
+            height: 50px;
+            &:hover {
+              background-color: beige;
+              cursor: pointer;
+            }
+          }
+          td {
+            padding-left: 100px;
+          
+          }
+        }
+      }
+    }
+  }
+  

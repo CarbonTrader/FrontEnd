@@ -13,7 +13,7 @@ const Home = () => {
                         <h1>Registro</h1>
                         <p>Bienvenido a carbontrader</p>
                         <div className="inputsContainer">
-                            <input class="form-input" id="txt-input" type="text" placeholder="Ingrese su usuario" />
+                            <input class="form-input" id="txt-input" type="text" placeholder="Ingrese su correo" />
                             <input class="form-input" id="txt-input" type="password" placeholder="Ingrese su contraseña" />
                         </div>
                         <div className="buttonLoginContainer">

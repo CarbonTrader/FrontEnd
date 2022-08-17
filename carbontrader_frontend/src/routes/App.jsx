@@ -7,6 +7,7 @@ import Register from "../pages/Register";
 import Checkout from "../components/Checkout";
 import ProjectInfo from "../components/ProjectInfo";
 import Home from "../pages/Home";
+import GlobalTransactions from "../containers/GlobalTransactions";
 
 function App() {
   const project = {
@@ -18,6 +19,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route exact path="/" element={<GlobalTransactions />} />
         <Route exact path="/" element={<Login />} />
         <Route exact path="/" element={<Register />} />
         <Route exact path="/" element={<Header />} />

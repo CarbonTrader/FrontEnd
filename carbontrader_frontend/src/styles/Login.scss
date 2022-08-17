@@ -1,0 +1,107 @@
+@use 'vars';
+
+.globalContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(-225deg, var(--lime-green) 0%, var(--dark-green) 100%);
+    background-attachment: fixed;
+
+    .mainRegisterContainer {
+        background-image: linear-gradient(-225deg, var(--light-green) 50%, var(--very-light-green) 50%);
+        box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 30%;
+        height: 70%;
+
+        .form-mainContainer {
+            width: 100%;
+        }
+
+        h1,
+        p {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 5%;
+            font-size: 250%;
+            font-family: 'Playfair Display', serif;
+            color: #3C3C4399;
+        }
+
+        p {
+            letter-spacing: 0.25em;
+        }
+
+        .inputsContainer {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            margin-top: 20%;
+            width: 340px;
+            height: 150px;
+
+            input {
+                height: 50px;
+                margin-top: 5%;
+                padding: 15px;
+                color: #5E6472;
+                border-radius: 0px 5px 5px 0px;
+                outline: none;
+                border: none;
+                box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+
+                &:focus {
+                    background-color: rgba(black, 0.1);
+                    ;
+                }
+            }
+        }
+
+        .buttonLoginContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 15%;
+            height: 100px;
+
+            button {
+                background-color: var(--light-green);
+                height: 50px;
+                width: 280px;
+                color: var(--light-black);
+                font-weight: 700;
+                border-radius: 5px;
+                font-family: 'Playfair Display', serif;
+                font-size: 16px;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                text-align: center;
+                -webkit-transition: 0.25s;
+                transition: 0.25s;
+
+                &:hover {
+                    border-color: var(--dark-green);
+                    color: var(--black);
+                }
+            }
+
+            .loginButton:hover,
+            .loginButton:focus {
+                box-shadow: inset -10.5em 0 0 0 var(--green), inset 10.5em 0 0 0 var(--green);
+            }
+
+
+        }
+
+    }
+
+}

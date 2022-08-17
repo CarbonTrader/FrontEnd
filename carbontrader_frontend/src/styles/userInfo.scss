@@ -1,53 +1,32 @@
 .userProfileContainer {
   height: 100%;
   width: 100%;
-  p {
-    text-align: center;
-    font-family: "Inter", sans-serif;
-  }
-  .userProfile {
-    &-box {
-      height: 100%;
-      width: 100%;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
+  .userProfile{
+    &-box{
+      width: 60%;
+      height: 80%;
     }
-    &-background {
-      background-color: #26de81;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      height: 193px;
-    }
-    &-img {
-      position: absolute;
-      background-color: #1f915b;
-      border-radius: 50%;
-      height: 200px;
-      width: 198px;
-      margin-left: 40%;
-      margin-top: 6%;
-    }
-    &-name {
-      font-family: "Inter", sans-serif;
-      font-size: 30px;
-      margin-top: 7%;
-      text-align: center;
-    }
-
-    &-rolContainer {
-      width: 45%;
-      align-self: flex-end;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      h1 {
-        font-size: 70px;
+    &-info{
+      span{
+        display: flex;
+        height: 5vh;
+        width: 70%;
+        margin: 5%;
+        justify-content: space-between;
+        font-size: 16px;
         font-family: "Inter", sans-serif;
-        color: #3c3c4399;
+      }
+      &-properties{
+        font-weight: bold;
+      }
+    }
+    &-options{
+      display: flex;
+      flex-direction:column;
+      align-items: flex-end;
+      &:hover{
+        cursor: pointer;
+        color: burlywood;
       }
     }
   }

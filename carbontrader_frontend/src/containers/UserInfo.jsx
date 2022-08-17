@@ -5,16 +5,12 @@ const UserInfo = (props) => {
   return (
     <section className="userProfileContainer">
       <div class="userProfile-box ">
-        <img class="userProfile-img" src={Img} alt="" />
-        <div class="userProfile-background">
-          <div className="userProfile-rolContainer">
-            <h1>Comprador</h1>
-          </div>
-        </div>
-        <article>
-          <h3 class="userProfile-name">{props.name}</h3>
-          <p>{props.email}</p>
-        </article>
+      <div className="userProfile-info">
+        <span><p className="userProfile-info-properties">Nombre:</p><p>Enrique Gutiérrez</p> </span>
+        <span><p className="userProfile-info-properties">Corero Electrónico:</p><p>example@jgmail.com</p> </span>
+        <span className="userProfile-options"><a>Modificar contraseña</a></span>
+        <span className="userProfile-options"><a>Eliminar Cuenta</a></span>
+      </div>
       </div>
     </section>
   );

@@ -7,6 +7,7 @@ import UserInfo from "../containers/UserInfo";
 import UserTransactions from "../containers/userTransactions";
 import UserWallet from "../containers/userWallet";
 import useGetUser from "../hooks/useUserState";
+import Img from "../assets/img/perfil.jpg";
 
 const UserProfile = () => {
   const { state } = useContext(AppContext);
@@ -87,6 +88,13 @@ const UserProfile = () => {
     <>
       <section className="mainWalletContainer">
         <div className="wallet-headerSection">
+          <div className="wallet-headerSection-userHederSection">
+            <img src={Img} alt="" />
+            <div className="wallet-headerSection-userHederSection-DataContainer">
+              <h1>Enrique Gutiérrez</h1>
+              <p>Comercializador</p>
+            </div>
+          </div>
           <div className="wallet-optionsSection">
             <div
               id="profile"

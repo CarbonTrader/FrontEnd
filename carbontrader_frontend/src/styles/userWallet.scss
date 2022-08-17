@@ -43,19 +43,19 @@
     justify-content: center;
     align-items: center;
     &-creditsList {
-      width: 100%;
+      width: 90%;
       height: 90%;
       display: grid;
       max-height: 80vh;
-      grid-template-columns: repeat(4, 90px);
+      grid-template-columns: repeat(1,500px);
       column-gap: 150px;
       row-gap: 20px;
       scroll-behavior: smooth;
       overflow-y: scroll;
       .CreditItemsContainer {
-        margin: auto;
         margin-left: 10px;
-        width: 230px;
+        margin-top: 5%;
+        width: 830px;
         height: 160px;
       }
     }

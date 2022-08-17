@@ -3,10 +3,10 @@ import Header from "../components/Header";
 import "../styles/App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "../pages/Login";
-import Home from "../pages/Home";
-import "../styles/global.scss";
+import Register from "../pages/Register";
 import Checkout from "../components/Checkout";
 import ProjectInfo from "../components/ProjectInfo";
+import Home from "../pages/Home";
 
 function App() {
   const project = {
@@ -19,6 +19,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Login />} />
+        <Route exact path="/" element={<Register />} />
         <Route exact path="/" element={<Header />} />
         <Route exact path="/" element={<Home />} />
         <Route

@@ -9,23 +9,7 @@ import Checkout from "../components/Checkout";
 
 const ProjectList = () => {
   const { state } = useContext(AppContext);
-  let FirstMainContainerSection;
-  let SecondMainContainerSection;
   const projects = useGetProjects();
-
-  if (state.firstSection === "list") {
-    FirstMainContainerSection = projects.map((project) => (
-      <ProjectItem project={project} />
-    ));
-  } else {
-    FirstMainContainerSection = <ProjectInfo />;
-  }
-
-  if (state.secondSection === "info") {
-    SecondMainContainerSection = <ProjectInfo />;
-  } else {
-    SecondMainContainerSection = <Checkout />;
-  }
 
   return (
     <section className="main-container">
@@ -42,8 +26,20 @@ const ProjectList = () => {
       </div>
 
       <div className="ProjectList-container">
-        <div className="ProjectList-listItems">{FirstMainContainerSection}</div>
-        <div className="Proyect-info">{SecondMainContainerSection}</div>
+        <div
+          id="firstHomeSection"
+          className={`ProjectList-listItems
+            ${state.firstSection === "list" ? "scroll" : ""}`}
+        >
+          {state.firstSection === "list" ? (
+            projects.map((project) => <ProjectItem project={project} />)
+          ) : (
+            <ProjectInfo />
+          )}
+        </div>
+        <div className="Proyect-info">
+          {state.secondSection === "info" ? <ProjectInfo /> : <Checkout />}
+        </div>
       </div>
     </section>
   );

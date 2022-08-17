@@ -12,9 +12,9 @@ const Login = () => {
                 <form>
                     <div className="form-mainContainer">
                         <h1>Login</h1>
-                        <p>Bienvenido a carbontrader</p>
+                        <p>Bienvenido a CarbonTrader</p>
                         <div className="inputsContainer">
-                            <input id="userInput" type="text" placeholder="Ingrese su usuario" />
+                            <input id="userInput" type="text" placeholder="Ingrese su correo" />
                             <input id="passwordInput" type="password" placeholder="Ingrese su contraseña" />
                         </div>
                         <div className="buttonLoginContainer">

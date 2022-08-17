@@ -59,21 +59,6 @@ const UserProfile = () => {
     },
   ];
 
-  if (state.currentItem === "profile") {
-    sectionToShow = <UserInfo name={user.name} email={user.email} />;
-  }
-  if (state.currentItem === "transactions") {
-    sectionToShow = <UserTransactions transactions={arrayOfTransactions} />;
-  }
-  if (state.currentItem === "wallet") {
-    sectionToShow = (
-      <UserWallet
-        credits={arrayOfCredtis}
-        total={arrayOfCredtis.reduce((a, b) => a + (b["credits"] || 0), 0)}
-      />
-    );
-  }
-
   const addSelectionItemClass = (id) => {
     const currentTab = state.currentItem;
     const itemToRemoveClass = document.getElementById(currentTab);
@@ -119,7 +104,21 @@ const UserProfile = () => {
             </div>
           </div>
         </div>
-        <div className="wallet-contentSection">{sectionToShow}</div>
+        <div className="wallet-contentSection">
+          {state.currentItem === "profile" ? (
+            <UserInfo name={user.name} email={user.email} />
+          ) : state.currentItem === "transactions" ? (
+            <UserTransactions transactions={arrayOfTransactions} />
+          ) : (
+            <UserWallet
+              credits={arrayOfCredtis}
+              total={arrayOfCredtis.reduce(
+                (a, b) => a + (b["credits"] || 0),
+                0
+              )}
+            />
+          )}
+        </div>
       </section>
     </>
   );

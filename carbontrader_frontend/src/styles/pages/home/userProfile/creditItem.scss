@@ -1,0 +1,39 @@
+@use "../../../vars.scss";
+.creditContainer {
+  background-color: #ececec;
+  font-family: "Inter", sans-serif;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  .infoCreditContainer {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .buttonsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30%;
+    width: 100%;
+
+    button {
+      width: 40%;
+      font-family: "Inter", sans-serif;
+      height: 60%;
+      background-color: #d9d9d9;
+      border: none;
+      border-radius: 15px;
+      &:hover {
+        cursor: pointer;
+        background-color: var(--selection-green);
+      }
+    }
+  }
+}

@@ -1,11 +1,11 @@
 import React from "react";
-import { useEffect, useState, useContext } from "react";
-import ProjectItem from "../components/ProjectItem";
-import "../styles/ProjectList.scss";
-import ProjectInfo from "../components/ProjectInfo";
-import AppContext from "../context/AppContext";
-import useGetProjects from "../hooks/useGetProjects";
-import Checkout from "../components/Checkout";
+import { useContext } from "react";
+import ProjectItem from "../../components/projects/ProjectItem";
+import "../../styles/pages/home/proyectList/ProjectList.scss";
+import ProjectInfo from "../../components/projects/ProjectInfo";
+import AppContext from "../../context/AppContext";
+import useGetProjects from "../../hooks/useGetProjects";
+import Checkout from "../../components/projects/Checkout";
 
 const ProjectList = () => {
   const { state } = useContext(AppContext);

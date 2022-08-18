@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
-import '../styles/ProjectItem.scss';
-import AppContext from '../context/AppContext';
-import Image from '../assets/img/ProjectExample.jpg'
+import '../../styles/pages/home/proyectList/ProjectItem.scss';
+import AppContext from '../../context/AppContext';
 
 
 const ProjectItem = ({project}) => {
@@ -30,3 +29,4 @@ const ProjectItem = ({project}) => {
 }
 
 export default ProjectItem;
+

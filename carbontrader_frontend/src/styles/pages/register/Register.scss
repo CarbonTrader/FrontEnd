@@ -1,0 +1,101 @@
+@use "../../vars.scss";
+.globalContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(-225deg, #daf7a6 0%, #49b36d 100%);
+  background-image: linear-gradient(
+    rgba(34, 225, 99, 0.48) 20%,
+    90.07deg,
+    #49b36d 60%,
+    rgba(34, 225, 99, 0.48) 20%
+  );
+  background-attachment: fixed;
+}
+
+.mainLoginContainer {
+  background-image: linear-gradient(-225deg, #c2ffdb 50%, #ebf7f0 50%);
+  box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 70%;
+  form {
+    width: 90%;
+
+    .form-mainContainer {
+      h1,
+      p {
+        text-align: center;
+      }
+      width: 100%;
+      &-roleContainer {
+        margin-top: 5%;
+        height: 8vh;
+        p {
+          text-align: start;
+        }
+        &-containerOptions {
+          margin-top: 2%;
+          display: flex;
+          justify-content: space-around;
+          height: 60%;
+          align-items: center;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      &-registerSection {
+        height: 320px;
+        width: 415px;
+      }
+    }
+    .buttonLoginContainer {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 50px;
+      a {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        color: var(--light-black);
+        align-items: center;
+        text-decoration: none;
+        &:hover {
+          color: var(--black);
+        }
+      }
+      button {
+        background-color: var(--light-green);
+        align-self: center;
+        height: 50px;
+        width: 280px;
+        font-weight: 700;
+        border-radius: 5px;
+        font-family: "Playfair Display", serif;
+        font-size: 16px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        -webkit-transition: 0.25s;
+        transition: 0.25s;
+        &:hover {
+          border-color: var(--dark-green);
+          color: var(--black);
+        }
+      }
+      .loginButton:hover,
+      .loginButton:focus {
+        box-shadow: inset -10.5em 0 0 0 var(--green),
+          inset 10.5em 0 0 0 var(--green);
+      }
+    }
+  }
+}

@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
-import "../styles/ProjectInfo.scss";
-import AppContext from "../context/AppContext";
-import Img from "../assets/img/ProjectExample.jpg";
+import "../../styles/pages/home/proyectList/ProjectInfo.scss";
+import AppContext from "../../context/AppContext";
 const ProjectInfo = (props) => {
   const { state } = useContext(AppContext);
   const { changeFirstSection } = useContext(AppContext);

@@ -1,46 +1,48 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import AppContext from "../context/AppContext";
-import "../styles/Header.scss";
+import "../styles/pages/home/Header.scss";
 import logo from "../assets/icons/CARBONTRADER-logo.svg";
 
-const Header = (props) => {
-  let currentItem = props.currentItem;
-  const animateItem = (addId) => {
-    const elementToRemoveClass = document.getElementById(currentItem);
-    elementToRemoveClass.classList.remove("underline");
-    const elementToAddClass = document.getElementById(addId);
-    elementToAddClass.classList.add("underline");
-    currentItem = addId;
-  };
+const Header = () => {
+  const { state, changeCurrentHomeTab } = useContext(AppContext);
 
   return (
     <nav className="menu">
       <div className="menu__firstSection">
-        <img src={logo} alt="" />
+        <a href="/"><img src={logo} alt=""/></a>
       </div>
       <div className="menu__secondSection">
         <ul className="menu__items">
           <li className="menu__item">
-            <a onClick={() => animateItem("projectListItem")} href="/">
+            <a onClick={() => changeCurrentHomeTab("project")} href="/Home"> 
               Listado de Proyectos
             </a>
-            <div id="projectListItem" className="underline"></div>
+            <div
+              id="projectListItem"
+              className={state.currentHomeTab === "project" ? "underline" : ""}
+            ></div>
           </li>
           <li className="menu__item">
-            <a onClick={() => animateItem("globalTransactionsItem")}>
+            <a onClick={() => changeCurrentHomeTab("transactions")}>
               Transacciones globales
             </a>
-            <div id="globalTransactionsItem"></div>
+            <div
+              id="globalTransactionsItem"
+              className={
+                state.currentHomeTab === "transactions" ? "underline" : ""
+              }
+            ></div>
           </li>
           <li className="menu__item">
-            <a onClick={() => animateItem("profileItem")}>Mi perfil</a>
-            <div id="profileItem"></div>
+            <a onClick={() => changeCurrentHomeTab("profile")}>Mi perfil</a>
+            <div
+              id="profileItem"
+              className={state.currentHomeTab === "profile" ? "underline" : ""}
+            ></div>
           </li>
         </ul>
       </div>
     </nav>
   );
-
 };
-
 export default Header;

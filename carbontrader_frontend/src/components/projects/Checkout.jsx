@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import "../styles/Checkout.scss";
+import "../../styles/pages/home/proyectList/Checkout.scss";
 const Checkout = () => {
   const goToNextScene = () => {
-    window.location.assign("/");
+    window.location.assign("/Home");
   };
 
   return (

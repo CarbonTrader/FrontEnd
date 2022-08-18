@@ -1,16 +1,16 @@
-@import "vars";
+@use "../../../vars.scss";
 
 .main-container {
   height: 91vh;
   width: 98vw;
   margin: auto;
   .textContainer {
-    margin-left: 1%;    
+    margin-left: 1%;
     .main-titleFirst {
       color: var(--light-black);
       font-family: "Inter", sans-serif;
       text-transform: uppercase;
-      font-weight: var(--title-weight);
+      font-weight: var(--intense-weight);
     }
 
     .main-titleSecond {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/userTransactions.scss";
+import "../../styles/pages/home/userProfile/userTransactions.scss";
 const UserTransactions = (props) => {
   return (
     <section className="userTransactionsContainer">

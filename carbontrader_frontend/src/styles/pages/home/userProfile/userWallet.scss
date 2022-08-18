@@ -1,3 +1,4 @@
+@use "../../../vars.scss";
 .userWallet {
   &-mainContainer {
     width: 100%;
@@ -46,15 +47,15 @@
       width: 90%;
       height: 90%;
       display: grid;
-      max-height: 80vh;
-      grid-template-columns: repeat(1,500px);
+      max-height: 40vh;
+      grid-template-columns: repeat(1, 500px);
       column-gap: 150px;
       row-gap: 20px;
       scroll-behavior: smooth;
       overflow-y: scroll;
       .CreditItemsContainer {
         margin-left: 10px;
-        margin-top: 5%;
+        margin-top: 4%;
         width: 830px;
         height: 160px;
       }

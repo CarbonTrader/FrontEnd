@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/userWallet.scss";
-import CreditItem from "../components/creditItem";
+import "../../styles/pages/home/userProfile/userWallet.scss";
+import CreditItem from "../../components/profile/creditItem";
 
 const UserWallet = (props) => {
   return (

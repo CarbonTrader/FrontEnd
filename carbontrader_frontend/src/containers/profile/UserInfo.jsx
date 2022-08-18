@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "../styles/userInfo.scss";
-import Img from "../assets/img/perfil.jpg";
+import "../../styles/pages/home/userProfile/userInfo.scss";
 const UserInfo = (props) => {
   return (
     <section className="userProfileContainer">

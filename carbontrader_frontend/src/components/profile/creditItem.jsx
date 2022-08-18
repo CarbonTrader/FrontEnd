@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/creditItem.scss";
+import "../../styles/pages/home/userProfile/creditItem.scss";
 const CreditItem = (props) => {
   return (
     <section className="creditContainer">

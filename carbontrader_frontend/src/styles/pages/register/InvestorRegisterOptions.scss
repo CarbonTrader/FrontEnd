@@ -1,0 +1,23 @@
+@use "../../vars.scss";
+.investorRegisterContainer {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 80%;
+  height: 90%;
+
+  input {
+    height: 50px;
+    margin-top: 5%;
+    padding: 15px;
+    color: #5e6472;
+    border-radius: 0px 5px 5px 0px;
+    outline: none;
+    border: none;
+    box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+
+    &:focus {
+      background-color: rgba(black, 0.1);
+    }
+  }
+}

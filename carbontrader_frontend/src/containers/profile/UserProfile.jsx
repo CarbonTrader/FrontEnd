@@ -1,17 +1,15 @@
 import React from "react";
 import { useEffect, useState, useContext } from "react";
-import AppContext from "../context/AppContext";
-import useGetProjects from "../hooks/useUserState";
-import "../styles/UserProfile.scss";
-import UserInfo from "../containers/UserInfo";
-import UserTransactions from "../containers/userTransactions";
-import UserWallet from "../containers/userWallet";
-import useGetUser from "../hooks/useUserState";
-import Img from "../assets/img/perfil.jpg";
+import AppContext from "../../context/AppContext";
+import "../../styles/pages/home/userProfile/UserProfile.scss";
+import UserInfo from "./UserInfo";
+import UserTransactions from "./userTransactions";
+import UserWallet from "./userWallet";
+import useGetUser from "../../hooks/useUserState";
+import Img from "../../assets/img/perfil.jpg";
 
 const UserProfile = () => {
-  const { state } = useContext(AppContext);
-  const { changeCurrentItem } = useContext(AppContext);
+  const { state, changeCurrentItem } = useContext(AppContext);
   let sectionToShow;
   const user = useGetUser();
   const arrayOfTransactions = [

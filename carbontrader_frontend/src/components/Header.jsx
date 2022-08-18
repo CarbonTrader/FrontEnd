@@ -1,28 +1,46 @@
-import React, { useState, useContext } from 'react';
-import '../styles/Header.scss';
+import React, { useState, useContext } from "react";
+import AppContext from "../context/AppContext";
+import "../styles/Header.scss";
+import logo from "../assets/icons/CARBONTRADER-logo.svg";
 
-const Header = () => {
-    return (
-        <nav className="menu">
-            <div className="menu__firstSection">
-                <h1 className='logo-firstSection'>Carbon</h1><h1 className='logo-secondSection'>Trader</h1>
-            </div>
-            <div className="menu__secondSection">
-                <ul className="menu__items">
-                    <li className="menu__item">
-                        <a href="/">Listado de Proyectos</a>
-                    </li>
-                    <li className="menu__item">
-                        <a href="/">Transacciones globales</a>
-                    </li>
-                    <li className="menu__item">
-                        <a href="/">Mi perfil</a>
-                    </li>
-             
-                </ul>
-            </div>
-        </nav>
-    );
-}
+const Header = (props) => {
+  let currentItem = props.currentItem;
+  const animateItem = (addId) => {
+    const elementToRemoveClass = document.getElementById(currentItem);
+    elementToRemoveClass.classList.remove("underline");
+    const elementToAddClass = document.getElementById(addId);
+    elementToAddClass.classList.add("underline");
+    currentItem = addId;
+  };
+
+  return (
+    <nav className="menu">
+      <div className="menu__firstSection">
+        <img src={logo} alt="" />
+      </div>
+      <div className="menu__secondSection">
+        <ul className="menu__items">
+          <li className="menu__item">
+            <a onClick={() => animateItem("projectListItem")} href="/">
+              Listado de Proyectos
+            </a>
+            <div id="projectListItem" className="underline"></div>
+          </li>
+          <li className="menu__item">
+            <a onClick={() => animateItem("globalTransactionsItem")}>
+              Transacciones globales
+            </a>
+            <div id="globalTransactionsItem"></div>
+          </li>
+          <li className="menu__item">
+            <a onClick={() => animateItem("profileItem")}>Mi perfil</a>
+            <div id="profileItem"></div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+
+};
 
 export default Header;

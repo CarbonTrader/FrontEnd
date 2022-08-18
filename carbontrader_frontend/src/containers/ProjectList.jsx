@@ -1,45 +1,48 @@
-import React from 'react';
-import { useEffect,useState } from 'react';
-import ProjectItem from '../components/ProjectItem';
-import '../styles/ProjectList.scss';
-import { collection, onSnapshot,query } from "firebase/firestore";
-import {db} from '../firebase'
-import axios from 'axios';
+import React from "react";
+import { useEffect, useState, useContext } from "react";
+import ProjectItem from "../components/ProjectItem";
+import "../styles/ProjectList.scss";
+import ProjectInfo from "../components/ProjectInfo";
+import AppContext from "../context/AppContext";
+import useGetProjects from "../hooks/useGetProjects";
+import Checkout from "../components/Checkout";
 
 const ProjectList = () => {
-    const arrayDummy = [
-        {
-            "title": "Proyecto alfa",
-            "imageURL": "https://alkilautos.com/blog/wp-content/uploads/2019/03/D.jpg",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie, lorem sit amet dignissim viverra, est dolor dapibus dui, quis aliquet neque erat commodo arcu.",
-        },
-        {
-            "title": "Proyecto alfa",
-            "imageURL": "https://www.eluniversal.com.co/sites/default/files/bosques_3.jpg",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie, lorem sit amet dignissim viverra, est dolor dapibus dui, quis aliquet neque erat commodo arcu.",
-        },
-        {
-            "title": "Proyecto alfa",
-            "imageURL": "https://www.vanguardia.com/binrepository/716x477/0c0/0d0/none/12204/USJO/03tecno02b007_big_ce_VL150772_MG22010792.jpg",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie, lorem sit amet dignissim viverra, est dolor dapibus dui, quis aliquet neque erat commodo arcu.",
-        }
-    ]  
-	return (
-		<section className="main-container">
-            <div className='textContainer'>
-                <br/>
-            <p className='main-titleFirst'>Bienvenidos al</p>
-            <h1 className='main-titleSecond'>Portafolio de CarbonTrader</h1>
-            <p> </p>
-            </div>
-           
-			<div className="ProjectList">
-                {arrayDummy.map(project => (
-                    <ProjectItem description ={project.description} title={project.title} imageURL={project.imageURL}/>
-                ))}                
-			</div>
-		</section>
-	);
-}
+  const { state } = useContext(AppContext);
+  const projects = useGetProjects();
+
+  return (
+    <section className="main-container">
+      <div className="textContainer">
+        <br />
+        <p className="main-titleFirst">Bienvenidos al</p>
+        <h1 className="main-titleSecond">Portafolio de CarbonTrader</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
+          doloribus ipsa. Pariatur optio sequi perferendis, omnis debitis,
+          inventore, est odio cupiditate placeat quibusdam error qui possimus et
+          assumenda modi quam.{" "}
+        </p>
+      </div>
+
+      <div className="ProjectList-container">
+        <div
+          id="firstHomeSection"
+          className={`ProjectList-listItems
+            ${state.firstSection === "list" ? "scroll" : ""}`}
+        >
+          {state.firstSection === "list" ? (
+            projects.map((project) => <ProjectItem project={project} />)
+          ) : (
+            <ProjectInfo />
+          )}
+        </div>
+        <div className="Proyect-info">
+          {state.secondSection === "info" ? <ProjectInfo /> : <Checkout />}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default ProjectList;

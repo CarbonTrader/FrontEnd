@@ -1,6 +1,16 @@
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
+import getProjects from "../services/projectService";
 
-const useGetProjects =() =>{
-// GET ALL PROJECTS
-}
-export default useGetProjects
+const useGetProjects = () => {
+  const [projects, setProjects] = useState([]);
+  const changeProjects = async () => {
+    setProjects(await getProjects());
+  };
+  useEffect(() => {
+    changeProjects();
+  }, []);
+
+  return projects;
+};
+
+export default useGetProjects;

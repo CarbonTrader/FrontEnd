@@ -5,10 +5,6 @@ import logo from "../assets/icons/CARBONTRADER-logo.svg";
 
 const Header = (props) => {
   let currentItem = props.currentItem;
-  const addCurrentItemClass = () => {
-    const elementToAddClass = document.getElementById(currentItem);
-    elementToAddClass.classList.add("underline");
-  };
   const animateItem = (addId) => {
     const elementToRemoveClass = document.getElementById(currentItem);
     elementToRemoveClass.classList.remove("underline");
@@ -44,7 +40,7 @@ const Header = (props) => {
       </div>
     </nav>
   );
-  addCurrentItemClass();
+
 };
 
 export default Header;

@@ -35,28 +35,24 @@ const ProjectInfo = (props) => {
             }`}
         >
           <p>{state.project.description}</p>
-          <h2>¿Quienes somos?</h2>
-          <p>{state.project.description}</p>
-          <h2>¿Donde nos ubicamos?</h2>
-          <p>{state.project.description}</p>
-        </div>
-        <div className="projectDataContainer">
-          <span>
-            <p>Bonos de circulación</p>
-            <p>46,000</p>
-          </span>
-          <span>
-            <p>Bonos emitidos</p>
-            <p>1000,000</p>
-          </span>
-          <span>
-            <p>Fecha de emisión</p>
-            <p>13/03/2020</p>
-          </span>
-          <span>
-            <p>Precio Unitario</p>
-            <p>$43.000COP</p>
-          </span>
+          <div className="projectDataContainer">
+            <span>
+              <p>Bonos de circulación</p>
+              <p>46,000</p>
+            </span>
+            <span>
+              <p>Bonos emitidos</p>
+              <p>1000,000</p>
+            </span>
+            <span>
+              <p>Fecha de emisión</p>
+              <p>13/03/2020</p>
+            </span>
+            <span>
+              <p>Precio Unitario</p>
+              <p>$43.000COP</p>
+            </span>
+          </div>
         </div>
       </div>
       {state.secondSection !== "check" && (

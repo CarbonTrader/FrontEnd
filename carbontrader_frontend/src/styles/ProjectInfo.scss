@@ -27,19 +27,20 @@
     .InfoContainer-textContainer {
       scroll-behavior: smooth;
       overflow-y: scroll;
-      max-height: 24vh;
-      width: 90%;
+      width: 95%;
+      max-height: 60vh;
       margin: auto;
       margin-bottom: 3%;
     }
-
     p {
       text-align: justify;
       font-family: "Lora", serif;
       color: rgba(60, 60, 67, 0.6);
+      width: 95%;
+      margin-left: 2%;
     }
     .heightDescriptionContainer {
-      max-height: 17vh;
+      max-height: 38vh;
     }
 
     h2 {
@@ -50,6 +51,8 @@
       text-transform: capitalize;
     }
     .projectDataContainer {
+      width: 90%;
+      margin-left: 1%;
       margin-top: 5%;
       margin-bottom: 5%;
       span {
@@ -57,7 +60,6 @@
         font-family: "Lora", serif;
         justify-content: space-between;
         line-height: 30px;
-        width: 90%;
         margin: auto;
       }
     }

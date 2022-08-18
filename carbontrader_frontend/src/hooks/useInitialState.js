@@ -2,7 +2,12 @@ import { useState } from "react";
 
 const initialState = {
   currentItem: "profile",
-  user:{}
+  user: {},
+  project: [],
+  firstSection: "list",
+  secondSection: "info",
+  currentHomeTab: "project",
+  registerOption: "CP",
 };
 
 const useInitialState = () => {
@@ -14,16 +19,59 @@ const useInitialState = () => {
       currentItem: p,
     });
   };
+
+  const changeCurrentHomeTab = (p) => {
+    setState({
+      ...state,
+      currentHomeTab: p,
+    });
+  };
+
+  const changeRegisterOption = (p) => {
+    setState({
+      ...state,
+      registerOption: p,
+    });
+  };
+
   const changeUser = (u) => {
     setState({
       ...state,
       user: u,
     });
   };
+
+  const showInfo = (p) => {
+    setState({
+      ...state,
+      project: p,
+    });
+  };
+
+  const changeFirstSection = () => {
+    setState({
+      ...state,
+      firstSection: "info",
+      secondSection: "check",
+    });
+  };
+
+  const changeprojectListItem = (arg) => {
+    setState({
+      ...state,
+      projectListItem: arg,
+    });
+  };
+
   return {
     state,
     changeCurrentItem,
-    changeUser
+    changeUser,
+    showInfo,
+    changeFirstSection,
+    changeprojectListItem,
+    changeCurrentHomeTab,
+    changeRegisterOption,
   };
 };
 

@@ -1,28 +1,48 @@
-import React, { useState, useContext } from "react";
-import "../styles/Header.scss";
+import React, { useContext } from "react";
+import AppContext from "../context/AppContext";
+import "../styles/pages/home/Header.scss";
+import logo from "../assets/icons/CARBONTRADER-logo.svg";
 
 const Header = () => {
+  const { state, changeCurrentHomeTab } = useContext(AppContext);
+
   return (
     <nav className="menu">
       <div className="menu__firstSection">
-        <h1 className="logo-firstSection">Carbon</h1>
-        <h1 className="logo-secondSection">Trader</h1>
+        <a href="/"><img src={logo} alt=""/></a>
       </div>
       <div className="menu__secondSection">
         <ul className="menu__items">
           <li className="menu__item">
-            <a href="/">Listado de Proyectos</a>
+            <a onClick={() => changeCurrentHomeTab("project")} href="/Home"> 
+              Listado de Proyectos
+            </a>
+            <div
+              id="projectListItem"
+              className={state.currentHomeTab === "project" ? "underline" : ""}
+            ></div>
           </li>
           <li className="menu__item">
-            <a href="/">Transacciones globales</a>
+            <a onClick={() => changeCurrentHomeTab("transactions")}>
+              Transacciones globales
+            </a>
+            <div
+              id="globalTransactionsItem"
+              className={
+                state.currentHomeTab === "transactions" ? "underline" : ""
+              }
+            ></div>
           </li>
           <li className="menu__item">
-            <a href="/">Mi perfil</a>
+            <a onClick={() => changeCurrentHomeTab("profile")}>Mi perfil</a>
+            <div
+              id="profileItem"
+              className={state.currentHomeTab === "profile" ? "underline" : ""}
+            ></div>
           </li>
         </ul>
       </div>
     </nav>
   );
 };
-
 export default Header;

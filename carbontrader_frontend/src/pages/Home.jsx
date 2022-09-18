@@ -7,7 +7,9 @@ import AppContext from "../context/AppContext";
 import { useContext } from "react";
 
 const Home = () => {
-  const { state } = useContext(AppContext);
+  const { state, changedevice } = useContext(AppContext);
+  //window.screen.width > 1000 ? changedevice("desktop") : changedevice("mobile");
+  
   return (
     <>
       <Header currentItem="projectListItem" />

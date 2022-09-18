@@ -8,8 +8,9 @@ import useGetProjects from "../../hooks/useGetProjects";
 import Checkout from "../../components/projects/Checkout";
 
 const ProjectList = () => {
-  const { state } = useContext(AppContext);
+  const { state,changedevice } = useContext(AppContext);
   const projects = useGetProjects();
+ 
 
   return (
     <section className="main-container">

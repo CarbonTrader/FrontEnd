@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import AppContext from "../context/AppContext";
 import "../styles/pages/home/Header.scss";
 import logo from "../assets/icons/CARBONTRADER-logo.svg";
+import hamburger from "../assets/icons/header/hamburger-menu.svg"
 
 const Header = () => {
   const { state, changeCurrentHomeTab } = useContext(AppContext);
@@ -12,6 +13,7 @@ const Header = () => {
         <a href="/"><img src={logo} alt=""/></a>
       </div>
       <div className="menu__secondSection">
+        
         <ul className="menu__items">
           <li className="menu__item">
             <a onClick={() => changeCurrentHomeTab("project")} href="/Home"> 
@@ -41,6 +43,9 @@ const Header = () => {
             ></div>
           </li>
         </ul>
+      </div>
+      <div className="menu__hamburgerOption">
+        <img src={hamburger} alt="" />
       </div>
     </nav>
   );

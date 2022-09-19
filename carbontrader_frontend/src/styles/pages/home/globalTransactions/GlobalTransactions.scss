@@ -1,49 +1,81 @@
 @use "../../../vars.scss";
-.transactions-container {
-  margin: auto;
-  background-color: var(--white);
-  box-shadow: 0px 2px 60px rgba(0, 0, 0, 0.25);
-  margin-top: 2%;
-  height: 75vh;
-  border-radius: 15px;
-  padding-top: 1%;
-  width: 85%;
-  &-background {
-    width: 95%;
+@media screen and (min-width: 1000px) {
+  .transactions-container {
     margin: auto;
-  }
+    background-color: var(--white);
+    box-shadow: 0px 2px 60px rgba(0, 0, 0, 0.25);
+    margin-top: 2%;
+    height: 75vh;
+    border-radius: 15px;
+    padding-top: 1%;
+    width: 85%;
+    &-background {
+      width: 95%;
+      margin: auto;
+    }
 
-  h2 {
-    font-size: 20px;
-    color: aqua;
-  }
-  table {
-    margin: auto;
-    color: rgba(60, 60, 67, 0.6);
-    font-size: 15px;
-    width: 100%;
-    height: fit-content;
-    th {
+    h2 {
       font-size: 20px;
-      color: black;
-      height: 30px;
-      text-align: center;
+      color: aqua;
     }
-    td {
-      text-align: center;
-      height: 5vh;
-    }
-    tr {
-      &:hover {
+    table {
+      margin: auto;
+      color: rgba(60, 60, 67, 0.6);
+      font-size: 15px;
+      width: 100%;
+      height: fit-content;
+      th {
+        font-size: 20px;
         color: black;
-        cursor: pointer;
+        height: 30px;
+        text-align: center;
+      }
+      td {
+        text-align: center;
+        height: 5vh;
+      }
+      tr {
+        &:hover {
+          color: black;
+          cursor: pointer;
+        }
+      }
+    }
+    .row {
+      &:hover {
+        background-color: beige;
       }
     }
   }
-  .row{
-    &:hover{
-      background-color: beige;
+}
+@media screen and (max-width: 1000px) {
+  .transactions-container {
+    margin-top: 5%;
+    width: 100%;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    table {
+      color: rgba(60, 60, 67, 0.6);
+      background-color: var(--white);
+      box-shadow: 0px 2px 60px rgba(0, 0, 0, 0.25);
+      width: 800px;
+      height: 50vh;
+      th {
+        font-size: 20px;
+        color: black;
+        height: 30px;
+        text-align: center;
+      }
+      td {
+        text-align: center;
+        height: 5vh;
+      }
+      tr {
+        &:hover {
+          color: black;
+          cursor: pointer;
+        }
+      }
     }
-   
   }
 }

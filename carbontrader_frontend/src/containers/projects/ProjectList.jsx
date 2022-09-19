@@ -10,7 +10,6 @@ import Checkout from "../../components/projects/Checkout";
 const ProjectList = () => {
   const { state,changedevice } = useContext(AppContext);
   const projects = useGetProjects();
- 
 
   return (
     <section className="main-container">

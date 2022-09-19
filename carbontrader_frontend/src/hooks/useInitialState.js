@@ -8,7 +8,7 @@ const initialState = {
   secondSection: "info",
   currentHomeTab: "project",
   registerOption: "CP",
-  device:""
+  device: "",
 };
 
 const useInitialState = () => {
@@ -63,7 +63,8 @@ const useInitialState = () => {
       projectListItem: arg,
     });
   };
-  const changedevice = (p) => {
+
+  const changeDevice = (p) => {
     setState({
       ...state,
       device: p,
@@ -79,7 +80,7 @@ const useInitialState = () => {
     changeprojectListItem,
     changeCurrentHomeTab,
     changeRegisterOption,
-    changedevice,
+    changeDevice,
   };
 };
 

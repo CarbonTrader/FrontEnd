@@ -1,6 +1,8 @@
 import { Redirect } from "react-router-dom";
 import "../styles/pages/login/Login.scss";
 import "../styles/global.scss";
+import AppContext from "../context/AppContext";
+import { useContext } from "react";
 
 const Login = () => {
   const goToHome = () => {

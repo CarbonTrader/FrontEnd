@@ -1,15 +1,16 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useCallback } from "react";
+import app from "./firebase"
 
-const auth = getAuth();
+// const handleSignUp = async () => useCallback(async event => {
+//   event.preventDefault();
+//   const { email, password } = event.target.elements;
+//   try {
+//     await app
+//       .auth()
+//       .createUserWithEmailAndPassword(email.value, password.value);
+//   } catch (error) {
+//     alert(error);
+//   }
+// }, []);
 
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
+// export default handleSignUp

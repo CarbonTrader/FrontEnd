@@ -7,7 +7,7 @@ import CreditProviderRegisterOptions from "../components/CreditProviderRegisterO
 import app from "../firebase.js"
 
 const Register = () => {
-  const { state, changeRegisterOption } = useContext(AppContext);
+  const { state, changeRegisterOption } = useContext(AppContext); 
 
   const handleSignUp = useCallback(async event => {
     event.preventDefault();

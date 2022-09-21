@@ -4,7 +4,7 @@ import "../styles/pages/register/Register.scss";
 import "../styles/global.scss";
 import InvestorRegisterOptions from "../components/InvestorRegisterOptions";
 import CreditProviderRegisterOptions from "../components/CreditProviderRegisterOptions";
-import firebase from "firebase"
+import app from "../firebase.js"
 
 const Register = () => {
   const { state, changeRegisterOption } = useContext(AppContext);
@@ -13,13 +13,13 @@ const Register = () => {
     event.preventDefault();
     const { email, password } = event.target.elements;
     try {
-      await firebase
+      await app
         .auth()
         .createUserWithEmailAndPassword(email.value, password.value);
     } catch (error) {
       alert(error);
     }
-  }, [history]);
+  }, []);
 
   return (
     <main className="globalContainer">

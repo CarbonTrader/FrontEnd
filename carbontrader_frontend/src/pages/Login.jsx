@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import "../styles/pages/login/Login.scss";
 import "../styles/global.scss";
-import firebase from "firebase"
+import app from "../firebase.js"
 
 const Login = () => {
   const goToHome = () => {
@@ -13,13 +13,13 @@ const Login = () => {
     event.preventDefault();
     const { email, password } = event.target.elements;
     try {
-      await firebase
+      await app
         .auth()
         .signInWithUserCredential(email.value, password.value);
     } catch (error) {
       alert(error);
     }
-  }, [history]);
+  }, []);
 
   return (
     <main className="globalContainer">

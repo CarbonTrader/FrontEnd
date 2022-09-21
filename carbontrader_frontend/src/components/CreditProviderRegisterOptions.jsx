@@ -2,15 +2,17 @@ import React, { useState } from "react";
 const CreditProviderRegisterOptions = () => {
   return (
     <section className="investorRegisterContainer">
-      <input id="userInput" type="text" placeholder="Ingrese su correo" />
-      <input id="userInput" type="text" placeholder="Ingrese su nombre" />
+      <input id="userInput" name="provider_name" type="text" placeholder="Nombre del proveedor" />
+      <input id="userInput" name="email" type="text" placeholder="Correo electrónico" />
       <input
         id="userInput"
+        name="password"
         type="password"
-        placeholder="Ingrese su contraseña"
+        placeholder="Contraseña"
       />
       <input
         id="userInput"
+        name="password_confirmation"
         type="password"
         placeholder="Confirme su contraseña"
       />

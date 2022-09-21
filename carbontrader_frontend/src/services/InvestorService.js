@@ -1,5 +1,4 @@
 import instance from "./instance";
-import axios from "axios";
 
 let data;
 

@@ -3,16 +3,18 @@ import "../styles/pages/register/InvestorRegisterOptions.scss";
 const InvestorRegisterOptions = () => {
   return (
     <section className="investorRegisterContainer">
-      <input id="userInput" type="text" placeholder="Ingrese su correo" />
-      <input id="userInput" type="text" placeholder="Ingrese su nombre" />
-      <input id="userInput" type="text" placeholder="Ingrese su apellido" />
+      <input id="userInput" name="investor_name" type="text" placeholder="Nombre" />
+      <input id="userInput" name="last_name" type="text" placeholder="Apellidos" />
+      <input id="userInput" name="email" type="text" placeholder="Correo electrónico" />
       <input
         id="userInput"
+        name="password"
         type="password"
-        placeholder="Ingrese su contraseña"
+        placeholder="Contraseña"
       />
       <input
         id="userInput"
+        name="password_confirmation"
         type="password"
         placeholder="Confirme su contraseña"
       />

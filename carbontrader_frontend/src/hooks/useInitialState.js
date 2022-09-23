@@ -8,6 +8,7 @@ const initialState = {
   secondSection: "info",
   currentHomeTab: "project",
   registerOption: "CP",
+  headerType:false
 };
 
 const useInitialState = () => {
@@ -24,6 +25,7 @@ const useInitialState = () => {
     setState({
       ...state,
       currentHomeTab: p,
+      headerType: false,
     });
   };
 
@@ -62,6 +64,12 @@ const useInitialState = () => {
       projectListItem: arg,
     });
   };
+  const changeHeaderType = () => {
+    setState({
+      ...state,
+      headerType: !state.headerType,
+    });
+  };
 
   return {
     state,
@@ -72,6 +80,7 @@ const useInitialState = () => {
     changeprojectListItem,
     changeCurrentHomeTab,
     changeRegisterOption,
+    changeHeaderType
   };
 };
 

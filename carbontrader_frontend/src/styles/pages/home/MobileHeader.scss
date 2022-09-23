@@ -1,0 +1,16 @@
+@use "../../vars.scss";
+.headerMobileContainer {
+  background-color: var(--dull-green);
+  height: 100px;
+  ul {
+    height: 100%;
+    li {
+      height: 30%;
+      border-top: 1px solid #d9d9d9;
+      padding: 0.3%;
+      text-align: center;
+      color: var(--white);
+      font-family: "Inter", sans-serif;
+    }
+  }
+}

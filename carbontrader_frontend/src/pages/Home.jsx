@@ -4,6 +4,7 @@ import GlobalTransactions from "../containers/globalTransactions/GlobalTransacti
 import UserProfile from "../containers/profile/UserProfile";
 import Header from "../components/Header";
 import AppContext from "../context/AppContext";
+import MobileHeader from "../components/MobileHeader";
 import { useContext } from "react";
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
   return (
     <>
       <Header currentItem="projectListItem" />
+      {state.headerType && <MobileHeader />}
       {state.currentHomeTab === "project" ? (
         <ProjectList />
       ) : state.currentHomeTab === "transactions" ? (

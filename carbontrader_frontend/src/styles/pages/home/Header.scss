@@ -1,61 +1,87 @@
 @use "../../vars.scss";
 
-.menu {
-  display: flex;
-  background-color: var(--dull-green);
-  display: flex;
-  justify-content: space-around;
-  height: 55px;
-  .menu__firstSection {
-    width: 25%;
+@media screen and (min-width: 1000px) {
+  .menu {
     display: flex;
-    margin-right: 30%;
-    align-items: center;
-    img {
-      width: 50%;
-      height: 80px;
-    }
-
-    h1 {
-      margin-left: 2%;
-      margin-top: 5%;
-      font-size: 35px;
-    }
-  }
-
-  .menu__secondSection {
-    width: 38%;
-    .menu__items {
+    background-color: var(--dull-green);
+    display: flex;
+    justify-content: space-around;
+    height: 55px;
+    .menu__firstSection {
+      width: 25%;
       display: flex;
-      width: 100%;
-      height: 50%;
-      margin: auto;
-      margin-top: 3%;
-      justify-content: space-around;
+      margin-right: 30%;
       align-items: center;
-      list-style: none;
-      .menu__item {
-        margin-right: 10px;
-        width: fit-content;
+      img {
+        width: 50%;
+        height: 80px;
+      }
+
+      h1 {
+        margin-left: 2%;
+        margin-top: 5%;
+        font-size: 35px;
+      }
+    }
+
+    .menu__secondSection {
+      width: 38%;
+      .menu__items {
         display: flex;
-        flex-direction: column;
-        a {
-          text-decoration: none;
-          font-family: "Inter", sans-serif;
-          color: var(--white);
-          font-size: 16px;
-          font-weight: 500;
-          &:hover {
-            color: var(--light-green);
-            cursor: pointer;
+        width: 100%;
+        height: 50%;
+        margin: auto;
+        margin-top: 3%;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+        .menu__item {
+          margin-right: 10px;
+          width: fit-content;
+          display: flex;
+          flex-direction: column;
+          a {
+            text-decoration: none;
+            font-family: "Inter", sans-serif;
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 500;
+            &:hover {
+              color: var(--light-green);
+              cursor: pointer;
+            }
           }
         }
       }
     }
+    .menu__hamburgerOption {
+      display: none;
+    }
+  }
+  .underline {
+    height: 2px;
+    width: 100%;
+    background-color: aqua;
   }
 }
-.underline {
-  height: 2px;
-  width: 100%;
-  background-color: aqua;
+
+@media screen and (max-width: 1000px) {
+  .menu{
+    display: flex;
+    background-color: var(--dull-green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 3% ;
+    padding-right: 3%;
+    height: 55px;
+    &__secondSection {
+      display: none;
+    }
+    &__hamburgerOption {
+      color: aqua;
+      height: 100%;
+      display: flex;
+    }
+  }
 }

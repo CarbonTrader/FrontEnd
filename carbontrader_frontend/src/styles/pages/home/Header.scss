@@ -66,15 +66,32 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .menu{
+  .menu {
     display: flex;
+    width: 94%;
     background-color: var(--dull-green);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 3% ;
+    padding-left: 3%;
     padding-right: 3%;
     height: 55px;
+    .menu__firstSection {
+      width: 25%;
+      display: flex;
+      margin-right: 30%;
+      align-items: center;
+      img {
+        width: 50%;
+        height: 80px;
+      }
+
+      h1 {
+        margin-left: 2%;
+        margin-top: 5%;
+        font-size: 35px;
+      }
+    }
     &__secondSection {
       display: none;
     }

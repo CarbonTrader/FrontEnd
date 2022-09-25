@@ -5,10 +5,18 @@ import UserProfile from "../containers/profile/UserProfile";
 import Header from "../components/Header";
 import AppContext from "../context/AppContext";
 import MobileHeader from "../components/MobileHeader";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 const Home = () => {
-  const { state } = useContext(AppContext);
+  const { state, changeDevice } = useContext(AppContext);
+
+  useEffect(() => {
+    if (state.device === "") {
+      if (window.screen.width > 1000) changeDevice("desktop");
+      else changeDevice("mobile");
+    }
+  }, []);
+
   return (
     <>
       <Header currentItem="projectListItem" />

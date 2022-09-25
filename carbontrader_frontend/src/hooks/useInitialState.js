@@ -8,7 +8,7 @@ const initialState = {
   secondSection: "info",
   currentHomeTab: "project",
   registerOption: "CP",
-  headerType:false
+  headerType: false,
 };
 
 const useInitialState = () => {
@@ -70,6 +70,20 @@ const useInitialState = () => {
       headerType: !state.headerType,
     });
   };
+  const changeCurrentProject = (p) => {
+    setState({
+      ...state,
+      project: p,
+      firstSection: "info",
+    });
+  };
+  const changeToCheckout = () => {
+    setState({
+      ...state,
+      //  project: p,
+      firstSection: "check",
+    });
+  };
 
   return {
     state,
@@ -80,7 +94,9 @@ const useInitialState = () => {
     changeprojectListItem,
     changeCurrentHomeTab,
     changeRegisterOption,
-    changeHeaderType
+    changeHeaderType,
+    changeCurrentProject,
+    changeToCheckout,
   };
 };
 

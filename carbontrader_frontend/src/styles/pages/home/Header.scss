@@ -67,6 +67,7 @@
 
 @media screen and (max-width: 1000px) {
   .menu{
+    background-color: antiquewhite;
     display: flex;
     background-color: var(--dull-green);
     display: flex;
@@ -79,6 +80,7 @@
       display: none;
     }
     &__hamburgerOption {
+      margin-left:50% ;
       color: aqua;
       height: 100%;
       display: flex;

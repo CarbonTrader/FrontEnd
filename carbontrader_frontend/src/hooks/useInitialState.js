@@ -8,6 +8,7 @@ const initialState = {
   secondSection: "info",
   currentHomeTab: "project",
   registerOption: "CP",
+  device: "",
 };
 
 const useInitialState = () => {
@@ -63,6 +64,27 @@ const useInitialState = () => {
     });
   };
 
+  const changeDevice = (p) => {
+    setState({
+      ...state,
+      device: p,
+    });
+  };
+  const changeCurrentProject = (p) => {
+    setState({
+      ...state,
+      project: p,
+      firstSection: "info",
+    });
+  };
+  const changeToCheckout = () => {
+    setState({
+      ...state,
+  //  project: p,
+      firstSection: "check",
+    });
+  };
+
   return {
     state,
     changeCurrentItem,
@@ -72,6 +94,9 @@ const useInitialState = () => {
     changeprojectListItem,
     changeCurrentHomeTab,
     changeRegisterOption,
+    changeDevice,
+    changeCurrentProject,
+    changeToCheckout,
   };
 };
 

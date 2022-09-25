@@ -70,6 +70,20 @@ const useInitialState = () => {
       device: p,
     });
   };
+  const changeCurrentProject = (p) => {
+    setState({
+      ...state,
+      project: p,
+      firstSection: "info",
+    });
+  };
+  const changeToCheckout = () => {
+    setState({
+      ...state,
+  //  project: p,
+      firstSection: "check",
+    });
+  };
 
   return {
     state,
@@ -81,6 +95,8 @@ const useInitialState = () => {
     changeCurrentHomeTab,
     changeRegisterOption,
     changeDevice,
+    changeCurrentProject,
+    changeToCheckout,
   };
 };
 

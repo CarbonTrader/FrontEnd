@@ -2,11 +2,10 @@ import React, { useContext, useState } from "react";
 import "../../styles/pages/home/proyectList/ProjectInfo.scss";
 import AppContext from "../../context/AppContext";
 const ProjectInfo = (props) => {
-  const { state } = useContext(AppContext);
-  const { changeFirstSection } = useContext(AppContext);
-  const dataProjectContainer = document.getElementById("projectData");
+  const { state, changeToCheckout, changeFirstSection } =
+    useContext(AppContext);
   const handleClick = () => {
-    changeFirstSection();
+    window.screen.width < 1000 ? changeToCheckout() : changeFirstSection();;
   };
 
   if (state.project.length === 0) {

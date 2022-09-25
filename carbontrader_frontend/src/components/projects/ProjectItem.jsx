@@ -3,9 +3,9 @@ import "../../styles/pages/home/proyectList/ProjectItem.scss";
 import AppContext from "../../context/AppContext";
 
 const ProjectItem = ({ project }) => {
-  const { state, showInfo } = useContext(AppContext);
+  const { state, showInfo,changeCurrentProject } = useContext(AppContext);
   const handleClick = (item) => {
-    showInfo(item);
+    window.screen.width < 1000 ? changeCurrentProject(item) : showInfo(item);
   };
 
   return (

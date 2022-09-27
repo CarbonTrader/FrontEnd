@@ -1,30 +1,40 @@
-import React, { useCallback, useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import AppContext from "../context/AppContext";
+import UserContext from "../context/UserContext";
 import "../styles/pages/register/Register.scss";
 import "../styles/global.scss";
 import InvestorRegisterOptions from "../components/InvestorRegisterOptions";
 import CreditProviderRegisterOptions from "../components/CreditProviderRegisterOptions";
-import app from "../firebase.js"
+import { registerWithEmailAndPassword } from "../services/userService";
 
 const Register = () => {
-  const { state, changeRegisterOption } = useContext(AppContext); 
+  const { state, changeRegisterOption } = useContext(AppContext);
+  const { user, changeEmail, changePassword, changeToken } =
+    useContext(UserContext);
+  let navigate = useNavigate();
 
-  const handleSignUp = useCallback(async event => {
-    event.preventDefault();
-    const { email, password } = event.target.elements;
-    try {
-      await app
-        .auth()
-        .createUserWithEmailAndPassword(email.value, password.value);
-    } catch (error) {
-      alert(error);
-    }
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    registerWithEmailAndPassword(user.email, user.email, user.email).then(
+      (res) => {
+        const token = res._tokenResponse.idToken;
+        localStorage.setItem("token", token);
+        changeToken();
+        navigate("/Home");
+      }
+    );
+  };
+
+  useEffect(() => {
+    const isAuth = !!localStorage.getItem("token");
+    if (isAuth) navigate("/Home");
   }, []);
 
   return (
     <main className="globalContainer">
       <div className="mainLoginContainer">
-        <form onSubmit={handleSignUp}>
+        <form>
           <div className="form-mainContainer">
             <h1>Registro</h1>
             <div className="form-mainContainer-roleContainer">
@@ -52,13 +62,19 @@ const Register = () => {
             </div>
             <div className="form-mainContainer-registerSection">
               {state.registerOption === "CP" ? (
-                <CreditProviderRegisterOptions />
+                <CreditProviderRegisterOptions
+                  setEmail={changeEmail}
+                  setPassword={changePassword}
+                />
               ) : (
-                <InvestorRegisterOptions />
+                <InvestorRegisterOptions
+                  setEmail={changeEmail}
+                  setPassword={changePassword}
+                />
               )}
             </div>
             <div className="buttonLoginContainer">
-              <button className="loginButton">
+              <button className="loginButton" onClick={handleSignUp}>
                 <a href="/Home">Registrarme</a>
               </button>
             </div>

@@ -1,30 +1,35 @@
-import React, { useCallback, useContext } from "react";
-import { Redirect } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import UserContext from "../context/UserContext";
 import "../styles/pages/login/Login.scss";
 import "../styles/global.scss";
-import app from "../firebase.js"
+import { logInWithEmailAndPassword } from "../services/userService";
 
 const Login = () => {
-  const goToHome = () => {
-    window.location.assign("/Register");
+  const { user, changeEmail, changePassword, changeToken } =
+    useContext(UserContext);
+  let navigate = useNavigate();
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    logInWithEmailAndPassword(user.email, user.password).then((res) => {
+      const token = res._tokenResponse.idToken;
+      localStorage.setItem("token", token);
+      changeToken();
+      navigate("/Home");
+    });
   };
 
-  const handleSignIn = useCallback(async event => {
-    event.preventDefault();
-    const { email, password } = event.target.elements;
-    try {
-      await app
-        .auth()
-        .signInWithUserCredential(email.value, password.value);
-    } catch (error) {
-      alert(error);
-    }
+  useEffect(() => {
+    changeToken();
+    const isAuth = !!localStorage.getItem("token");
+    if (isAuth) navigate("/Home");
   }, []);
 
   return (
     <main className="globalContainer">
       <div className="mainRegisterContainer">
-        <form onSubmit={handleSignIn}>
+        <form>
           <div className="form-mainContainer">
             <h1>Ingreso</h1>
             <p>Bienvenido a CarbonTrader</p>
@@ -32,16 +37,22 @@ const Login = () => {
               <input
                 id="userInput"
                 type="text"
+                onChange={(e) => changeEmail(e.target.value)}
                 placeholder="Ingrese su correo"
               />
               <input
                 id="passwordInput"
                 type="password"
+                onChange={(e) => changePassword(e.target.value)}
                 placeholder="Ingrese su contraseña"
               />
             </div>
             <div className="buttonLoginContainer">
-              <button className="loginButton" onClick={() => goToHome()}>
+              <button
+                type="submit"
+                className="loginButton"
+                onClick={handleSignIn}
+              >
                 <a href="/Home">Ingresar</a>
               </button>
 

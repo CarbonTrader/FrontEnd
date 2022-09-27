@@ -4,10 +4,15 @@ import GlobalTransactions from "../containers/globalTransactions/GlobalTransacti
 import UserProfile from "../containers/profile/UserProfile";
 import Header from "../components/Header";
 import AppContext from "../context/AppContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import UserContext from "../context/UserContext";
 
 const Home = () => {
   const { state } = useContext(AppContext);
+  const { changeToken } = useContext(UserContext);
+
+  useEffect(() => changeToken(), []);
+
   return (
     <>
       <Header currentItem="projectListItem" />

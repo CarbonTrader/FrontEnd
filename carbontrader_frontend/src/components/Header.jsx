@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import AppContext from "../context/AppContext";
 import "../styles/pages/home/Header.scss";
 import logo from "../assets/icons/CARBONTRADER-logo.svg";
-import hamburger from "../assets/icons/header/hamburger-menu.svg"
+import hamburger from "../assets/icons/header/hamburger-menu.svg";
 
 const Header = () => {
   const { state, changeCurrentHomeTab } = useContext(AppContext);
@@ -10,13 +10,14 @@ const Header = () => {
   return (
     <nav className="menu">
       <div className="menu__firstSection">
-        <a href="/"><img src={logo} alt=""/></a>
+        <a href="/">
+          <img src={logo} alt="" />
+        </a>
       </div>
       <div className="menu__secondSection">
-        
         <ul className="menu__items">
           <li className="menu__item">
-            <a onClick={() => changeCurrentHomeTab("project")} href="/Home"> 
+            <a onClick={() => changeCurrentHomeTab("project")} href="/Home">
               Listado de Proyectos
             </a>
             <div
@@ -33,6 +34,13 @@ const Header = () => {
               className={
                 state.currentHomeTab === "transactions" ? "underline" : ""
               }
+            ></div>
+          </li>
+          <li className="menu__item">
+            <a onClick={() => changeCurrentHomeTab("market")}>Mercado</a>
+            <div
+              id="profileItem"
+              className={state.currentHomeTab === "market" ? "underline" : ""}
             ></div>
           </li>
           <li className="menu__item">

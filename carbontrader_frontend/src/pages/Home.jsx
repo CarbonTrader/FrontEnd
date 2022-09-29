@@ -6,6 +6,7 @@ import UserMarket from "../containers/market/UserMarket"
 import Header from "../components/Header";
 import AppContext from "../context/AppContext";
 import { useContext, useEffect } from "react";
+import ProyectCheckout from "../containers/market/ProyectCheckout";
 
 const Home = () => {
   const { state, changeDevice } = useContext(AppContext);
@@ -26,8 +27,10 @@ const Home = () => {
         <GlobalTransactions />
       ) : state.currentHomeTab === "profile" ? (
         <UserProfile />
-      ) : (
+      ) : state.currentHomeTab === "market" ? (
         <UserMarket />
+      ):(
+        <ProyectCheckout/>
       )}
     </>
   );

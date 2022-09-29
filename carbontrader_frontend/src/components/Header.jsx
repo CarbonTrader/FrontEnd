@@ -37,7 +37,7 @@ const Header = () => {
             ></div>
           </li>
           <li className="menu__item">
-            <a onClick={() => changeCurrentHomeTab("market")}>Mercado</a>
+            <a onClick={() => changeCurrentHomeTab("market")}>Comercio</a>
             <div
               id="profileItem"
               className={state.currentHomeTab === "market" ? "underline" : ""}
@@ -47,7 +47,7 @@ const Header = () => {
             <a onClick={() => changeCurrentHomeTab("profile")}>Mi perfil</a>
             <div
               id="profileItem"
-              className={state.currentHomeTab === "profile" ? "underline" : ""}
+              className={state.currentHomeTab === "profile"? "underline" : ""}
             ></div>
           </li>
         </ul>

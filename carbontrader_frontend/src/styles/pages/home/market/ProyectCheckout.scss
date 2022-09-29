@@ -1,19 +1,26 @@
 @use "../../../vars.scss";
 @media screen and (min-width: 1000px) {
-  .InfoCheckoutContainer {
-    width: 100%;
-    height: 100%;
-
-    .firstText {
-      height: 6%;
-      margin-top: 0;
+  .InfoProjectCheckoutContainer {
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+    h1 {
+      line-height: 70px;
+    }
+    h1,
+    span {
+      font-size: 30px;
       font-family: "Inter", sans-serif;
       font-weight: var(--intense-weight);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      text-align: center;
     }
-
+    span {
+      display: flex;
+      width: fit-content;
+      font-size: 20px;
+      margin: auto;
+      line-height: 40px;
+    }
     p {
       color: rgba(0, 0, 0, 0.5);
       text-align: center;
@@ -21,10 +28,7 @@
       font-family: "Inter", sans-serif;
       font-weight: var(--intense-weight);
       font-size: 16px;
-      line-height: 19px;
-      text-transform: capitalize;
     }
-
     .Checkout-CreditsOptions {
       display: flex;
       font-family: "Inter", sans-serif;
@@ -107,6 +111,7 @@
 
       button {
         width: 85%;
+        height: 40px;
         background: #57d983;
         border-radius: 5px;
         border: none;
@@ -130,20 +135,27 @@
   }
 }
 @media screen and (max-width: 1000px) {
-  .InfoCheckoutContainer {
-    width: 100%;
-    height: 100%;
-
-    .firstText {
-      height: 6%;
-      margin-top: 0;
+  .InfoProjectCheckoutContainer {
+    width: 85%;
+    margin: auto;
+    margin-top: 30%;
+    h1 {
+      line-height: 70px;
+      font-size: 25px;
+    }
+    h1,
+    span {
       font-family: "Inter", sans-serif;
       font-weight: var(--intense-weight);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      text-align: center;
     }
-
+    span {
+      display: flex;
+      width: fit-content;
+      font-size: 20px;
+      margin: auto;
+      line-height: 40px;
+    }
     p {
       color: rgba(0, 0, 0, 0.5);
       text-align: center;
@@ -151,61 +163,33 @@
       font-family: "Inter", sans-serif;
       font-weight: var(--intense-weight);
       font-size: 16px;
-      line-height: 19px;
-      text-transform: capitalize;
     }
-
-    .Checkout-CreditsOptions {
-      display: flex;
-      font-family: "Inter", sans-serif;
-      justify-content: space-around;
-      align-items: center;
-      width: 25vw;
-      height: 8vh;
-      margin: auto;
-
-      div {
-        background: #ffffff;
-        border: 2px solid #d9d9d9;
-        width: 5vw;
-        height: 6vh;
-        font-weight: 700;
-        border-radius: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &:hover {
-          border: 3px solid #71f443;
-          cursor: pointer;
-        }
-      }
-    }
-
     .Checkout-valueContainer {
       height: 6vh;
+      width: 100%;
+      margin-top: 5%;
       display: flex;
       justify-content: center;
 
       input {
-        width: 22vw;
+        width: 100%;
         background: #ffffff;
         border: 2px solid #d9d9d9;
-        border-radius: 5px;
+        border-radius: 10px;
       }
     }
-
     .Checkout-amoutContainer {
-      margin-top: 5%;
+      margin-top: 15%;
 
       .Checkout-price {
         display: flex;
         margin: auto;
-        width: 82%;
+        width: 100%;
         justify-content: space-between;
 
         p {
           margin-bottom: 0;
+          font-size: 15px;
         }
       }
 
@@ -213,13 +197,14 @@
         margin-top: 0;
         margin-bottom: 0;
         margin: auto;
-        width: 85%;
+        width: 100%;
       }
 
       .Checkout-total {
         display: flex;
         margin: auto;
-        width: 82%;
+        margin-left: 0;
+        width: 100%;
         justify-content: space-between;
 
         p {
@@ -230,13 +215,14 @@
     }
 
     .Checkout-Button {
-      margin-top: 5%;
+      margin-top: 15%;
       display: flex;
       height: 8%;
       justify-content: center;
 
       button {
-        width: 85%;
+        width: 100%;
+        height: 40px;
         background: #57d983;
         border-radius: 5px;
         border: none;
@@ -256,6 +242,12 @@
     }
     .total-color {
       color: var(--black);
+    }
+    .left {
+      text-align: start;
+    }
+    .right {
+      text-align: end;
     }
   }
 }

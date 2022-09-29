@@ -12,10 +12,60 @@
     &-background {
       width: 95%;
       margin: auto;
+      scroll-behavior: smooth;
+      overflow-y: scroll;
+      max-height: 95%;
     }
     h2 {
       font-size: 20px;
       color: aqua;
+    }
+    table.UserMarket {
+      width: 100%;
+      border-collapse: collapse;
+      th {
+        height: 100%;
+        font-size: 15px;
+        background-color: #c2ffdb;
+        font-family: "Inter", sans-serif;
+        cursor: default;
+      }
+      tr {
+        height: 50px;
+        font-family: "Inter", sans-serif;
+        background-color: #ebf7f0;
+        button{
+          background-color: #c2ffdb;
+          border-radius: 10px;
+          width: 70%;
+          margin-top:5% ;
+          height: 35px;
+          border: none;
+          cursor: pointer;
+          &:hover{
+            background-color: antiquewhite;
+          }
+        }
+      }
+      td {
+        text-align: center;
+        border-bottom: 0;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .transactions-container {
+    margin-top: 5%;
+    width: 100vw;
+    &-background {
+      width: 95%;
+      margin: auto;
+      scroll-behavior: smooth;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      overflow-y: scroll;
+      max-height: 95%;
     }
     table {
       width: 100%;
@@ -25,7 +75,6 @@
         font-size: 15px;
         background-color: #c2ffdb;
         font-family: "Inter", sans-serif;
-        cursor:default;
       }
       tr {
         height: 50px;
@@ -36,47 +85,21 @@
           cursor: pointer;
         }
       }
-      td {
-        text-align: center;
-        border-bottom: 0;
-      }
-    }
-    .row {
-      &:hover {
-        background-color: beige;
-      }
-    }
-  }
-}
-@media screen and (max-width: 1000px) {
-  .transactions-container {
-    margin-top: 5%;
-    width: 100vw;
-    scroll-behavior: smooth;
-    overflow-x: scroll;
-    table {
-      width: 70%;
-      border-collapse: collapse;
-      margin: auto;
-      th {
-        height: 100%;
-        width: 100%;
-        text-align: center;
-        font-size: 15px;
+      button{
         background-color: #c2ffdb;
-        font-family: "Inter", sans-serif;
-      }
-      tr {
-        height: 50px;
-        font-family: "Inter", sans-serif;
-        background-color: #ebf7f0;
-        &:hover {
-          background-color: beige;
-          cursor: pointer;
+        border-radius: 10px;
+        width: 100%;
+        margin-top:5% ;
+        height: 35px;
+        border: none;
+        cursor: pointer;
+        &:hover{
+          background-color: antiquewhite;
         }
       }
       td {
-        text-align: center;
+        padding-left: 25px;
+        padding-right: 25px;
       }
     }
   }

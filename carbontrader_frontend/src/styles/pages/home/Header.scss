@@ -11,10 +11,10 @@
       width: 25%;
       display: flex;
       margin-right: 30%;
-      align-items: center;
+      //align-items: center;
       img {
         width: 50%;
-        height: 80px;
+        height: 100%;
       }
 
       h1 {
@@ -33,7 +33,6 @@
         margin: auto;
         margin-top: 3%;
         justify-content: space-around;
-        align-items: center;
         list-style: none;
         .menu__item {
           margin-right: 10px;
@@ -67,8 +66,8 @@
 
 @media screen and (max-width: 1000px) {
   .menu {
+    background-color: antiquewhite;
     display: flex;
-    width: 95vw;
     background-color: var(--dull-green);
     display: flex;
     justify-content: space-between;
@@ -80,6 +79,7 @@
       display: none;
     }
     &__hamburgerOption {
+      margin-left: 50%;
       color: aqua;
       height: 100%;
       display: flex;

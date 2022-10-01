@@ -5,6 +5,7 @@ import UserProfile from "../containers/profile/UserProfile";
 import UserMarket from "../containers/market/UserMarket"
 import Header from "../components/Header";
 import AppContext from "../context/AppContext";
+import MobileHeader from "../components/MobileHeader";
 import { useContext, useEffect } from "react";
 import ProyectCheckout from "../containers/market/ProyectCheckout";
 
@@ -21,6 +22,7 @@ const Home = () => {
   return (
     <>
       <Header currentItem="projectListItem" />
+      {state.headerType && <MobileHeader />}
       {state.currentHomeTab === "project" ? (
         <ProjectList />
       ) : state.currentHomeTab === "transactions" ? (

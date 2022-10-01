@@ -1,22 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import AppContext from "../context/AppContext";
 import "../styles/pages/home/Header.scss";
 import logo from "../assets/icons/CARBONTRADER-logo.svg";
-import hamburger from "../assets/icons/header/hamburger-menu.svg"
+import hamburger from "../assets/icons/header/hamburger-menu.svg";
+import MobileHeader from "./MobileHeader";
 
 const Header = () => {
-  const { state, changeCurrentHomeTab } = useContext(AppContext);
-
+  const { state, changeCurrentHomeTab ,changeHeaderType} = useContext(AppContext);
+  //const [toggle, setToggle] = useState(false);
+  const menu = () => {
+    //setToggle(!toggle);
+  };
   return (
     <nav className="menu">
       <div className="menu__firstSection">
-        <a href="/"><img src={logo} alt=""/></a>
+        <a href="/">
+          <img src={logo} alt="" />
+        </a>
       </div>
       <div className="menu__secondSection">
-        
         <ul className="menu__items">
           <li className="menu__item">
-            <a onClick={() => changeCurrentHomeTab("project")} href="/Home"> 
+            <a onClick={() => changeCurrentHomeTab("project")} >
               Listado de Proyectos
             </a>
             <div
@@ -44,7 +49,7 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <div className="menu__hamburgerOption">
+      <div className="menu__hamburgerOption" onClick={()=>changeHeaderType()}>
         <img src={hamburger} alt="" />
       </div>
     </nav>

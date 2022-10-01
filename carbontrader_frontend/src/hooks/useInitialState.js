@@ -8,6 +8,8 @@ const initialState = {
   secondSection: "info",
   currentHomeTab: "project",
   registerOption: "CP",
+  device: "",
+  currentProyectCheckout: {},
   headerType: false,
 };
 
@@ -84,6 +86,13 @@ const useInitialState = () => {
       firstSection: "check",
     });
   };
+  const changeCurrentProjectCheckout = (arg) => {
+    setState({
+      ...state,
+      currentHomeTab:"projectCheckpoint",
+      currentProyectCheckout: arg,
+    });
+  };
 
   return {
     state,
@@ -97,6 +106,7 @@ const useInitialState = () => {
     changeHeaderType,
     changeCurrentProject,
     changeToCheckout,
+    changeCurrentProjectCheckout,
   };
 };
 

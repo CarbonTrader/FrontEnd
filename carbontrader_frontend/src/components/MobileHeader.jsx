@@ -15,6 +15,9 @@ const MobileHeader = () => {
         <li onClick={() =>  changeCurrentHomeTab("transactions")}>
           Transacciones globales
         </li>
+        <li onClick={() =>  changeCurrentHomeTab("market")}>
+          Comercio
+        </li>
         <li onClick={() =>  changeCurrentHomeTab("profile")}>Mi perfil</li>
       </ul>
     </section>

@@ -6,24 +6,48 @@ import "../styles/pages/register/Register.scss";
 import "../styles/global.scss";
 import InvestorRegisterOptions from "../components/InvestorRegisterOptions";
 import CreditProviderRegisterOptions from "../components/CreditProviderRegisterOptions";
-import { registerWithEmailAndPassword } from "../services/userService";
+import {
+  logInWithEmailAndPassword,
+  registerWithEmailAndPassword,
+} from "../services/userService";
 
 const Register = () => {
   const { state, changeRegisterOption } = useContext(AppContext);
-  const { user, changeEmail, changePassword, changeToken } =
-    useContext(UserContext);
+  const {
+    user,
+    changeName,
+    changeEmail,
+    changePassword,
+    changeToken,
+    changeUid,
+  } = useContext(UserContext);
   let navigate = useNavigate();
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    registerWithEmailAndPassword(user.email, user.email, user.email).then(
-      (res) => {
-        const token = res._tokenResponse.idToken;
-        localStorage.setItem("token", token);
+    const role =
+      state.registerOption === "CP"
+        ? "PROVIDER"
+        : state.registerOption === "IV"
+        ? "INVESTOR"
+        : "AUDITOR";
+    registerWithEmailAndPassword(
+      user.name,
+      user.email,
+      user.password,
+      role
+    ).then((res) => {
+      logInWithEmailAndPassword(user.email, user.password).then((response) => {
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("role", response.data.role);
+        if (response.data.role !== "INVESTOR") {
+          localStorage.setItem("uuid", response.data.uuid);
+          changeUid(response.data.uuid)
+        }
         changeToken();
         navigate("/Home");
-      }
-    );
+      });
+    });
   };
 
   useEffect(() => {
@@ -65,6 +89,7 @@ const Register = () => {
                 <CreditProviderRegisterOptions
                   setEmail={changeEmail}
                   setPassword={changePassword}
+                  setName={changeName}
                 />
               ) : (
                 <InvestorRegisterOptions

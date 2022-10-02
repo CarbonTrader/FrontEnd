@@ -12,9 +12,12 @@ const Login = () => {
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    logInWithEmailAndPassword(user.email, user.password).then((res) => {
-      const token = res._tokenResponse.idToken;
-      localStorage.setItem("token", token);
+    logInWithEmailAndPassword(user.email, user.password).then((response) => {
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("role", response.data.role);
+      localStorage.setItem("name", response.data.name);
+      if (response.data.role !== "INVESTOR")
+        localStorage.setItem("uuid", response.data.uuid);
       changeToken();
       navigate("/Home");
     });

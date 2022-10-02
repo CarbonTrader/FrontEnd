@@ -1,14 +1,13 @@
 import { auth } from "../firebase";
-import {
-  createUserWithEmailAndPassword,
-  sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
+import { sendPasswordResetEmail, signOut } from "firebase/auth";
+import axios from "axios";
 
 const logInWithEmailAndPassword = async (email, password) => {
   try {
-    const res = await signInWithEmailAndPassword(auth, email, password);
+    const res = await axios.post("http://localhost:8000/auth/login", {
+      email: email,
+      password: password,
+    });
     return res;
   } catch (err) {
     console.error(err);
@@ -16,9 +15,14 @@ const logInWithEmailAndPassword = async (email, password) => {
   }
 };
 
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (name, email, password, role) => {
   try {
-    const res = await createUserWithEmailAndPassword(auth, email, password);
+    const res = await axios.post("http://localhost:8000/auth/signup", {
+      name: name,
+      email: email,
+      password: password,
+      role: role,
+    });
     return res;
   } catch (err) {
     console.error(err);

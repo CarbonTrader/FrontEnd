@@ -26,7 +26,6 @@
   height: 70%;
   form {
     width: 90%;
-
     .form-mainContainer {
       h1,
       p {
@@ -37,7 +36,7 @@
         margin-top: 5%;
         height: 8vh;
         p {
-          text-align: start;
+          text-align: center;
         }
         &-containerOptions {
           margin-top: 2%;
@@ -52,7 +51,8 @@
       }
       &-registerSection {
         height: 320px;
-        width: 415px;
+        // width: 415px;
+        width: 100%;
       }
     }
     .buttonLoginContainer {
@@ -95,6 +95,29 @@
       .loginButton:focus {
         box-shadow: inset -10.5em 0 0 0 var(--green),
           inset 10.5em 0 0 0 var(--green);
+      }
+    }
+    .LoginOptionContainer {
+      span {
+        display: flex;
+        align-items: flex-end;
+        justify-items: flex-start;
+        margin-top: 10%;
+        // flex-direction: column;
+        p {
+          font-size: 12px;
+          width: 25%;
+        }
+        a {
+          font-size: 12px;
+          letter-spacing: 0.25em;
+          text-decoration: none;
+          color: var(--dark-green);
+          &:hover {
+            cursor: pointer;
+            color: brown;
+          }
+        }
       }
     }
   }

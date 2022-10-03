@@ -20,7 +20,7 @@ const SignUp = () => {
                   onClick={() => changeRegisterOption("CP")}
                   className="form-mainContainer-roleContainer-containerOptions-options"
                 >
-                  CreditProvider
+                  Proveedor de Créditos
                   <div
                     className={state.registerOption === "CP" ? "underline" : ""}
                   ></div>
@@ -29,7 +29,7 @@ const SignUp = () => {
                   onClick={() => changeRegisterOption("IV")}
                   className="form-mainContainer-roleContainer-containerOptions-options"
                 >
-                  Investor
+                  Inversionista
                   <div
                     className={state.registerOption === "IV" ? "underline" : ""}
                   ></div>
@@ -47,6 +47,12 @@ const SignUp = () => {
               <button className="loginButton">
                 <a href="/Home">Registrarme</a>
               </button>
+            </div>
+            <div className="LoginOptionContainer">
+                <span>
+                  <p>¿Ya estás registrado?</p>
+                  <a href="/Login">Ingresa aquí</a>
+                </span>
             </div>
           </div>
         </form>

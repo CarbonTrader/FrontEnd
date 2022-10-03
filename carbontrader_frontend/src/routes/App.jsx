@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "../pages/Login";
-import SignUp from "../pages/Register";
+import SignUp from "../pages/SignUp";
 import Home from "../pages/Home";
 import AppContext from "../context/AppContext";
 import useInitialState from "../hooks/useInitialState";

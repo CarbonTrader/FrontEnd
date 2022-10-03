@@ -9,11 +9,10 @@ import UserContext from "../context/UserContext";
 
 const Home = () => {
   const { state } = useContext(AppContext);
-  const { user,changeToken } = useContext(UserContext);
+  const { user, changeToken } = useContext(UserContext);
 
   useEffect(() => {
-    console.log(user);
-    changeToken()
+    changeToken();
   }, []);
 
   return (

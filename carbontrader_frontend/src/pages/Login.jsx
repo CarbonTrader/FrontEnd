@@ -13,20 +13,25 @@ const Login = () => {
   const handleSignIn = (e) => {
     e.preventDefault();
     logInWithEmailAndPassword(user.email, user.password).then((response) => {
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("role", response.data.role);
-      localStorage.setItem("name", response.data.name);
-      if (response.data.role !== "INVESTOR")
-        localStorage.setItem("uuid", response.data.uuid);
-      changeToken();
-      navigate("/Home");
+      if (response.data.status_code === undefined){
+        console.log("entra");
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("role", response.data.role);
+        localStorage.setItem("name", response.data.name);
+        localStorage.setItem("email", response.data.email);
+        if (response.data.role !== "INVESTOR")
+          localStorage.setItem("uuid", response.data.uuid);
+        changeToken();
+        navigate("/Home");
+      }else{
+        alert("Error al ingresar")
+      }
     });
   };
 
   useEffect(() => {
     changeToken();
-    const isAuth = !!localStorage.getItem("token");
-    if (isAuth) navigate("/Home");
+    if (window.localStorage.getItem("token") !== null) navigate("/Home");
   }, []);
 
   return (

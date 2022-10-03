@@ -37,22 +37,31 @@ const Register = () => {
       user.password,
       role
     ).then((res) => {
-      logInWithEmailAndPassword(user.email, user.password).then((response) => {
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("role", response.data.role);
-        if (response.data.role !== "INVESTOR") {
-          localStorage.setItem("uuid", response.data.uuid);
-          changeUid(response.data.uuid)
-        }
-        changeToken();
-        navigate("/Home");
-      });
+      if (res.data.status_code === undefined) {
+        logInWithEmailAndPassword(user.email, user.password).then(
+          (response) => {
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("role", response.data.role);
+            localStorage.setItem("name", response.data.name);
+            localStorage.setItem("email", response.data.email);
+            if (response.data.role !== "INVESTOR") {
+              localStorage.setItem("uuid", response.data.uuid);
+              changeUid(response.data.uuid);
+            }
+            changeToken();
+            navigate("/Home");
+          }
+        );
+        
+      }else{
+        console.log(res.data.status_code);
+        alert("Error al registrarse")
+      }
     });
   };
 
   useEffect(() => {
-    const isAuth = !!localStorage.getItem("token");
-    if (isAuth) navigate("/Home");
+    if (window.localStorage.getItem("token") !== null) navigate("/Home");
   }, []);
 
   return (
@@ -95,6 +104,7 @@ const Register = () => {
                 <InvestorRegisterOptions
                   setEmail={changeEmail}
                   setPassword={changePassword}
+                  setName={changeName}
                 />
               )}
             </div>

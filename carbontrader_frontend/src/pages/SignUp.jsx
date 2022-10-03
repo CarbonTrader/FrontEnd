@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import AppContext from "../context/AppContext";
-import "../styles/pages/register/Register.scss";
+import "../styles/pages/signup/SignUp.scss";
 import "../styles/global.scss";
-import InvestorRegisterOptions from "../components/InvestorRegisterOptions";
-import CreditProviderRegisterOptions from "../components/CreditProviderRegisterOptions";
+import InvestorRegisterOptions from "../components/InvestorSignUpOptions";
+import CreditProviderRegisterOptions from "../components/CreditProviderSignUpOptions";
 
 const SignUp = () => {
   const { state, changeRegisterOption } = useContext(AppContext);
@@ -20,7 +20,7 @@ const SignUp = () => {
                   onClick={() => changeRegisterOption("CP")}
                   className="form-mainContainer-roleContainer-containerOptions-options"
                 >
-                  Proveedor de Créditos
+                  Proveedor
                   <div
                     className={state.registerOption === "CP" ? "underline" : ""}
                   ></div>

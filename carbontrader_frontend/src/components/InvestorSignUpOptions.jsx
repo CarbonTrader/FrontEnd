@@ -5,7 +5,7 @@ const InvestorSignUpOptions = () => {
     <section className="investorSignUpContainer">
       <input id="userInput" type="text" placeholder="Correo" />
       <input id="userInput" type="text" placeholder="Nombre" />
-      <input id="userInput" type="text" placeholder="Apellido" />
+      <input id="userInput" type="text" placeholder="Apellidos" />
       <input
         id="userInput"
         type="password"

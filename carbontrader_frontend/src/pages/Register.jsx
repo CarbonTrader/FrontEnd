@@ -5,7 +5,7 @@ import "../styles/global.scss";
 import InvestorRegisterOptions from "../components/InvestorRegisterOptions";
 import CreditProviderRegisterOptions from "../components/CreditProviderRegisterOptions";
 
-const Register = () => {
+const SignUp = () => {
   const { state, changeRegisterOption } = useContext(AppContext);
   return (
     <main className="globalContainer">
@@ -55,4 +55,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignUp;

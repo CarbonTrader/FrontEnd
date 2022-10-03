@@ -6,7 +6,7 @@ import { useContext } from "react";
 
 const Login = () => {
   const goToHome = () => {
-    window.location.assign("/Register");
+    window.location.assign("/SignUp");
   };
   return (
     <main className="globalContainer">
@@ -35,7 +35,7 @@ const Login = () => {
               <div className="RegisterOptionContainer">
                 <span>
                   <p>¿No estas registrado?</p>
-                  <a href="/Register">Registrate aquí</a>
+                  <a href="/SignUp">Registrate aquí</a>
                 </span>
               </div>
             </div>

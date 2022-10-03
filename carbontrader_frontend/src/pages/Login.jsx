@@ -13,18 +13,18 @@ const Login = () => {
       <div className="mainRegisterContainer">
         <form>
           <div className="form-mainContainer">
-            <h1>Ingreso</h1>
-            <p>Bienvenido a CarbonTrader</p>
+            <h1>CarbonTrader</h1>
+            {/* <p>Bienvenido a CarbonTrader</p> */}
             <div className="inputsContainer">
               <input
                 id="userInput"
                 type="text"
-                placeholder="Ingrese su correo"
+                placeholder="Correo"
               />
               <input
                 id="passwordInput"
                 type="password"
-                placeholder="Ingrese su contraseña"
+                placeholder="Contraseña"
               />
             </div>
             <div className="buttonLoginContainer">

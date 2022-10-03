@@ -50,7 +50,7 @@ const SignUp = () => {
             <div className="LoginOptionContainer">
                 <span>
                   <p>¿Ya estás registrado?</p>
-                  <a href="/Login">Ingresa aquí</a>
+                  <a href="/">Ingresa aquí</a>
                 </span>
             </div>
           </div>

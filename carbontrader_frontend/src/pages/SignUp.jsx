@@ -14,7 +14,6 @@ const SignUp = () => {
           <div className="form-mainContainer">
             <h1>Registro</h1>
             <div className="form-mainContainer-roleContainer">
-              <p>Seleccione su rol</p>
               <div className="form-mainContainer-roleContainer-containerOptions">
                 <div
                   onClick={() => changeRegisterOption("CP")}

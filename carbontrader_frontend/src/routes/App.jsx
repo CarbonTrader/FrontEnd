@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "../pages/Login";
-import SignUp from "../pages/SignUp";
+import Register from "../pages/Register";
 import Home from "../pages/Home";
 import AppContext from "../context/AppContext";
 import useInitialState from "../hooks/useInitialState";
@@ -15,7 +15,7 @@ function App() {
         <Routes>
         <Route exact path="/Home" element={<Home />} />
           <Route exact path="/" element={<Login />} />
-          <Route exact path="/SignUp" element={<SignUp />} />
+          <Route exact path="/Signup" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </AppContext.Provider>

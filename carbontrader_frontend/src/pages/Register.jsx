@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import AppContext from "../context/AppContext";
-import "../styles/pages/signup/SignUp.scss";
+import "../styles/pages/register/Register.scss";
 import "../styles/global.scss";
-import InvestorSignUpOptions from "../components/InvestorSignUpOptions";
+import InvestorRegisterOptions from "../components/InvestorRegisterOptions";
 
-const SignUp = () => {
+const Register = () => {
   const { state } = useContext(AppContext);
   return (
     <main className="globalContainer">
@@ -13,7 +13,7 @@ const SignUp = () => {
           <div className="form-mainContainer">
             <h1>Registro</h1>
             <div className="form-mainContainer-registerSection">
-              <InvestorSignUpOptions />
+              <InvestorRegisterOptions />
             </div>
             <div className="buttonLoginContainer">
               <button className="loginButton">
@@ -33,4 +33,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Register;

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "../styles/pages/signup/InvestorSignUpOptions.scss";
-const InvestorSignUpOptions = () => {
+import "../styles/pages/register/InvestorRegisterOptions.scss";
+const InvestorRegisterOptions = () => {
   return (
-    <section className="investorSignUpContainer">
+    <section className="investorRegisterContainer">
       <input id="userInput" type="text" placeholder="Correo" />
       <input id="userInput" type="text" placeholder="Nombre" />
       <input id="userInput" type="text" placeholder="Apellidos" />
@@ -20,4 +20,4 @@ const InvestorSignUpOptions = () => {
     </section>
   );
 };
-export default InvestorSignUpOptions;
+export default InvestorRegisterOptions;

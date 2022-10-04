@@ -35,18 +35,6 @@
         color: var(--light-black);
       }
       width: 100%;
-      &-roleContainer {
-        &-containerOptions {
-          margin-top: 5%;
-          display: flex;
-          justify-content: space-around;
-          height: 60%;
-          align-items: center;
-          &:hover {
-            cursor: pointer;
-          }
-        }
-      }
       &-registerSection {
         height: 320px;
         // width: 415px;

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import AppContext from "../context/AppContext";
 import "../styles/pages/signup/SignUp.scss";
 import "../styles/global.scss";
-import InvestorRegisterOptions from "../components/InvestorSignUpOptions";
+import InvestorSignUpOptions from "../components/InvestorSignUpOptions";
 
 const SignUp = () => {
   const { state } = useContext(AppContext);
@@ -13,7 +13,7 @@ const SignUp = () => {
           <div className="form-mainContainer">
             <h1>Registro</h1>
             <div className="form-mainContainer-registerSection">
-              <InvestorRegisterOptions />
+              <InvestorSignUpOptions />
             </div>
             <div className="buttonLoginContainer">
               <button className="loginButton">

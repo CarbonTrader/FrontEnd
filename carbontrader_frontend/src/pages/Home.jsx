@@ -4,13 +4,19 @@ import GlobalTransactions from "../containers/globalTransactions/GlobalTransacti
 import UserProfile from "../containers/profile/UserProfile";
 import UserMarket from "../containers/market/UserMarket";
 import Header from "../components/Header";
-import AppContext from "../context/AppContext";
 import MobileHeader from "../components/MobileHeader";
-import { useContext, useEffect } from "react";
+import AppContext from "../context/AppContext";
+import UserContext from "../context/UserContext";
 import ProyectCheckout from "../containers/market/ProyectCheckout";
+import { useContext, useEffect } from "react";
 
 const Home = () => {
-  const { state, changeDevice } = useContext(AppContext);
+  const { state } = useContext(AppContext);
+  const { user, changeToken } = useContext(UserContext);
+
+  useEffect(() => {
+    changeToken();
+  }, []);
 
   return (
     <>

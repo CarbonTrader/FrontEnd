@@ -12,6 +12,7 @@ const InvestorSignUpOptions = () => {
         placeholder="Contraseña"
       />
       <input
+        className="lastInputItem"
         id="userInput"
         type="password"
         placeholder="Confirme su contraseña"

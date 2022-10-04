@@ -33,6 +33,7 @@
       }
       h1 {
         color: var(--light-black);
+        margin-bottom: 5%;
       }
       width: 100%;
       &-registerSection {
@@ -42,7 +43,6 @@
       }
     }
     .buttonLoginContainer {
-      // TODO: Hacer que este contenedor se sitúe debajo del form-mainContainer SIEMPRE.
       display: flex;
       flex-direction: column;
       width: 100%;

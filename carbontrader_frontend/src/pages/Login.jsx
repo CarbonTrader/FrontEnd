@@ -14,7 +14,6 @@ const Login = () => {
         <form>
           <div className="form-mainContainer">
             <h1>CarbonTrader</h1>
-            {/* <p>Bienvenido a CarbonTrader</p> */}
             <div className="inputsContainer">
               <input
                 id="userInput"

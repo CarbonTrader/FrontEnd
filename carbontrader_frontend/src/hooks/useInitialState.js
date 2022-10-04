@@ -8,6 +8,9 @@ const initialState = {
   secondSection: "info",
   currentHomeTab: "project",
   registerOption: "CP",
+  device: "",
+  currentProyectCheckout: {},
+  headerType: false,
 };
 
 const useInitialState = () => {
@@ -24,6 +27,7 @@ const useInitialState = () => {
     setState({
       ...state,
       currentHomeTab: p,
+      headerType: false,
     });
   };
 
@@ -62,6 +66,33 @@ const useInitialState = () => {
       projectListItem: arg,
     });
   };
+  const changeHeaderType = () => {
+    setState({
+      ...state,
+      headerType: !state.headerType,
+    });
+  };
+  const changeCurrentProject = (p) => {
+    setState({
+      ...state,
+      project: p,
+      firstSection: "info",
+    });
+  };
+  const changeToCheckout = () => {
+    setState({
+      ...state,
+      //  project: p,
+      firstSection: "check",
+    });
+  };
+  const changeCurrentProjectCheckout = (arg) => {
+    setState({
+      ...state,
+      currentHomeTab:"projectCheckpoint",
+      currentProyectCheckout: arg,
+    });
+  };
 
   return {
     state,
@@ -72,6 +103,10 @@ const useInitialState = () => {
     changeprojectListItem,
     changeCurrentHomeTab,
     changeRegisterOption,
+    changeHeaderType,
+    changeCurrentProject,
+    changeToCheckout,
+    changeCurrentProjectCheckout,
   };
 };
 

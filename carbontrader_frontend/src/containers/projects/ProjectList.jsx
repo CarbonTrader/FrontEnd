@@ -8,21 +8,28 @@ import useGetProjects from "../../hooks/useGetProjects";
 import Checkout from "../../components/projects/Checkout";
 
 const ProjectList = () => {
-  const { state } = useContext(AppContext);
+  const { state, changedevice } = useContext(AppContext);
   const projects = useGetProjects();
 
   return (
     <section className="main-container">
       <div className="textContainer">
-        <br />
-        <p className="main-titleFirst">Bienvenidos al</p>
-        <h1 className="main-titleSecond">Portafolio de CarbonTrader</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-          doloribus ipsa. Pariatur optio sequi perferendis, omnis debitis,
-          inventore, est odio cupiditate placeat quibusdam error qui possimus et
-          assumenda modi quam.{" "}
-        </p>
+        {((window.screen.width < 1000 &&
+          state.firstSection !== "info" &&
+          state.firstSection !== "check") ||
+          window.screen.width > 1000) && (
+          <>
+            <br />
+            <p className="main-titleFirst">Bienvenidos al</p>
+            <h1 className="main-titleSecond">Portafolio de CarbonTrader</h1>
+            <p className="interactiveDescription">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
+              doloribus ipsa. Pariatur optio sequi perferendis, omnis debitis,
+              inventore, est odio cupiditate placeat quibusdam error qui
+              possimus et assumenda modi quam.{" "}
+            </p>
+          </>
+        )}
       </div>
 
       <div className="ProjectList-container">
@@ -33,6 +40,8 @@ const ProjectList = () => {
         >
           {state.firstSection === "list" ? (
             projects.map((project) => <ProjectItem project={project} />)
+          ) : state.firstSection === "check" ? (
+            <Checkout />
           ) : (
             <ProjectInfo />
           )}

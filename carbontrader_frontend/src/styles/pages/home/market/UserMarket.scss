@@ -20,7 +20,7 @@
       font-size: 20px;
       color: aqua;
     }
-    table {
+    table.UserMarket {
       width: 100%;
       border-collapse: collapse;
       th {
@@ -34,16 +34,22 @@
         height: 50px;
         font-family: "Inter", sans-serif;
         background-color: #ebf7f0;
-        
+        button{
+          background-color: #c2ffdb;
+          border-radius: 10px;
+          width: 70%;
+          margin-top:5% ;
+          height: 35px;
+          border: none;
+          cursor: pointer;
+          &:hover{
+            background-color: antiquewhite;
+          }
+        }
       }
       td {
         text-align: center;
         border-bottom: 0;
-      }
-    }
-    .row {
-      &:hover {
-        background-color: beige;
       }
     }
   }
@@ -52,8 +58,15 @@
   .transactions-container {
     margin-top: 5%;
     width: 100vw;
-    scroll-behavior: smooth;
-    overflow-x: scroll;
+    &-background {
+      width: 95%;
+      margin: auto;
+      scroll-behavior: smooth;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      overflow-y: scroll;
+      max-height: 95%;
+    }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -67,7 +80,22 @@
         height: 50px;
         font-family: "Inter", sans-serif;
         background-color: #ebf7f0;
-        
+        &:hover {
+          background-color: beige;
+          cursor: pointer;
+        }
+      }
+      button{
+        background-color: #c2ffdb;
+        border-radius: 10px;
+        width: 100%;
+        margin-top:5% ;
+        height: 35px;
+        border: none;
+        cursor: pointer;
+        &:hover{
+          background-color: antiquewhite;
+        }
       }
       td {
         padding-left: 25px;

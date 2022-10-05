@@ -65,10 +65,10 @@ const Register = () => {
 
   return (
     <main className="globalContainer">
-      <div className="mainLoginContainer">
+      <div className="mainRegisterContainer">
         <form>
+        <h1 className="title">Registro</h1>
           <div className="form-mainContainer">
-            <h1>Registro</h1>
             <div className="form-mainContainer-registerSection">
               <InvestorRegisterOptions
                 setEmail={changeEmail}
@@ -76,12 +76,12 @@ const Register = () => {
                 setName={changeName}
               />
             </div>
-            <div className="buttonLoginContainer">
-              <button className="loginButton" onClick={handleSignUp}>
+            <div className="buttonRegisterContainer">
+              <button className="registerButton" onClick={handleSignUp}>
                 <a href="/Home">Registrarme</a>
               </button>
             </div>
-            <div className="LoginOptionContainer">
+            <div className="registerOptionContainer">
               <span>
                 <p>¿Ya estás registrado?</p>
                 <a href="/">Ingresa aquí</a>

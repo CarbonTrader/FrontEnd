@@ -5,7 +5,6 @@ const InvestorRegisterOptions = (props) => {
     <section className="investorRegisterContainer">
       <input id="userInput" type="text" placeholder="Correo" onChange={(e) => props.setEmail(e.target.value)} />
       <input id="userInput" type="text" placeholder="Nombre" onChange={(e) => props.setName(e.target.value)} />
-      <input id="userInput" type="text" placeholder="Apellidos" />
       <input
         id="userInput"
         name="password"

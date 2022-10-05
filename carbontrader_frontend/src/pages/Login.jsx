@@ -4,14 +4,7 @@ import UserContext from "../context/UserContext";
 import "../styles/pages/login/Login.scss";
 import "../styles/global.scss";
 import { logInWithEmailAndPassword } from "../services/userService";
-import AppContext from "../context/AppContext";
-
 const Login = () => {
-
-  const goToHome = () => {
-    window.location.assign("/SignUp");
-  }
-
   const { user, changeEmail, changePassword, changeToken } =
     useContext(UserContext);
 
@@ -31,7 +24,7 @@ const Login = () => {
         changeToken();
         navigate("/Home");
       } else {
-        alert("Error al ingresar")
+        alert("Error al ingresar");
       }
     });
   };
@@ -43,10 +36,10 @@ const Login = () => {
 
   return (
     <main className="globalContainer">
-      <div className="mainRegisterContainer">
+      <div className="mainLoginContainer">
         <form>
+          <h1 className="title">CarbonTrader</h1>
           <div className="form-mainContainer">
-            <h1>CarbonTrader</h1>
             <div className="inputsContainer">
               <input
                 id="userInput"
@@ -70,10 +63,10 @@ const Login = () => {
                 <a href="/Home">Ingresar</a>
               </button>
 
-              <div className="RegisterOptionContainer">
+              <div className="LoginOptionContainer">
                 <span>
                   <p>¿No estas registrado?</p>
-                  <a href="/SignUp">Registrate aquí</a>
+                  <a href="/Register">Registrate aquí</a>
                 </span>
               </div>
             </div>

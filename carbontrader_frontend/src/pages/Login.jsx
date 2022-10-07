@@ -5,7 +5,6 @@ import "../styles/pages/login/Login.scss";
 import "../styles/global.scss";
 import { logInWithEmailAndPassword } from "../services/userService";
 import AppContext from "../context/AppContext";
-import { useContext } from "react";
 
 const Login = () => {
   const { user, changeEmail, changePassword, changeToken } =

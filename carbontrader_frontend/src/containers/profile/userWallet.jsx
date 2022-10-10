@@ -1,8 +1,13 @@
 import React from "react";
+import  { useContext, useEffect } from "react";
 import "../../styles/pages/home/userProfile/userWallet.scss";
 import CreditItem from "../../components/profile/creditItem";
 
 const UserWallet = (props) => {
+  useEffect(() => {
+    console.log(props.credits);
+  }, []);
+
   return (
     <section className="userWallet-mainContainer">
       <div className="userWallet-totalContainer">
@@ -11,18 +16,11 @@ const UserWallet = (props) => {
           <p>{props.total}</p>
         </div>
         <p className="publicKeyTitle">Llave Pública</p>
-        <p className="publicKeyContent">A5373D44C6D8...</p>
+        <p className="publicKeyContent">{props.credits[0]}</p>
       </div>
       <div className="userWallet-creditsContainer">
         <div className="userWallet-creditsContainer-creditsList">
-          {props.credits.map((proyect) => (
-            <div className="CreditItemsContainer">
-              <CreditItem
-                name={proyect.proyect_name}
-                amount={proyect.credits}
-              />
-            </div>
-          ))}
+          
         </div>
       </div>
     </section>

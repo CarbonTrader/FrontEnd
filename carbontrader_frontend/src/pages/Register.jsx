@@ -25,12 +25,7 @@ const Register = () => {
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    const role =
-      state.registerOption === "CP"
-        ? "PROVIDER"
-        : state.registerOption === "IV"
-        ? "INVESTOR"
-        : "AUDITOR";
+    const role = "INVESTOR";
     registerWithEmailAndPassword(
       user.name,
       user.email,
@@ -52,10 +47,9 @@ const Register = () => {
             navigate("/Home");
           }
         );
-        
-      }else{
+      } else {
         console.log(res.data.status_code);
-        alert("Error al registrarse")
+        alert("Error al registrarse");
       }
     });
   };
@@ -66,52 +60,27 @@ const Register = () => {
 
   return (
     <main className="globalContainer">
-      <div className="mainLoginContainer">
+      <div className="mainRegisterContainer">
         <form>
+          <h1 className="title">Registro</h1>
           <div className="form-mainContainer">
-            <h1>Registro</h1>
-            <div className="form-mainContainer-roleContainer">
-              <p>Seleccione su rol</p>
-              <div className="form-mainContainer-roleContainer-containerOptions">
-                <div
-                  onClick={() => changeRegisterOption("CP")}
-                  className="form-mainContainer-roleContainer-containerOptions-options"
-                >
-                  CreditProvider
-                  <div
-                    className={state.registerOption === "CP" ? "underline" : ""}
-                  ></div>
-                </div>
-                <div
-                  onClick={() => changeRegisterOption("IV")}
-                  className="form-mainContainer-roleContainer-containerOptions-options"
-                >
-                  Investor
-                  <div
-                    className={state.registerOption === "IV" ? "underline" : ""}
-                  ></div>
-                </div>
-              </div>
-            </div>
             <div className="form-mainContainer-registerSection">
-              {state.registerOption === "CP" ? (
-                <CreditProviderRegisterOptions
-                  setEmail={changeEmail}
-                  setPassword={changePassword}
-                  setName={changeName}
-                />
-              ) : (
-                <InvestorRegisterOptions
-                  setEmail={changeEmail}
-                  setPassword={changePassword}
-                  setName={changeName}
-                />
-              )}
+              <InvestorRegisterOptions
+                setEmail={changeEmail}
+                setPassword={changePassword}
+                setName={changeName}
+              />
             </div>
-            <div className="buttonLoginContainer">
-              <button className="loginButton" onClick={handleSignUp}>
+            <div className="buttonRegisterContainer">
+              <button className="registerButton" onClick={handleSignUp}>
                 <a href="/Home">Registrarme</a>
               </button>
+            </div>
+            <div className="registerOptionContainer">
+              <span>
+                <p>¿Ya estás registrado?</p>
+                <a href="/">Ingresa aquí</a>
+              </span>
             </div>
           </div>
         </form>
@@ -119,5 +88,4 @@ const Register = () => {
     </main>
   );
 };
-
 export default Register;

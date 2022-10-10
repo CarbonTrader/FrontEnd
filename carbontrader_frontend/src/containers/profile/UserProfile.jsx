@@ -1,61 +1,42 @@
 import React from "react";
 import { useEffect, useState, useContext } from "react";
 import AppContext from "../../context/AppContext";
+import UserContext from "../../context/UserContext";
 import "../../styles/pages/home/userProfile/UserProfile.scss";
 import UserInfo from "./UserInfo";
 import UserTransactions from "./userTransactions";
 import UserWallet from "./userWallet";
-import useGetUser from "../../hooks/useUserState";
 import Img from "../../assets/img/perfil.jpg";
+import {
+  getUserCredits,
+  getUserTransactions,
+  getUser,
+} from "../../services/userService";
 
 const UserProfile = () => {
   const { state, changeCurrentItem } = useContext(AppContext);
-  let sectionToShow;
-  const user = useGetUser();
-  const arrayOfTransactions = [
-    {
-      buyer_pk: "64f6796080e9d292...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "b99bb445c1721382...",
-      timestamp: "111",
-      transaction_type: "Compra",
-    },
-    {
-      buyer_pk: "64f6796080e9d292...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "0592b0b489e78ba1...",
-      timestamp: "222",
-      transaction_type: "Compra",
-    },
-    {
-      buyer_pk: "ecf80ad14629dba8...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "64f6796080e9d292...",
-      timestamp: "333",
-      transaction_type: "Venta",
-    },
-  ];
-  const arrayOfCredtis = [
-    {
-      proyect_name: "Proyecto Delta",
-      credits: 20,
-    },
-    {
-      proyect_name: "Proyecto Alfa",
-      credits: 40,
-    },
-    {
-      proyect_name: "Proyecto Omega",
-      credits: 40,
-    },
-    {
-      proyect_name: "Proyecto Azul",
-      credits: 20,
-    },
-  ];
+  const { user, changeUser } = useContext(UserContext);
+  const { amount, setAmount } = useState(0);
+  let arrayOfTransactions = [];
+  let auxCredits = [];
+  let u = {};
+  useEffect(() => {
+    changeUser();
+    getUser(localStorage.getItem("email")).then((res) => {
+      u = res.data;
+      console.log(u);
+    });
+     getUserTransactions(localStorage.getItem("email")).then((res) => {
+      arrayOfTransactions = res.data;
+      localStorage.setItem("transactions",arrayOfTransactions );
+
+    });
+
+    /*getUserCredits(localStorage.getItem("email")).then((res) => {
+      auxCredits = res.data;
+      localStorage.setItem("amount", auxCredits.length);
+    });*/
+  }, []);
 
   const addSelectionItemClass = (id) => {
     const currentTab = state.currentItem;
@@ -74,8 +55,8 @@ const UserProfile = () => {
           <div className="wallet-headerSection-userHederSection">
             <img src={Img} alt="" />
             <div className="wallet-headerSection-userHederSection-DataContainer">
-              <h1>Enrique Gutiérrez</h1>
-              <p>Comercializador</p>
+              <h1>{user.name}</h1>
+              <p>{user.role === "INVESTOR" && "Comerciante"}</p>
             </div>
           </div>
           <div className="wallet-optionsSection">
@@ -98,7 +79,7 @@ const UserProfile = () => {
               className="wallet-optionsSection-options"
               onClick={() => addSelectionItemClass("wallet")}
             >
-              <a>Mi Billetera</a>
+              <a>Mi billetera</a>
             </div>
           </div>
         </div>
@@ -109,11 +90,8 @@ const UserProfile = () => {
             <UserTransactions transactions={arrayOfTransactions} />
           ) : (
             <UserWallet
-              credits={arrayOfCredtis}
-              total={arrayOfCredtis.reduce(
-                (a, b) => a + (b["credits"] || 0),
-                0
-              )}
+              credits={localStorage.getItem("transactions")}
+              total={localStorage.getItem("amount")}
             />
           )}
         </div>

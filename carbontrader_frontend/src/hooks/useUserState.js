@@ -9,6 +9,14 @@ const useUser = () => {
     role: "",
     uid: "",
   });
+  const changeUser = () =>
+    setUser({
+      ...user,
+      name: window.localStorage.getItem("name"),
+      email: window.localStorage.getItem("email"),
+      token: window.localStorage.getItem("token"),
+      role: window.localStorage.getItem("role"),
+    });
   const changeUid = (newUid) =>
     setUser({
       ...user,
@@ -48,6 +56,7 @@ const useUser = () => {
 
   return {
     user,
+    changeUser,
     changeEmail,
     changePassword,
     changeToken,

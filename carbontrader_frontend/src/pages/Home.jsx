@@ -6,13 +6,14 @@ import Header from "../components/Header";
 import AppContext from "../context/AppContext";
 import { useContext, useEffect } from "react";
 import UserContext from "../context/UserContext";
+import MarketCredits from "../containers/projects/MarketCredits";
 
 const Home = () => {
   const { state } = useContext(AppContext);
-  const { user, changeToken } = useContext(UserContext);
+  const { user, changeToken, changeUser } = useContext(UserContext);
 
   useEffect(() => {
-    changeToken();
+    changeUser();
   }, []);
 
   return (
@@ -22,8 +23,10 @@ const Home = () => {
         <ProjectList />
       ) : state.currentHomeTab === "transactions" ? (
         <GlobalTransactions />
-      ) : (
+      ) : state.currentHomeTab === "profile" ? (
         <UserProfile />
+      ) : (
+        <MarketCredits />
       )}
     </>
   );

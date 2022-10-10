@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import "../../styles/pages/home/proyectList/ProjectInfo.scss";
+import "../../styles/pages/home/projectList/ProjectInfo.scss";
 import AppContext from "../../context/AppContext";
-const ProjectInfo = (props) => {
+const ProjectInfo = () => {
   const { state } = useContext(AppContext);
   const { changeFirstSection } = useContext(AppContext);
-  const dataProjectContainer = document.getElementById("projectData");
+
   const handleClick = () => {
     changeFirstSection();
   };
@@ -22,8 +22,8 @@ const ProjectInfo = (props) => {
   return (
     <section className="InfoContainer">
       <div className=" InfoContainer-descriptionContainer">
-        <img src={state.project.image} alt="" />
-        <h1>{state.project.project}</h1>
+        <img src={state.project.images[0]} alt="" />
+        <h1>{state.project.name}</h1>
         <div
           id="projectData"
           className={`InfoContainer-textContainer
@@ -36,12 +36,12 @@ const ProjectInfo = (props) => {
           <p>{state.project.description}</p>
           <div className="projectDataContainer">
             <span>
-              <p>Bonos de circulación</p>
-              <p>46,000</p>
+              <p>Bonos en venta</p>
+              <p>{state.project.credits.filter(x=> x.state === "OnSale").length}</p>
             </span>
             <span>
               <p>Bonos emitidos</p>
-              <p>1000,000</p>
+              <p>{state.project.credits.length}</p>
             </span>
             <span>
               <p>Fecha de emisión</p>
@@ -49,7 +49,7 @@ const ProjectInfo = (props) => {
             </span>
             <span>
               <p>Precio Unitario</p>
-              <p>$43.000COP</p>
+              <p>${state.project.price.toFixed(3)}COP</p>
             </span>
           </div>
         </div>

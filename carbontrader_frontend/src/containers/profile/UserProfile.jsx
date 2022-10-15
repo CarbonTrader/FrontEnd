@@ -7,37 +7,32 @@ import UserInfo from "./UserInfo";
 import UserTransactions from "./userTransactions";
 import UserWallet from "./userWallet";
 import Img from "../../assets/img/perfil.jpg";
-import {
-  getUserCredits,
-  getUserTransactions,
-  getUser,
-} from "../../services/userService";
+import { getUserTransactions, getUser, get_Trader_Credits } from "../../services/userService";
+import { getUserKeys } from "../../services/userService";
 
 const UserProfile = () => {
   const { state, changeCurrentItem } = useContext(AppContext);
   const { user, changeUser } = useContext(UserContext);
-  const { amount, setAmount } = useState(0);
   let arrayOfTransactions = [];
-  let auxCredits = [];
-  let u = {};
+  const [priv_key, set_priv] = useState();
+  const [pub_key, set_pub] = useState();
   useEffect(() => {
-    changeUser();
     getUser(localStorage.getItem("email")).then((res) => {
-      u = res.data;
-      console.log(u);
+      set_pub(res.data.wallet.public_key);
+      set_priv(res.data.wallet.private_key);
     });
-     getUserTransactions(localStorage.getItem("email")).then((res) => {
-      arrayOfTransactions = res.data;
-      localStorage.setItem("transactions",arrayOfTransactions );
+    get_Trader_Credits(localStorage.getItem("email")).then((res)=>{
+      localStorage.setItem(
+        "credits",
+        JSON.stringify(res.data)
+      );
+    })
 
+    changeUser();
+    getUserTransactions(localStorage.getItem("email")).then((res) => {
+      localStorage.setItem("transactions", JSON.stringify(res.data));
     });
-
-    /*getUserCredits(localStorage.getItem("email")).then((res) => {
-      auxCredits = res.data;
-      localStorage.setItem("amount", auxCredits.length);
-    });*/
   }, []);
-
   const addSelectionItemClass = (id) => {
     const currentTab = state.currentItem;
     const itemToRemoveClass = document.getElementById(currentTab);
@@ -47,7 +42,6 @@ const UserProfile = () => {
     itemToAddClass.classList.add("selection");
     changeCurrentItem(id);
   };
-
   return (
     <>
       <section className="mainWalletContainer">
@@ -90,8 +84,10 @@ const UserProfile = () => {
             <UserTransactions transactions={arrayOfTransactions} />
           ) : (
             <UserWallet
+              pub_key={pub_key}
+              priv_key={priv_key}
               credits={localStorage.getItem("transactions")}
-              total={localStorage.getItem("amount")}
+              total={JSON.parse(localStorage.getItem("credits")).length}
             />
           )}
         </div>

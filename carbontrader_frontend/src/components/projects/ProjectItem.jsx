@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import "../../styles/pages/home/projectList/ProjectItem.scss";
 import AppContext from "../../context/AppContext";
+import { get_onSale_providers_credits, get_provider_email } from "../../services/projectService";
 
 const ProjectItem = ({ project }) => {
   const { showInfo } = useContext(AppContext);
@@ -9,12 +10,14 @@ const ProjectItem = ({ project }) => {
     localStorage.removeItem("market");
     localStorage.removeItem("quantity");
     localStorage.removeItem("amount");
-    localStorage.setItem(
-      "amount",
-      project.credits.filter((x) => x.state === "OnSale").length
-    );
     localStorage.setItem("currentProject", JSON.stringify(project));
     showInfo(item);
+    get_provider_email(project.id).then((res) => {
+      localStorage.setItem("cp_email", res.data);
+    });
+    get_onSale_providers_credits(project.id).then((res)=>{
+      localStorage.setItem("provider_credits", JSON.stringify(res.data));
+    })
   };
   return (
     <div className="ProjectItem" onClick={() => handleClick(project)}>

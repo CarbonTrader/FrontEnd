@@ -31,7 +31,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    changeToken();
+    changeToken(); 
     if (window.localStorage.getItem("token") !== null) navigate("/Home");
   }, []);
 

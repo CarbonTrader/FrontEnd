@@ -14,32 +14,10 @@ const logInWithEmailAndPassword = async (email, password) => {
     alert(err.message);
   }
 };
-const getPublicKey = async (email) => {
-  try {
-    const res = await axios.get(
-      `http://localhost:8000/users/public_key/${email}`
-    );
-    return res;
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
-};
-
-const getPrivateKey = async (email) => {
-  try {
-    const res = await axios.get(
-      `http://localhost:8000/users/private_key/${email}`
-    );
-    return res;
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
-};
 
 const getUserKeys = async (email) => {
   try {
+    console.log(email);
     const res = await axios.get(`http://localhost:8000/users/keys/${email}`);
     return res;
   } catch (err) {
@@ -98,11 +76,87 @@ const getUserTransactions = async (email) => {
     alert(err.message);
   }
 };
+const get_Trader_Credits = async (email) => {
+  try {
+    const res = await axios.get(
+      `http://localhost:8000/users/credits/${email}`
+    );
+    return res;
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
 
 const getUser = async (email) => {
   try {
-    const res = await axios.get(`http://localhost:8000/users/uss/${email}`);
+    const res = await axios.get(`http://localhost:8000/users/${email}`);
     return res;
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
+  }
+};
+
+const exchange = async (transaction) => {
+  try {
+    const res = await axios.post("http://localhost:8000/transaction/exchange", {
+      id: "tra1",
+      carbon_trader_serial: transaction.serial,
+      recipient_email: transaction.recipient,
+      sender_email: transaction.sender_email,
+      private_key_sender: transaction.private_key_sender,
+      public_key_sender: transaction.public_key_sender,
+    });
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
+  }
+};
+const retire = async (transaction) => {
+  try {
+    const res = await axios.post("http://localhost:8000/transaction/retire", {
+      carbon_trader_serial: transaction.serial,
+      recipient_email: transaction.recipient,
+      sender_email: transaction.sender_email,
+      private_key_sender: transaction.private_key_sender,
+      public_key_sender: transaction.public_key_sender,
+    });
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
+  }
+};
+const sale_credits = async (email, serial, project_id) => {
+  try {
+    const res = await axios.post("http://localhost:8000/users/sale_credit", {
+      email: email,
+      serial: serial,
+      project_id:project_id,
+    });
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
+  }
+};
+const many_exchange = async (
+  transaction,
+  private_key_sender,
+  public_key_sender
+) => {
+  try {
+    console.log(transaction);
+    const res = await axios.post(
+      "http://localhost:8000/transaction/many/exchange",
+      {
+        cont: transaction.cont,
+        carbon_trader_serial: transaction.carbon_trader_serial,
+        recipient_email: transaction.recipient_email,
+        sender_email: transaction.sender_email,
+        private_key_sender: private_key_sender,
+        public_key_sender: public_key_sender,
+      }
+    );
   } catch (error) {
     console.error(error);
     alert(error.message);
@@ -116,7 +170,10 @@ export {
   getUserCredits,
   getUserTransactions,
   getUser,
-  getPublicKey,
-  getPrivateKey,
   getUserKeys,
+  exchange,
+  retire,
+  many_exchange,
+  sale_credits,
+  get_Trader_Credits,
 };

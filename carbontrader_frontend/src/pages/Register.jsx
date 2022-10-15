@@ -33,15 +33,17 @@ const Register = () => {
       role
     ).then((res) => {
       if (res.data.status_code === undefined) {
+        console.log(res);
         logInWithEmailAndPassword(user.email, user.password).then(
           (response) => {
-            localStorage.setItem("token", response.data.token);
-            localStorage.setItem("role", response.data.role);
-            localStorage.setItem("name", response.data.name);
-            localStorage.setItem("email", response.data.email);
-            if (response.data.role !== "INVESTOR") {
+            console.log(response);
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("role", res.data.role);
+            localStorage.setItem("name", res.data.name);
+            localStorage.setItem("email", res.data.email);
+            if (res.data.role !== "INVESTOR") {
               localStorage.setItem("uuid", response.data.uuid);
-              changeUid(response.data.uuid);
+              changeUid(res.data.uuid);
             }
             changeToken();
             navigate("/Home");

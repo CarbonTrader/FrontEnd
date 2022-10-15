@@ -4,11 +4,16 @@ import ProjectItem from "../../components/projects/ProjectItem";
 import "../../styles/pages/home/projectList/ProjectList.scss";
 import ProjectInfo from "../../components/projects/ProjectInfo";
 import AppContext from "../../context/AppContext";
-import { getProjects } from "../../services/projectService";
 import useGetProjects from "../../hooks/useGetProjects";
 import Checkout from "../../components/projects/Checkout";
+import { get_global_transactions } from "../../services/transactionService";
 
 const ProjectList = () => {
+  useEffect(() => {
+    get_global_transactions().then((res) => {
+      localStorage.setItem("global", JSON.stringify(res));
+    });
+  }, []);
   const { state } = useContext(AppContext);
   const projects = useGetProjects();
 

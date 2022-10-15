@@ -2,8 +2,21 @@ import React, { useContext, useEffect } from "react";
 import "../../styles/pages/home/projectList/MarketCredits.scss";
 import MarketRow from "../../components/projects/MarketRow";
 import { get_onSale_credits } from "../../services/projectService";
+import { get_credit_provider } from "../../services/projectService";
+import { getUserKeys } from "../../services/userService";
+import { useState } from "react";
 
 const MarketCredits = () => {
+  const [cont, setCont] = useState(0);
+  let object = {
+    public_key: "",
+    private_key: "",
+  };
+  getUserKeys(localStorage.getItem("cp_email")).then((res) => {
+    object.public_key = res.data.pub_key
+    object.private_key = res.data.priv_key
+   
+  });
   return (
     <>
       <div class="transactions-container">
@@ -18,11 +31,12 @@ const MarketCredits = () => {
             </tr>
             {JSON.parse(localStorage.getItem("market")).map((transaction) => (
               <MarketRow
-                user={transaction.owner_email}
-                serial={transaction.carbontrader_serial}
-                price={JSON.parse(
-                  localStorage.getItem("currentProject")
-                ).price.toFixed(3)}
+                keys={object}
+                num={cont}
+                project={JSON.parse(localStorage.getItem("currentProject")).id}
+                user={ transaction.owner !== undefined?transaction.owner:localStorage.getItem("cp_email")}
+                serial={transaction.owner !== undefined?transaction.serial:transaction.carbontrader_serial}
+                price={transaction.price}
               />
             ))}
           </table>

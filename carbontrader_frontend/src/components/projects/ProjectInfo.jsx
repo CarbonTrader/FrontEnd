@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import "../../styles/pages/home/projectList/ProjectInfo.scss";
 import AppContext from "../../context/AppContext";
+import { getUserTransactions, getUser } from "../../services/userService";
 const ProjectInfo = () => {
   const { state } = useContext(AppContext);
   const { changeFirstSection } = useContext(AppContext);
@@ -37,11 +38,11 @@ const ProjectInfo = () => {
           <div className="projectDataContainer">
             <span>
               <p>Bonos en venta</p>
-              <p>{state.project.credits.filter(x=> x.state === "OnSale").length}</p>
+              <p>{state.project.credits.length}</p>
             </span>
             <span>
               <p>Bonos emitidos</p>
-              <p>{state.project.credits.length}</p>
+              <p>?</p>
             </span>
             <span>
               <p>Fecha de emisión</p>
@@ -49,7 +50,7 @@ const ProjectInfo = () => {
             </span>
             <span>
               <p>Precio Unitario</p>
-              <p>${state.project.price.toFixed(3)}COP</p>
+              <p>${state.project.price}COP</p>
             </span>
           </div>
         </div>

@@ -20,15 +20,21 @@ const UserTransactions = (props) => {
             <th>Destino</th>
             <th>Fecha</th>
           </tr>
-          {JSON.parse(localStorage.getItem("transactions")).map((transaction) => (
-            <tr>
-              <td>{transaction.transaction_type}</td>
-              <td>{transaction.carbon_trader_serial}</td>
-              <td>{transaction.sender_address}</td>
-              <td>{transaction.recipient_address}</td>
-              <td>{  transaction.timestamp  }</td>
-            </tr>
-          ))}
+          {JSON.parse(localStorage.getItem("transactions")).map(
+            (transaction) => (
+              <tr>
+                <td>{transaction.transaction_type}</td>
+                <td>{transaction.carbon_trader_serial}</td>
+                <td>{transaction.sender_address}</td>
+                <td>{transaction.recipient_address}</td>
+                <td>
+                  {new Date(
+                    transaction.timestamp / 1000000
+                  ).toLocaleDateString()}
+                </td>
+              </tr>
+            )
+          )}
         </table>
       </div>
     </section>

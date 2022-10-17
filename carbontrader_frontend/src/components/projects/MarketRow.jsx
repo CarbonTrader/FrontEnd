@@ -26,7 +26,7 @@ const MarketRow = (props) => {
     <tr>
       <td>{props.user}</td>
       <td>{props.serial}</td>
-      <td>${props.price}</td>
+      <td>${props.price.toFixed(3)}</td>
       <button onClick={() => handleCheckout()}>Comprar</button>
     </tr>
   );

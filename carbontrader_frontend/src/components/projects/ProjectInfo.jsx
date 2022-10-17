@@ -1,13 +1,20 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "../../styles/pages/home/projectList/ProjectInfo.scss";
 import AppContext from "../../context/AppContext";
-import { getUserTransactions, getUser } from "../../services/userService";
+
 const ProjectInfo = () => {
   const { state } = useContext(AppContext);
   const { changeFirstSection } = useContext(AppContext);
 
   const handleClick = () => {
-    changeFirstSection();
+    if (
+      state.project.credits.filter((credit) => credit.retire_date === null)
+        .length === 0
+    ) {
+      alert("Este proyecto no tiene bonos en venta");
+    } else {
+      changeFirstSection();
+    }
   };
 
   if (state.project.length === 0) {
@@ -38,19 +45,29 @@ const ProjectInfo = () => {
           <div className="projectDataContainer">
             <span>
               <p>Bonos en venta</p>
-              <p>{state.project.credits.length}</p>
+              <p>
+                {
+                  state.project.credits.filter(
+                    (credit) => credit.retire_date === null
+                  ).length
+                }
+              </p>
             </span>
             <span>
               <p>Bonos emitidos</p>
-              <p>?</p>
+              <p>{state.project.credits.length}</p>
             </span>
             <span>
               <p>Fecha de emisión</p>
-              <p>13/03/2020</p>
+              <p>
+                {new Date(
+                  state.project.creation_date / 1000000
+                ).toLocaleDateString()}
+              </p>
             </span>
             <span>
               <p>Precio Unitario</p>
-              <p>${state.project.price}COP</p>
+              <p>${state.project.credits[0].price.toFixed(3)}COP</p>
             </span>
           </div>
         </div>

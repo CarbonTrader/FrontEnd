@@ -78,9 +78,7 @@ const getUserTransactions = async (email) => {
 };
 const get_Trader_Credits = async (email) => {
   try {
-    const res = await axios.get(
-      `http://localhost:8000/users/credits/${email}`
-    );
+    const res = await axios.get(`http://localhost:8000/users/credits/${email}`);
     return res;
   } catch (err) {
     console.error(err);
@@ -132,13 +130,22 @@ const sale_credits = async (email, serial, project_id) => {
     const res = await axios.post("http://localhost:8000/users/sale_credit", {
       email: email,
       serial: serial,
-      project_id:project_id,
+      project_id: project_id,
     });
   } catch (error) {
     console.error(error);
     alert(error.message);
   }
 };
+const delete_user = async (email) => {
+  try {
+    const res = await axios.delete("http://localhost:8000/auth/delete/" + email);
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
+  }
+};
+
 const many_exchange = async (
   transaction,
   private_key_sender,
@@ -149,10 +156,9 @@ const many_exchange = async (
     const res = await axios.post(
       "http://localhost:8000/transaction/many/exchange",
       {
-        cont: transaction.cont,
-        carbon_trader_serial: transaction.carbon_trader_serial,
-        recipient_email: transaction.recipient_email,
-        sender_email: transaction.sender_email,
+        amount: transaction.cont,
+        recipient_email: localStorage.getItem("email"),
+        cp_email: localStorage.getItem("cp_email"),
         private_key_sender: private_key_sender,
         public_key_sender: public_key_sender,
       }
@@ -162,6 +168,7 @@ const many_exchange = async (
     alert(error.message);
   }
 };
+
 export {
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
@@ -176,4 +183,5 @@ export {
   many_exchange,
   sale_credits,
   get_Trader_Credits,
+  delete_user,
 };

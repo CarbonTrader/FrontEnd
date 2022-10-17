@@ -11,7 +11,6 @@ const useGetProjects = () => {
   useEffect(() => {
     changeProjects();
   }, []);
-
   return projects;
 };
 

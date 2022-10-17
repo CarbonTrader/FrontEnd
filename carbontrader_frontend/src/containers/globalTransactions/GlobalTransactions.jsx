@@ -23,7 +23,7 @@ const GlobalTransactions = () => {
                 hash={transaction.hash}
                 typeTransaction={transaction.transaction_type}
                 serial={transaction.carbon_trader_serial}
-                maker={transaction.sender}
+                maker={transaction.sender_address}
                 destiny={transaction.recipient_address}
                 date={transaction.timestamp}
               />

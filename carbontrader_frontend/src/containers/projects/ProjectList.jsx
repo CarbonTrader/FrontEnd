@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import ProjectItem from "../../components/projects/ProjectItem";
 import "../../styles/pages/home/projectList/ProjectList.scss";
 import ProjectInfo from "../../components/projects/ProjectInfo";
@@ -7,11 +7,24 @@ import AppContext from "../../context/AppContext";
 import useGetProjects from "../../hooks/useGetProjects";
 import Checkout from "../../components/projects/Checkout";
 import { get_global_transactions } from "../../services/transactionService";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const ProjectList = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
+    setIsLoading(true);
+    localStorage.removeItem("currentProject");
+    localStorage.removeItem("market");
+    localStorage.removeItem("quantity");
+    localStorage.removeItem("amount");
+    localStorage.removeItem("credits");
+    localStorage.removeItem("transactions");
+    localStorage.removeItem("provider_credits");
+    localStorage.removeItem("cp_email");
     get_global_transactions().then((res) => {
       localStorage.setItem("global", JSON.stringify(res));
+      setIsLoading(false);
     });
   }, []);
   const { state } = useContext(AppContext);
@@ -19,6 +32,7 @@ const ProjectList = () => {
 
   return (
     <section className="main-container">
+      {isLoading && <LoadingSpinner />}
       <div className="textContainer">
         <br />
         <p className="main-titleFirst">Bienvenidos al</p>

@@ -1,26 +1,32 @@
 import React, { useContext, useState } from "react";
 import "../../styles/pages/home/projectList/ProjectItem.scss";
 import AppContext from "../../context/AppContext";
-import { get_onSale_providers_credits, get_provider_email } from "../../services/projectService";
+import {
+  get_onSale_providers_credits,
+  get_provider_email,
+} from "../../services/projectService";
+import LoadingSpinner from "../LoadingSpinner";
 
 const ProjectItem = ({ project }) => {
   const { showInfo } = useContext(AppContext);
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleClick = (item) => {
-    localStorage.removeItem("currentProject");
-    localStorage.removeItem("market");
-    localStorage.removeItem("quantity");
-    localStorage.removeItem("amount");
+    setIsLoading(true);
     localStorage.setItem("currentProject", JSON.stringify(project));
     showInfo(item);
     get_provider_email(project.id).then((res) => {
       localStorage.setItem("cp_email", res.data);
     });
-    get_onSale_providers_credits(project.id).then((res)=>{
+    get_onSale_providers_credits(project.id).then((res) => {
       localStorage.setItem("provider_credits", JSON.stringify(res.data));
-    })
+      setIsLoading(false);
+    });
   };
+
   return (
     <div className="ProjectItem" onClick={() => handleClick(project)}>
+      {isLoading && <LoadingSpinner />}
       <div className="ProjectItem-Image">
         <img src={project.images[0]} alt="" />
       </div>

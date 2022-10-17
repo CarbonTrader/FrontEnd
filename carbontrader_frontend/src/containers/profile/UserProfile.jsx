@@ -7,8 +7,13 @@ import UserInfo from "./UserInfo";
 import UserTransactions from "./userTransactions";
 import UserWallet from "./userWallet";
 import Img from "../../assets/img/perfil.jpg";
-import { getUserTransactions, getUser, get_Trader_Credits } from "../../services/userService";
+import {
+  getUserTransactions,
+  getUser,
+  get_Trader_Credits,
+} from "../../services/userService";
 import { getUserKeys } from "../../services/userService";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const UserProfile = () => {
   const { state, changeCurrentItem } = useContext(AppContext);
@@ -16,23 +21,25 @@ const UserProfile = () => {
   let arrayOfTransactions = [];
   const [priv_key, set_priv] = useState();
   const [pub_key, set_pub] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  
   useEffect(() => {
+    setIsLoading(true);
     getUser(localStorage.getItem("email")).then((res) => {
       set_pub(res.data.wallet.public_key);
       set_priv(res.data.wallet.private_key);
     });
-    get_Trader_Credits(localStorage.getItem("email")).then((res)=>{
-      localStorage.setItem(
-        "credits",
-        JSON.stringify(res.data)
-      );
-    })
+    get_Trader_Credits(localStorage.getItem("email")).then((res) => {
+      localStorage.setItem("credits", JSON.stringify(res.data));
+    });
 
     changeUser();
     getUserTransactions(localStorage.getItem("email")).then((res) => {
       localStorage.setItem("transactions", JSON.stringify(res.data));
+      setIsLoading(false);
     });
   }, []);
+
   const addSelectionItemClass = (id) => {
     const currentTab = state.currentItem;
     const itemToRemoveClass = document.getElementById(currentTab);
@@ -42,15 +49,17 @@ const UserProfile = () => {
     itemToAddClass.classList.add("selection");
     changeCurrentItem(id);
   };
+
   return (
     <>
+      {isLoading && <LoadingSpinner />}
       <section className="mainWalletContainer">
         <div className="wallet-headerSection">
           <div className="wallet-headerSection-userHederSection">
             <img src={Img} alt="" />
             <div className="wallet-headerSection-userHederSection-DataContainer">
               <h1>{user.name}</h1>
-              <p>{user.role === "INVESTOR" && "Comerciante"}</p>
+              <p>{user.role === "PROVIDER" && "Comerciante"}</p>
             </div>
           </div>
           <div className="wallet-optionsSection">

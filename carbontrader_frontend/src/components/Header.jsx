@@ -1,10 +1,16 @@
 import React, { useContext } from "react";
 import AppContext from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
 import "../styles/pages/home/Header.scss";
 import logo from "../assets/icons/CARBONTRADER-logo.svg";
 
 const Header = () => {
   const { state, changeCurrentHomeTab } = useContext(AppContext);
+  let navigate = useNavigate();
+  const logOut = () =>{
+    localStorage.clear()
+    navigate("/");
+  }
 
   return (
     <nav className="menu">
@@ -38,8 +44,13 @@ const Header = () => {
             <div
               id="profileItem"
               className={state.currentHomeTab === "profile" ? "underline" : ""}
-            ></div>
+            ></div>            
           </li>
+          <li className="menu__item">
+            <a onClick={() => logOut()}>Salir</a>
+            
+          </li>
+          
         </ul>
       </div>
     </nav>

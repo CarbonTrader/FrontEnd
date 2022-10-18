@@ -1,13 +1,12 @@
-import React from "react";
-import { useContext, useEffect, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import ProjectItem from "../../components/projects/ProjectItem";
 import "../../styles/pages/home/projectList/ProjectList.scss";
 import ProjectInfo from "../../components/projects/ProjectInfo";
 import AppContext from "../../context/AppContext";
 import useGetProjects from "../../hooks/useGetProjects";
 import Checkout from "../../components/projects/Checkout";
-import { get_global_transactions } from "../../services/transactionService";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import {getGlobalTransactions} from "../../services/transactionService";
+import LoadingSpinner from "../../components/shared/loading-spinner/LoadingSpinner";
 
 const ProjectList = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -22,7 +21,7 @@ const ProjectList = () => {
     localStorage.removeItem("transactions");
     localStorage.removeItem("provider_credits");
     localStorage.removeItem("cp_email");
-    get_global_transactions().then((res) => {
+    getGlobalTransactions().then((res) => {
       localStorage.setItem("global", JSON.stringify(res));
       setIsLoading(false);
     });

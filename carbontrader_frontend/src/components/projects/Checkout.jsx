@@ -1,13 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import "../../styles/pages/home/projectList/Checkout.scss";
 import AppContext from "../../context/AppContext";
-import {
-  getUserKeys,
-  many_exchange,
-  getUser,
-} from "../../services/userService";
-import { get_onSale_credits } from "../../services/projectService";
-import LoadingSpinner from "../LoadingSpinner";
+import {getUser, manyExchange,} from "../../services/userService";
+import {getOnSaleCredits} from "../../services/projectService";
+import LoadingSpinner from "../shared/loading-spinner/LoadingSpinner";
 
 const Checkout = () => {
   const { state, changeCurrentHomeTab } = useContext(AppContext);
@@ -48,7 +44,7 @@ const Checkout = () => {
           console.log(res);
           set_pub(res.data.wallet.public_key);
           set_priv(res.data.wallet.private_key);
-          many_exchange(
+          manyExchange(
             transaction,
             res.data.wallet.private_key,
             res.data.wallet.public_key
@@ -70,7 +66,7 @@ const Checkout = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    get_onSale_credits(
+    getOnSaleCredits(
       JSON.parse(localStorage.getItem("currentProject")).id
     ).then((res) => {
       localStorage.setItem("market", JSON.stringify(res.data));

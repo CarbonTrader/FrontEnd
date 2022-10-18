@@ -1,9 +1,10 @@
 import axios from "axios";
+import { BASE_API_URL } from "../environment";
 
-const get_credit_provider_email = async (serial) => {
+const getCreditProviderEmail = async (serial) => {
   try {
     const res = await axios.get(
-      `http://localhost:8000/credits/provider_email/${serial}`
+      `${BASE_API_URL}/credits/provider_email/${serial}`
     );
     return res.data;
   } catch (err) {
@@ -12,11 +13,9 @@ const get_credit_provider_email = async (serial) => {
   }
 };
 
-const get_project = async (serial) => {
+const getProject = async (serial) => {
   try {
-    const res = await axios.get(
-      `http://localhost:8000/credits/project/${serial}`
-    );
+    const res = await axios.get(`${BASE_API_URL}/credits/project/${serial}`);
     return res.data;
   } catch (err) {
     console.error(err);
@@ -24,5 +23,4 @@ const get_project = async (serial) => {
   }
 };
 
-
-export { get_credit_provider_email,get_project };
+export { getCreditProviderEmail, getProject };

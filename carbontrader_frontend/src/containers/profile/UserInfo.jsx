@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { delete_user } from "../../services/userService";
+import { deleteUser } from "../../services/userService";
 import { useNavigate } from "react-router-dom";
 import "../../styles/pages/home/userProfile/userInfo.scss";
+
 const UserInfo = (props) => {
-  const [toogle, setTogle] = useState(false);
+  const [toggle, setToggle] = useState(false);
   let navigate = useNavigate();
 
-  const delete_account = () => {
-    var resultado = window.confirm("¿Está seguro que eliminará su cuenta?");
+  const deleteAccount = () => {
+    const resultado = window.confirm("¿Está seguro que eliminará su cuenta?");
     if (resultado === true) {
-      delete_user(localStorage.getItem("email")).then((res) => {
+      deleteUser(localStorage.getItem("email")).then((res) => {
         localStorage.clear();
         navigate("/");
       });
@@ -20,11 +21,11 @@ const UserInfo = (props) => {
 
   return (
     <section className="userProfileContainer">
-      <div class="userProfile-box ">
+      <div className="userProfile-box ">
         <div className="userProfile-info">
           <span>
             <p className="userProfile-info-properties">Nombre:</p>
-            {toogle == false ? (
+            {!toggle ? (
               <p>{props.name}</p>
             ) : (
               <input id="userInput" type="text" placeholder="Nombre" />
@@ -32,16 +33,13 @@ const UserInfo = (props) => {
           </span>
           <span>
             <p className="userProfile-info-properties">Corero Electrónico:</p>
-            {toogle == false ? (
+            {!toggle ? (
               <p>{props.email}</p>
             ) : (
               <input id="userInput" type="text" placeholder="Correo" />
             )}
           </span>
-          <span
-            className="userProfile-options"
-            onClick={() => delete_account()}
-          >
+          <span className="userProfile-options" onClick={() => deleteAccount()}>
             <p>Eliminar Cuenta</p>
           </span>
           <span className="userProfile-options"></span>

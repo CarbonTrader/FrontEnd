@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getProjects, getProjectss } from "../services/projectService";
+import {useEffect, useState} from "react";
+import {getProjects} from "../services/projectService";
 
 const useGetProjects = () => {
   const [projects, setProjects] = useState([]);

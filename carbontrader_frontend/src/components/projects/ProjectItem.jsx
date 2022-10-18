@@ -1,11 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, {useContext, useState} from "react";
 import "../../styles/pages/home/projectList/ProjectItem.scss";
 import AppContext from "../../context/AppContext";
-import {
-  get_onSale_providers_credits,
-  get_provider_email,
-} from "../../services/projectService";
-import LoadingSpinner from "../LoadingSpinner";
+import {getOnSaleProvidersCredits, getProviderEmail,} from "../../services/projectService";
+import LoadingSpinner from "../shared/loading-spinner/LoadingSpinner";
 
 const ProjectItem = ({ project }) => {
   const { showInfo } = useContext(AppContext);
@@ -15,10 +12,10 @@ const ProjectItem = ({ project }) => {
     setIsLoading(true);
     localStorage.setItem("currentProject", JSON.stringify(project));
     showInfo(item);
-    get_provider_email(project.id).then((res) => {
+    getProviderEmail(project.id).then((res) => {
       localStorage.setItem("cp_email", res.data);
     });
-    get_onSale_providers_credits(project.id).then((res) => {
+    getOnSaleProvidersCredits(project.id).then((res) => {
       localStorage.setItem("provider_credits", JSON.stringify(res.data));
       setIsLoading(false);
     });

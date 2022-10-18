@@ -1,7 +1,6 @@
-import { React, useContext, useEffectF } from "react";
-import AppContext from "../../context/AppContext";
-import { useNavigate } from "react-router-dom";
-import { exchange, getUserKeys } from "../../services/userService";
+import {React} from "react";
+import {exchange, getUserKeys} from "../../services/userService";
+
 const MarketRow = (props) => {
   const handleCheckout = () => {
     const transaction = {

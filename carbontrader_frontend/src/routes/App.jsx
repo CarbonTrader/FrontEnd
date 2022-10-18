@@ -1,9 +1,9 @@
 import React from "react";
 import "../styles/App.scss";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
-import Home from "../pages/Home";
+import { Route, Routes } from "react-router-dom";
+import Login from "../pages/login/Login";
+import Register from "../pages/register/Register";
+import Home from "../pages/home/Home";
 import AppContext from "../context/AppContext";
 import UserContext from "../context/UserContext";
 import useInitialState from "../hooks/useInitialState";
@@ -16,15 +16,13 @@ function App() {
   return (
     <UserContext.Provider value={userState}>
       <AppContext.Provider value={initialState}>
-        <BrowserRouter>
-          <Routes>
-            <Route exact path="/" element={<Login />} />
-            <Route exact path="/Register" element={<Register />} />
-            <Route element={<ProtectedRoute />}>
-              <Route exact path="/Home" element={<Home />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route exact path="/Register" element={<Register />} />
+          <Route element={<ProtectedRoute />}>
+            <Route exact path="/Home" element={<Home />} />
+          </Route>
+        </Routes>
       </AppContext.Provider>
     </UserContext.Provider>
   );

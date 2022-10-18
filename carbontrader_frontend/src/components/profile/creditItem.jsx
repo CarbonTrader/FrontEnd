@@ -1,16 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/pages/home/userProfile/creditItem.scss";
-import { useNavigate } from "react-router-dom";
-import {
-  sendTransaction,
-  getUserKeys,
-  retire,
-  sale_credits,
-} from "../../services/userService";
-import {
-  get_credit_provider_email,
-  get_project,
-} from "../../services/CreditService";
+import {retire, saleCredits,} from "../../services/userService";
+import {getCreditProviderEmail, getProject,} from "../../services/CreditService";
 
 const CreditItem = (props) => {
   let transaction = {
@@ -21,9 +12,9 @@ const CreditItem = (props) => {
     public_key_sender: props.public_key,
   };
   const sale_currentCredit = () => {
-    get_project(props.name).then((response) => {
+    getProject(props.name).then((response) => {
       console.log(response);
-      sale_credits(
+      saleCredits(
         localStorage.getItem("email"),
         props.name,
         response.project_id
@@ -34,7 +25,7 @@ const CreditItem = (props) => {
     });
   };
   const handleClick = () => {
-    get_credit_provider_email(props.name).then((res) => {
+    getCreditProviderEmail(props.name).then((res) => {
       //transaction.sender_email = res;
       //console.log(transaction);
       retire(transaction).then((response) => {

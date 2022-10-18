@@ -1,8 +1,9 @@
 import axios from "axios";
+import { BASE_API_URL } from "../environment";
 
-const get_global_transactions = async () => {
+const getGlobalTransactions = async () => {
   try {
-    const res = await axios.get(`http://localhost:8000/transaction/all`);
+    const res = await axios.get(`${BASE_API_URL}/transaction/all`);
     return res.data;
   } catch (err) {
     console.error(err);
@@ -10,6 +11,4 @@ const get_global_transactions = async () => {
   }
 };
 
-export{
-    get_global_transactions
-}
+export { getGlobalTransactions };

@@ -1,14 +1,14 @@
 import { auth } from "../firebase";
 import { sendPasswordResetEmail, signOut } from "firebase/auth";
 import axios from "axios";
+import { BASE_API_URL } from "../environment";
 
 const logInWithEmailAndPassword = async (email, password) => {
   try {
-    const res = await axios.post("http://localhost:8000/auth/login", {
+    return await axios.post(`${BASE_API_URL}/auth/login`, {
       email: email,
       password: password,
     });
-    return res;
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -18,8 +18,7 @@ const logInWithEmailAndPassword = async (email, password) => {
 const getUserKeys = async (email) => {
   try {
     console.log(email);
-    const res = await axios.get(`http://localhost:8000/users/keys/${email}`);
-    return res;
+    return await axios.get(`${BASE_API_URL}/users/keys/${email}`);
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -28,13 +27,12 @@ const getUserKeys = async (email) => {
 
 const registerWithEmailAndPassword = async (name, email, password, role) => {
   try {
-    const res = await axios.post("http://localhost:8000/auth/signup", {
+    return await axios.post(`${BASE_API_URL}/auth/signup`, {
       name: name,
       email: email,
       password: password,
       role: role,
     });
-    return res;
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -57,8 +55,7 @@ const logout = () => {
 
 const getUserCredits = async (email) => {
   try {
-    const res = await axios.get(`http://localhost:8000/users/credits/${email}`);
-    return res;
+    return await axios.get(`${BASE_API_URL}/users/credits/${email}`);
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -67,19 +64,15 @@ const getUserCredits = async (email) => {
 
 const getUserTransactions = async (email) => {
   try {
-    const res = await axios.get(
-      `http://localhost:8000/users/transactions/${email}`
-    );
-    return res;
+    return await axios.get(`${BASE_API_URL}/users/transactions/${email}`);
   } catch (err) {
     console.error(err);
     alert(err.message);
   }
 };
-const get_Trader_Credits = async (email) => {
+const getTraderCredits = async (email) => {
   try {
-    const res = await axios.get(`http://localhost:8000/users/credits/${email}`);
-    return res;
+    return await axios.get(`${BASE_API_URL}/users/credits/${email}`);
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -88,8 +81,7 @@ const get_Trader_Credits = async (email) => {
 
 const getUser = async (email) => {
   try {
-    const res = await axios.get(`http://localhost:8000/users/${email}`);
-    return res;
+    return await axios.get(`${BASE_API_URL}/users/${email}`);
   } catch (error) {
     console.error(error);
     alert(error.message);
@@ -98,7 +90,7 @@ const getUser = async (email) => {
 
 const exchange = async (transaction) => {
   try {
-    const res = await axios.post("http://localhost:8000/transaction/exchange", {
+    await axios.post(`${BASE_API_URL}/transaction/exchange`, {
       id: "tra1",
       carbon_trader_serial: transaction.serial,
       recipient_email: transaction.recipient,
@@ -111,9 +103,10 @@ const exchange = async (transaction) => {
     alert(error.message);
   }
 };
+
 const retire = async (transaction) => {
   try {
-    const res = await axios.post("http://localhost:8000/transaction/retire", {
+    await axios.post(`${BASE_API_URL}/transaction/retire`, {
       carbon_trader_serial: transaction.serial,
       recipient_email: transaction.recipient,
       sender_email: transaction.sender_email,
@@ -125,44 +118,39 @@ const retire = async (transaction) => {
     alert(error.message);
   }
 };
-const sale_credits = async (email, serial, project_id) => {
+
+const saleCredits = async (email, serial, projectId) => {
   try {
-    const res = await axios.post("http://localhost:8000/users/sale_credit", {
+    await axios.post(`${BASE_API_URL}/users/sale_credit`, {
       email: email,
       serial: serial,
-      project_id: project_id,
+      project_id: projectId,
     });
   } catch (error) {
     console.error(error);
     alert(error.message);
   }
 };
-const delete_user = async (email) => {
+
+const deleteUser = async (email) => {
   try {
-    const res = await axios.delete("http://localhost:8000/auth/delete/" + email);
+    await axios.delete(`${BASE_API_URL}/auth/delete/${email}`);
   } catch (error) {
     console.error(error);
     alert(error.message);
   }
 };
 
-const many_exchange = async (
-  transaction,
-  private_key_sender,
-  public_key_sender
-) => {
+const manyExchange = async (transaction, privateKeySender, publicKeySender) => {
   try {
     console.log(transaction);
-    const res = await axios.post(
-      "http://localhost:8000/transaction/many/exchange",
-      {
-        amount: transaction.cont,
-        recipient_email: localStorage.getItem("email"),
-        cp_email: localStorage.getItem("cp_email"),
-        private_key_sender: private_key_sender,
-        public_key_sender: public_key_sender,
-      }
-    );
+    await axios.post(`${BASE_API_URL}/transaction/many/exchange`, {
+      amount: transaction.cont,
+      recipient_email: localStorage.getItem("email"),
+      cp_email: localStorage.getItem("cp_email"),
+      private_key_sender: privateKeySender,
+      public_key_sender: publicKeySender,
+    });
   } catch (error) {
     console.error(error);
     alert(error.message);
@@ -180,8 +168,8 @@ export {
   getUserKeys,
   exchange,
   retire,
-  many_exchange,
-  sale_credits,
-  get_Trader_Credits,
-  delete_user,
+  manyExchange,
+  saleCredits,
+  getTraderCredits,
+  deleteUser,
 };

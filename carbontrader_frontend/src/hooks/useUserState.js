@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const useUser = () => {
   const [user, setUser] = useState({
@@ -9,6 +9,7 @@ const useUser = () => {
     role: "",
     uid: "",
   });
+
   const changeUser = () =>
     setUser({
       ...user,
@@ -17,21 +18,25 @@ const useUser = () => {
       token: window.localStorage.getItem("token"),
       role: window.localStorage.getItem("role"),
     });
+
   const changeUid = (newUid) =>
     setUser({
       ...user,
       uid: newUid,
     });
+
   const changeRole = (newRole) =>
     setUser({
       ...user,
       role: newRole,
     });
+
   const changeName = (newName) =>
     setUser({
       ...user,
       name: newName,
     });
+
   const changeEmail = (newEmail) =>
     setUser({
       ...user,

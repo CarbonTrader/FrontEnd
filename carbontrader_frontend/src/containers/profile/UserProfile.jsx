@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AppContext from "../../context/AppContext";
 import UserContext from "../../context/UserContext";
 import "../../styles/pages/home/userProfile/UserProfile.scss";
@@ -8,32 +7,33 @@ import UserTransactions from "./userTransactions";
 import UserWallet from "./userWallet";
 import Img from "../../assets/img/perfil.jpg";
 import {
-  getUserTransactions,
+  getTraderCredits,
   getUser,
-  get_Trader_Credits,
+  getUserTransactions,
 } from "../../services/userService";
-import { getUserKeys } from "../../services/userService";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import LoadingSpinner from "../../components/shared/loading-spinner/LoadingSpinner";
 
 const UserProfile = () => {
   const { state, changeCurrentItem } = useContext(AppContext);
   const { user, changeUser } = useContext(UserContext);
   let arrayOfTransactions = [];
-  const [priv_key, set_priv] = useState();
-  const [pub_key, set_pub] = useState();
+  const [privateKey, setPrivateKey] = useState();
+  const [publicKey, setPublicKey] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  
+
   useEffect(() => {
     setIsLoading(true);
     getUser(localStorage.getItem("email")).then((res) => {
-      set_pub(res.data.wallet.public_key);
-      set_priv(res.data.wallet.private_key);
+      setPublicKey(res.data.wallet.public_key);
+      setPrivateKey(res.data.wallet.private_key);
     });
-    get_Trader_Credits(localStorage.getItem("email")).then((res) => {
+
+    getTraderCredits(localStorage.getItem("email")).then((res) => {
       localStorage.setItem("credits", JSON.stringify(res.data));
     });
 
     changeUser();
+
     getUserTransactions(localStorage.getItem("email")).then((res) => {
       localStorage.setItem("transactions", JSON.stringify(res.data));
       setIsLoading(false);
@@ -68,21 +68,21 @@ const UserProfile = () => {
               className="wallet-optionsSection-options selection"
               onClick={() => addSelectionItemClass("profile")}
             >
-              <a>Perfil</a>
+              <a href="javascript:void(0)">Perfil</a>
             </div>
             <div
               id="transactions"
               className="wallet-optionsSection-options"
               onClick={() => addSelectionItemClass("transactions")}
             >
-              <a>Transacciones</a>
+              <a href="javascript:void(0)">Transacciones</a>
             </div>
             <div
               id="wallet"
               className="wallet-optionsSection-options"
               onClick={() => addSelectionItemClass("wallet")}
             >
-              <a>Mi billetera</a>
+              <a href="javascript:void(0)">Mi billetera</a>
             </div>
           </div>
         </div>
@@ -93,8 +93,8 @@ const UserProfile = () => {
             <UserTransactions transactions={arrayOfTransactions} />
           ) : (
             <UserWallet
-              pub_key={pub_key}
-              priv_key={priv_key}
+              pub_key={publicKey}
+              priv_key={privateKey}
               credits={localStorage.getItem("transactions")}
               total={JSON.parse(localStorage.getItem("credits")).length}
             />

@@ -7,8 +7,8 @@ const GlobalTransactions = () => {
 
   return (
     <>
-      <div class="transactions-container">
-        <div class="transactions-container-background">
+      <div className="transactions-container">
+        <div className="transactions-container-background">
           <table>
             <tr className="table-header">
               <th>Hash</th>

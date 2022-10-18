@@ -1,9 +1,6 @@
 import React from "react";
-import { useContext, useEffect } from "react";
 import "../../styles/pages/home/userProfile/userWallet.scss";
 import CreditItem from "../../components/profile/creditItem";
-import { useNavigate } from "react-router-dom";
-import { sendTransaction, getUserKeys } from "../../services/userService";
 
 const UserWallet = (props) => {
   return (

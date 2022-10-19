@@ -1,16 +1,16 @@
 .headerMobileContainer {
-    background-color: var(--dull-green);
-    height: 130px;
-    ul {
-      height: 100%;
-      li {
-        list-style: none;
-        height: 22%;
-        border-top: 1px solid #d9d9d9;
-        padding: 0.3%;
-        text-align: center;
-        color: var(--white);
-        font-family: "Inter", sans-serif;
-      }
+  background-color: var(--dull-green);
+  height: 130px;
+  ul {
+    height: 100%;
+    li {
+      list-style: none;
+      height: 22%;
+      border-top: 1px solid #d9d9d9;
+      padding: 0.3%;
+      text-align: center;
+      color: var(--white);
+      font-family: "Inter", sans-serif;
     }
   }
+}

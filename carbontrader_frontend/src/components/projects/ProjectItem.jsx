@@ -1,13 +1,15 @@
-import React, {useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import "../../styles/pages/home/projectList/ProjectItem.scss";
 import AppContext from "../../context/AppContext";
-import {getOnSaleProvidersCredits, getProviderEmail,} from "../../services/projectService";
+import {
+  getOnSaleProvidersCredits,
+  getProviderEmail,
+} from "../../services/projectService";
 import LoadingSpinner from "../shared/loading-spinner/LoadingSpinner";
 
 const ProjectItem = ({ project }) => {
-  const { showInfo,changeCurrentProject } = useContext(AppContext);
+  const { showInfo, changeCurrentProject } = useContext(AppContext);
   const [isLoading, setIsLoading] = useState(false);
-
 
   const handleClick = (item) => {
     window.screen.width < 1000 ? changeCurrentProject(item) : showInfo(item);

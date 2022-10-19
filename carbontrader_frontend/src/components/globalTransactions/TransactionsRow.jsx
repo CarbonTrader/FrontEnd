@@ -8,7 +8,7 @@ const TransactionRow = (props) => {
       <td>{props.serial}</td>
       <td>{props.maker}</td>
       <td>{props.destiny}</td>
-      <td>{props.date}</td>
+      <td>{new Date(props.date / 1000000).toLocaleDateString()}</td>
     </tr>
   );
 };

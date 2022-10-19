@@ -1,21 +1,21 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import UserContext from "../context/UserContext";
-import "../styles/pages/login/Login.scss";
-import "../styles/global.scss";
-import { logInWithEmailAndPassword } from "../services/userService";
-import AppContext from "../context/AppContext";
+import { useUserContext } from "../../context/UserContext";
+import "../../styles/pages/login/Login.scss";
+import "../../styles/global.scss";
+import { logInWithEmailAndPassword } from "../../services/userService";
 
 const Login = () => {
-  const { user, changeEmail, changePassword, changeToken } =
-    useContext(UserContext);
+  const { user, changeEmail, changePassword, changeToken } = useUserContext();
+
   let navigate = useNavigate();
 
   const handleSignIn = (e) => {
     e.preventDefault();
     logInWithEmailAndPassword(user.email, user.password).then((response) => {
-      if (response.data.status_code === undefined){
-        console.log("entra");
+      console.log(response.data);
+      if (response.data.status_code === undefined) {
+        console.log(response.data);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("role", response.data.role);
         localStorage.setItem("name", response.data.name);
@@ -24,8 +24,8 @@ const Login = () => {
           localStorage.setItem("uuid", response.data.uuid);
         changeToken();
         navigate("/Home");
-      }else{
-        alert("Error al ingresar")
+      } else {
+        alert("Error al ingresar");
       }
     });
   };
@@ -37,23 +37,22 @@ const Login = () => {
 
   return (
     <main className="globalContainer">
-      <div className="mainRegisterContainer">
+      <div className="mainLoginContainer">
         <form>
+          <h1 className="title">CarbonTrader</h1>
           <div className="form-mainContainer">
-            <h1>Ingreso</h1>
-            <p>Bienvenido a CarbonTrader</p>
             <div className="inputsContainer">
               <input
                 id="userInput"
                 type="text"
+                placeholder="Correo"
                 onChange={(e) => changeEmail(e.target.value)}
-                placeholder="Ingrese su correo"
               />
               <input
                 id="passwordInput"
                 type="password"
+                placeholder="Contraseña"
                 onChange={(e) => changePassword(e.target.value)}
-                placeholder="Ingrese su contraseña"
               />
             </div>
             <div className="buttonLoginContainer">
@@ -65,7 +64,7 @@ const Login = () => {
                 <a href="/Home">Ingresar</a>
               </button>
 
-              <div className="RegisterOptionContainer">
+              <div className="LoginOptionContainer">
                 <span>
                   <p>¿No estas registrado?</p>
                   <a href="/Register">Registrate aquí</a>
@@ -78,5 +77,4 @@ const Login = () => {
     </main>
   );
 };
-
 export default Login;

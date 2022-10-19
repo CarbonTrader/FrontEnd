@@ -1,124 +1,44 @@
-import React from "react";
-import { useEffect, useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AppContext from "../../context/AppContext";
+import UserContext from "../../context/UserContext";
 import "../../styles/pages/home/userProfile/UserProfile.scss";
 import UserInfo from "./UserInfo";
 import UserTransactions from "./userTransactions";
 import UserWallet from "./userWallet";
-import useGetUser from "../../hooks/useUserState";
 import Img from "../../assets/img/perfil.jpg";
+import {
+  getTraderCredits,
+  getUser,
+  getUserTransactions,
+} from "../../services/userService";
+import LoadingSpinner from "../../components/shared/loading-spinner/LoadingSpinner";
 
 const UserProfile = () => {
   const { state, changeCurrentItem } = useContext(AppContext);
-  let sectionToShow;
-  const user = useGetUser();
-  const arrayOfTransactions = [
-    {
-      buyer_pk: "64f6796080e9d292...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "b99bb445c1721382...",
-      timestamp: "111",
-      transaction_type: "Compra",
-    },
-    {
-      buyer_pk: "64f6796080e9d292...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "0592b0b489e78ba1...",
-      timestamp: "222",
-      transaction_type: "Compra",
-    },
-    {
-      buyer_pk: "ecf80ad14629dba8...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "64f6796080e9d292...",
-      timestamp: "333",
-      transaction_type: "Venta",
-    },{
-      buyer_pk: "64f6796080e9d292...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "b99bb445c1721382...",
-      timestamp: "111",
-      transaction_type: "Compra",
-    },{
-      buyer_pk: "64f6796080e9d292...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "b99bb445c1721382...",
-      timestamp: "111",
-      transaction_type: "Compra",
-    },{
-      buyer_pk: "64f6796080e9d292...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "b99bb445c1721382...",
-      timestamp: "111",
-      transaction_type: "Compra",
-    },{
-      buyer_pk: "64f6796080e9d292...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "b99bb445c1721382...",
-      timestamp: "111",
-      transaction_type: "Compra",
-    },{
-      buyer_pk: "64f6796080e9d292...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "b99bb445c1721382...",
-      timestamp: "111",
-      transaction_type: "Compra",
-    },{
-      buyer_pk: "64f6796080e9d292...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "b99bb445c1721382...",
-      timestamp: "111",
-      transaction_type: "Compra",
-    },{
-      buyer_pk: "64f6796080e9d292...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "b99bb445c1721382...",
-      timestamp: "111",
-      transaction_type: "Compra",
-    },{
-      buyer_pk: "64f6796080e9d292...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "b99bb445c1721382...",
-      timestamp: "111",
-      transaction_type: "Compra",
-    },{
-      buyer_pk: "64f6796080e9d292...",
-      carbontrader_serial: "1",
-      hash: "1",
-      seller_pk: "b99bb445c1721382...",
-      timestamp: "111",
-      transaction_type: "Compra",
-    },
-  ];
-  const arrayOfCredtis = [
-    {
-      proyect_name: "Proyecto Delta",
-      credits: 20,
-    },
-    {
-      proyect_name: "Proyecto Alfa",
-      credits: 40,
-    },
-    {
-      proyect_name: "Proyecto Omega",
-      credits: 40,
-    },
-    {
-      proyect_name: "Proyecto Azul",
-      credits: 20,
-    },
-  ];
+  const { user, changeUser } = useContext(UserContext);
+  let arrayOfTransactions = [];
+  const [privateKey, setPrivateKey] = useState();
+  const [publicKey, setPublicKey] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    getUser(localStorage.getItem("email")).then((res) => {
+      setPublicKey(res.data.wallet.public_key);
+      setPrivateKey(res.data.wallet.private_key);
+    });
+
+    getTraderCredits(localStorage.getItem("email")).then((res) => {
+      localStorage.setItem("credits", JSON.stringify(res.data));
+    });
+
+    changeUser();
+
+    getUserTransactions(localStorage.getItem("email")).then((res) => {
+      localStorage.setItem("transactions", JSON.stringify(res.data));
+      setIsLoading(false);
+    });
+  }, []);
 
   const addSelectionItemClass = (id) => {
     const currentTab = state.currentItem;
@@ -132,13 +52,14 @@ const UserProfile = () => {
 
   return (
     <>
+      {isLoading && <LoadingSpinner />}
       <section className="mainWalletContainer">
         <div className="wallet-headerSection">
           <div className="wallet-headerSection-userHederSection">
             <img src={Img} alt="" />
             <div className="wallet-headerSection-userHederSection-DataContainer">
-              <h1>Enrique Gutiérrez</h1>
-              <p>Comercializador</p>
+              <h1>{user.name}</h1>
+              <p>{user.role === "PROVIDER" && "Comerciante"}</p>
             </div>
           </div>
           <div className="wallet-optionsSection">
@@ -147,21 +68,21 @@ const UserProfile = () => {
               className="wallet-optionsSection-options selection"
               onClick={() => addSelectionItemClass("profile")}
             >
-              <a>Perfil</a>
+              <a href="javascript:void(0)">Perfil</a>
             </div>
             <div
               id="transactions"
               className="wallet-optionsSection-options"
               onClick={() => addSelectionItemClass("transactions")}
             >
-              <a>Transacciones</a>
+              <a href="javascript:void(0)">Transacciones</a>
             </div>
             <div
               id="wallet"
               className="wallet-optionsSection-options"
               onClick={() => addSelectionItemClass("wallet")}
             >
-              <a>Mi Billetera</a>
+              <a href="javascript:void(0)">Mi billetera</a>
             </div>
           </div>
         </div>
@@ -172,11 +93,10 @@ const UserProfile = () => {
             <UserTransactions transactions={arrayOfTransactions} />
           ) : (
             <UserWallet
-              credits={arrayOfCredtis}
-              total={arrayOfCredtis.reduce(
-                (a, b) => a + (b["credits"] || 0),
-                0
-              )}
+              pub_key={publicKey}
+              priv_key={privateKey}
+              credits={localStorage.getItem("transactions")}
+              total={JSON.parse(localStorage.getItem("credits")).length}
             />
           )}
         </div>

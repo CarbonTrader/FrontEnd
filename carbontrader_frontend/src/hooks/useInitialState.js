@@ -23,6 +23,13 @@ const useInitialState = () => {
     });
   };
 
+  const changeHeaderType = () => {
+    setState({
+      ...state,
+      headerType: !state.headerType,
+    });
+  };
+
   const changeCurrentHomeTab = (p) => {
     setState({
       ...state,
@@ -66,12 +73,6 @@ const useInitialState = () => {
       projectListItem: arg,
     });
   };
-  const changeHeaderType = () => {
-    setState({
-      ...state,
-      headerType: !state.headerType,
-    });
-  };
   const changeCurrentProject = (p) => {
     setState({
       ...state,
@@ -84,13 +85,6 @@ const useInitialState = () => {
       ...state,
       //  project: p,
       firstSection: "check",
-    });
-  };
-  const changeCurrentProjectCheckout = (arg) => {
-    setState({
-      ...state,
-      currentHomeTab:"projectCheckpoint",
-      currentProyectCheckout: arg,
     });
   };
 
@@ -106,7 +100,6 @@ const useInitialState = () => {
     changeHeaderType,
     changeCurrentProject,
     changeToCheckout,
-    changeCurrentProjectCheckout,
   };
 };
 

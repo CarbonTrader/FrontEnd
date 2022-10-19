@@ -1,11 +1,20 @@
-import React, { useContext, useState } from "react";
-import "../../styles/pages/home/proyectList/ProjectInfo.scss";
+import React, { useContext } from "react";
+import "../../styles/pages/home/projectList/ProjectInfo.scss";
 import AppContext from "../../context/AppContext";
-const ProjectInfo = (props) => {
-  const { state, changeToCheckout, changeFirstSection } =
-    useContext(AppContext);
+
+const ProjectInfo = () => {
+  const { state } = useContext(AppContext);
+  const { changeFirstSection, changeToCheckout } = useContext(AppContext);
+
   const handleClick = () => {
-    window.screen.width < 1000 ? changeToCheckout() : changeFirstSection();;
+    window.screen.width < 1000 ? changeToCheckout() : changeFirstSection();
+    if (
+      state.project.credits.filter((credit) => credit.retire_date === null)
+        .length === 0
+    ) {
+      alert("Este proyecto no tiene bonos en venta");
+    } else {
+    }
   };
 
   if (state.project.length === 0) {
@@ -21,8 +30,8 @@ const ProjectInfo = (props) => {
   return (
     <section className="InfoContainer">
       <div className=" InfoContainer-descriptionContainer">
-        <img src={state.project.image} alt="" />
-        <h1>{state.project.project}</h1>
+        <img src={state.project.images[0]} alt="" />
+        <h1>{state.project.name}</h1>
         <div
           id="projectData"
           className={`InfoContainer-textContainer
@@ -35,20 +44,30 @@ const ProjectInfo = (props) => {
           <p>{state.project.description}</p>
           <div className="projectDataContainer">
             <span>
-              <p>Bonos de circulación</p>
-              <p>46,000</p>
+              <p>Bonos en venta</p>
+              <p>
+                {
+                  state.project.credits.filter(
+                    (credit) => credit.retire_date === null
+                  ).length
+                }
+              </p>
             </span>
             <span>
               <p>Bonos emitidos</p>
-              <p>1000,000</p>
+              <p>{state.project.credits.length}</p>
             </span>
             <span>
               <p>Fecha de emisión</p>
-              <p>13/03/2020</p>
+              <p>
+                {new Date(
+                  state.project.creation_date / 1000000
+                ).toLocaleDateString()}
+              </p>
             </span>
             <span>
               <p>Precio Unitario</p>
-              <p>$43.000COP</p>
+              <p>${state.project.credits[0].price.toFixed(3)}COP</p>
             </span>
           </div>
         </div>

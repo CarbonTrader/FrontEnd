@@ -1,78 +1,50 @@
 @use "../../../vars.scss";
-@media screen and (min-width: 1000px) {
-  .transactions-container {
+.transactions-container {
+  margin: auto;
+  box-shadow: 0px 2px 60px rgba(0, 0, 0, 0.25);
+  margin-top: 2%;
+  height: 75vh;
+  border-radius: 15px;
+  padding-top: 1%;
+  width: 85%;
+  &-background {
+    width: 95%;
     margin: auto;
-    background-color: var(--white);
-    box-shadow: 0px 2px 60px rgba(0, 0, 0, 0.25);
-    margin-top: 2%;
-    height: 75vh;
-    border-radius: 15px;
-    padding-top: 1%;
-    width: 85%;
-    &-background {
-      width: 95%;
-      margin: auto;
-      scroll-behavior: smooth;
-      overflow-y: scroll;
-      max-height: 95%;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: aqua;
+  }
+  table {
+    margin: auto;
+    color: rgba(60, 60, 67, 0.6);
+    font-size: 15px;
+    width: 100%;
+    border-collapse: collapse;
+    height: fit-content;
+    th {
+      color: black;
+      height: 30px;
+      text-align: center;
+      font-size: 15px;
+      background-color: #c2ffdb;
+      font-family: "Inter", sans-serif;
     }
-    h2 {
-      font-size: 20px;
-      color: aqua;
+    td {
+      text-align: left;
+      padding-left: 20px;
+      height: 5vh;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      th {
-        height: 100%;
-        font-size: 15px;
-        background-color: #c2ffdb;
-        font-family: "Inter", sans-serif;
-        cursor: default;
-      }
-      tr {
-        height: 50px;
-        font-family: "Inter", sans-serif;
-        background-color: #ebf7f0;
-        
-      }
-      td {
-        text-align: center;
-        border-bottom: 0;
-      }
-    }
-    .row {
-      &:hover {
-        background-color: beige;
-      }
+    tr {
+      font-family: "Inter", sans-serif;
     }
   }
-}
-@media screen and (max-width: 1000px) {
-  .transactions-container {
-    margin-top: 5%;
-    width: 100vw;
-    scroll-behavior: smooth;
-    overflow-x: scroll;
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      th {
-        height: 100%;
-        font-size: 15px;
-        background-color: #c2ffdb;
-        font-family: "Inter", sans-serif;
-      }
-      tr {
-        height: 50px;
-        font-family: "Inter", sans-serif;
-        background-color: #ebf7f0;
-        
-      }
-      td {
-        padding-left: 25px;
-        padding-right: 25px;
-      }
+  .row {
+    background-color: #ebf7f0;
+    &:hover {
+      background-color: beige;
+      cursor: pointer;
     }
   }
 }

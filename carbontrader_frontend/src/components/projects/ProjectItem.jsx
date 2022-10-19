@@ -5,13 +5,14 @@ import {getOnSaleProvidersCredits, getProviderEmail,} from "../../services/proje
 import LoadingSpinner from "../shared/loading-spinner/LoadingSpinner";
 
 const ProjectItem = ({ project }) => {
-  const { showInfo } = useContext(AppContext);
+  const { showInfo,changeCurrentProject } = useContext(AppContext);
   const [isLoading, setIsLoading] = useState(false);
 
+
   const handleClick = (item) => {
+    window.screen.width < 1000 ? changeCurrentProject(item) : showInfo(item);
     setIsLoading(true);
     localStorage.setItem("currentProject", JSON.stringify(project));
-    showInfo(item);
     getProviderEmail(project.id).then((res) => {
       localStorage.setItem("cp_email", res.data);
     });

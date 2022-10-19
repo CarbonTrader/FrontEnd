@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 
 const initialState = {
   currentItem: "profile",
@@ -8,6 +8,9 @@ const initialState = {
   secondSection: "info",
   currentHomeTab: "project",
   registerOption: "CP",
+  device: "",
+  currentProyectCheckout: {},
+  headerType: false,
 };
 
 const useInitialState = () => {
@@ -20,10 +23,18 @@ const useInitialState = () => {
     });
   };
 
+  const changeHeaderType = () => {
+    setState({
+      ...state,
+      headerType: !state.headerType,
+    });
+  };
+
   const changeCurrentHomeTab = (p) => {
     setState({
       ...state,
       currentHomeTab: p,
+      headerType: false,
     });
   };
 
@@ -62,6 +73,20 @@ const useInitialState = () => {
       projectListItem: arg,
     });
   };
+  const changeCurrentProject = (p) => {
+    setState({
+      ...state,
+      project: p,
+      firstSection: "info",
+    });
+  };
+  const changeToCheckout = () => {
+    setState({
+      ...state,
+      //  project: p,
+      firstSection: "check",
+    });
+  };
 
   return {
     state,
@@ -72,6 +97,9 @@ const useInitialState = () => {
     changeprojectListItem,
     changeCurrentHomeTab,
     changeRegisterOption,
+    changeHeaderType,
+    changeCurrentProject,
+    changeToCheckout,
   };
 };
 

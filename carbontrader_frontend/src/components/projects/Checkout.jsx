@@ -1,8 +1,8 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../../styles/pages/home/projectList/Checkout.scss";
 import AppContext from "../../context/AppContext";
-import {getUser, manyExchange,} from "../../services/userService";
-import {getOnSaleCredits} from "../../services/projectService";
+import { getUser, manyExchange } from "../../services/userService";
+import { getOnSaleCredits } from "../../services/projectService";
 import LoadingSpinner from "../shared/loading-spinner/LoadingSpinner";
 
 const Checkout = () => {

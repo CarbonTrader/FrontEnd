@@ -1,7 +1,19 @@
-import {React} from "react";
-import {exchange, getUserKeys} from "../../services/userService";
+import { useState } from "react";
+import { React, useEffect } from "react";
+import { getProject } from "../../services/CreditService";
+import { exchange, getUserKeys } from "../../services/userService";
 
 const MarketRow = (props) => {
+  const [price, setPrice] = useState(0);
+
+  useEffect(() => {
+    if (props.price === "") {
+      getProject(props.serial).then((res) => {
+        setPrice(res.price);
+      });
+    }
+  }, []);
+
   const handleCheckout = () => {
     const transaction = {
       serial: props.serial,
@@ -25,7 +37,7 @@ const MarketRow = (props) => {
     <tr>
       <td>{props.user}</td>
       <td>{props.serial}</td>
-      <td>${props.price.toFixed(3)}</td>
+      <td>${props.price === "" ? price.toFixed(3) : props.price.toFixed(3)}</td>
       <button onClick={() => handleCheckout()}>Comprar</button>
     </tr>
   );

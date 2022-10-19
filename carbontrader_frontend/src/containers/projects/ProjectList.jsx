@@ -1,11 +1,11 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProjectItem from "../../components/projects/ProjectItem";
 import "../../styles/pages/home/projectList/ProjectList.scss";
 import ProjectInfo from "../../components/projects/ProjectInfo";
 import AppContext from "../../context/AppContext";
 import useGetProjects from "../../hooks/useGetProjects";
 import Checkout from "../../components/projects/Checkout";
-import {getGlobalTransactions} from "../../services/transactionService";
+import { getGlobalTransactions } from "../../services/transactionService";
 import LoadingSpinner from "../../components/shared/loading-spinner/LoadingSpinner";
 
 const ProjectList = () => {
@@ -33,15 +33,22 @@ const ProjectList = () => {
     <section className="main-container">
       {isLoading && <LoadingSpinner />}
       <div className="textContainer">
-        <br />
-        <p className="main-titleFirst">Bienvenidos al</p>
-        <h1 className="main-titleSecond">Portafolio de CarbonTrader</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-          doloribus ipsa. Pariatur optio sequi perferendis, omnis debitis,
-          inventore, est odio cupiditate placeat quibusdam error qui possimus et
-          assumenda modi quam.{" "}
-        </p>
+        {((window.screen.width < 1000 &&
+          state.firstSection !== "info" &&
+          state.firstSection !== "check") ||
+          window.screen.width > 1000) && (
+          <>
+            <br />
+            <p className="main-titleFirst">Bienvenidos al</p>
+            <h1 className="main-titleSecond">Portafolio de CarbonTrader</h1>
+            <p className="interactiveDescription">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
+              doloribus ipsa. Pariatur optio sequi perferendis, omnis debitis,
+              inventore, est odio cupiditate placeat quibusdam error qui
+              possimus et assumenda modi quam.{" "}
+            </p>
+          </>
+        )}
       </div>
 
       <div className="ProjectList-container">
@@ -52,6 +59,8 @@ const ProjectList = () => {
         >
           {state.firstSection === "list" ? (
             projects.map((project) => <ProjectItem project={project} />)
+          ) : state.firstSection === "check" ? (
+            <Checkout />
           ) : (
             <ProjectInfo />
           )}

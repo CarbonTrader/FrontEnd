@@ -16,7 +16,7 @@ const MarketCredits = () => {
   return (
     <>
       <div className="transactions-container">
-        <h1 className="Project-title"> Proyecto template</h1>
+        <h1 className="Project-title">{JSON.parse(localStorage.getItem("currentProject")).name}</h1>
         <div className="transactions-container-background">
           <table className="UserMarket">
             <tr className="table-header">

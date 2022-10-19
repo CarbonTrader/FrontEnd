@@ -4,16 +4,16 @@ import AppContext from "../../context/AppContext";
 
 const ProjectInfo = () => {
   const { state } = useContext(AppContext);
-  const { changeFirstSection } = useContext(AppContext);
+  const { changeFirstSection, changeToCheckout } = useContext(AppContext);
 
   const handleClick = () => {
+    window.screen.width < 1000 ? changeToCheckout() : changeFirstSection();
     if (
       state.project.credits.filter((credit) => credit.retire_date === null)
         .length === 0
     ) {
       alert("Este proyecto no tiene bonos en venta");
     } else {
-      changeFirstSection();
     }
   };
 

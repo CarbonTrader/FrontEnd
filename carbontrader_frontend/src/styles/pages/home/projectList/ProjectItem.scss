@@ -1,42 +1,95 @@
 @use "../../../vars.scss";
 
-.ProjectItem {
-  margin-top: 2%;
-  min-width: 100px;
-  max-width: 95%;
-  min-height: 250px;
-  margin-left: 2%;
-  background: #fdfdfd;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.125);
-  border-radius: 10px;
-  display: flex;
-  &:hover {
-    background-color: var(--light-green);
-    cursor: pointer;
-  }
-  .ProjectItem-Image {
-    margin: 1% 1%;
-    max-width: 300px;
-    img {
-      width: 98%;
-      height: 95%;
-      border-radius: 20px;
-      object-fit: cover;
+@media screen and (min-width: 1000px) {
+  .ProjectItem {
+    margin-top: 2%;
+    min-width: 100px;
+    max-width: 95%;
+    min-height: 250px;
+    margin-left: 2%;
+    background: #fdfdfd;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.125);
+    border-radius: 10px;
+    display: flex;
+    &:hover {
+      background-color: var(--light-green);
+      cursor: pointer;
+    }
+    .ProjectItem-Image {
+      margin: 1% 1%;
+      max-width: 300px;
+      img {
+        width: 98%;
+        height: 95%;
+        border-radius: 20px;
+        object-fit: cover;
+      }
+    }
+
+    .ProjectItem-title {
+      font-weight: var(--intense-weight);
+      text-transform: uppercase;
+      font-family: "Inter", sans-serif;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    .ProjectItem-description {
+      width: 90%;
+      line-height: 25px;
+      font-weight: 400;
+      font-family: "Lora", serif;
+      font-size: 14px;
+      margin: auto;
+      color: rgba(60, 60, 67, 0.6);
+    }
+    .subtitle {
+      color: var(--black);
+      font-family: "Inter", sans-serif;
+      margin-left: 0;
+      width: fit-content;
+      font-weight: var(--intense-weight);
+      display: inline;
     }
   }
+}
 
+@media screen and (max-width: 1000px) {
+  .ProjectItem {
+    margin-top: 5%;
+    height: 50%;
+    margin-left: 2%;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.125);
+    border-radius: 10px;
+    display: flex;
+  }
+  .ProjectItem-Image {
+    width: 50%;
+    margin-top: 2%;
+    img {
+      width: 100%;
+      height: 90%;
+    }
+  }
+  .ProjectItem-info {
+    width: 50%;
+  }
   .ProjectItem-title {
     font-weight: var(--intense-weight);
     text-transform: uppercase;
     font-family: "Inter", sans-serif;
     text-align: center;
-    margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 15px;
   }
   .ProjectItem-description {
-    width: 90%;
-    line-height: 25px;
+    &:nth-child(4),
+    &:nth-child(5) {
+      display: none;
+    }
+    width: 95%;
+    line-height: 20px;
     font-weight: 400;
     font-family: "Lora", serif;
     font-size: 14px;

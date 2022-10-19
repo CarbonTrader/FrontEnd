@@ -6,7 +6,7 @@ import Header from "../../components/shared/header/Header";
 import { useAppContext } from "../../context/AppContext";
 import { useUserContext } from "../../context/UserContext";
 import MarketCredits from "../../containers/projects/MarketCredits";
-
+import MobileHeader from '../../components/shared/header/MobileHeader'
 const Home = () => {
   const { state } = useAppContext();
   const { changeUser } = useUserContext();
@@ -18,6 +18,7 @@ const Home = () => {
   return (
     <>
       <Header currentItem="projectListItem" />
+      {state.headerType && <MobileHeader />}
       {state.currentHomeTab === "project" ? (
         <ProjectList />
       ) : state.currentHomeTab === "transactions" ? (

@@ -68,21 +68,21 @@ const UserProfile = () => {
               className="wallet-optionsSection-options selection"
               onClick={() => addSelectionItemClass("profile")}
             >
-              <a href="javascript:void(0)">Perfil</a>
+              <a >Perfil</a>
             </div>
             <div
               id="transactions"
               className="wallet-optionsSection-options"
               onClick={() => addSelectionItemClass("transactions")}
             >
-              <a href="javascript:void(0)">Transacciones</a>
+              <a>Transacciones</a>
             </div>
             <div
               id="wallet"
               className="wallet-optionsSection-options"
               onClick={() => addSelectionItemClass("wallet")}
             >
-              <a href="javascript:void(0)">Mi billetera</a>
+              <a>Mi billetera</a>
             </div>
           </div>
         </div>

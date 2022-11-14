@@ -9,7 +9,7 @@ import {
     getUserTransactions,
     logInWithEmailAndPassword, manyExchange,
     registerWithEmailAndPassword, retire, saleCredits
-} from "./userService";
+} from "../services/userService";
 
 jest.mock("axios");
 

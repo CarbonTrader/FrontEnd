@@ -2,14 +2,6 @@ import React from "react";
 import "../../styles/pages/home/userProfile/userTransactions.scss";
 
 const UserTransactions = (props) => {
-  /*
-  let array = JSON.parse(localStorage.getItem("transactions"))
-  array.map((t)=>{
-    var ts = new Date(1665686653000);
-    t.timestamp = ts.toDateString()
-  })
-  console.log(array);
-  */
   return (
     <section className="userTransactionsContainer">
       <div className="userTransactions-tableContainer">

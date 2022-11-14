@@ -1,5 +1,5 @@
 import { act, renderHook } from "@testing-library/react";
-import useUserState from "./useUserState";
+import useUserState from "../hooks/useUserState";
 
 describe("useUserState", () => {
   let localStorageGetItemMock = null;

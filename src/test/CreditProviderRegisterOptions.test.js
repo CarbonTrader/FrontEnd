@@ -1,9 +1,9 @@
 import {unmountComponentAtNode} from "react-dom";
 import {act} from "react-dom/test-utils";
 import {render} from "@testing-library/react";
-import InvestorRegisterOptions from "./InvestorRegisterOptions";
+import CreditProviderRegisterOptions from "../components/shared/cp-register-options/CreditProviderRegisterOptions";
 
-describe("InvestorRegisterOptions component", () => {
+describe("CreditProviderRegisterOptions component", () => {
 
     let container = null;
     beforeEach(() => {
@@ -19,7 +19,7 @@ describe("InvestorRegisterOptions component", () => {
 
     it("should render appropriately", () => {
         act(() => {
-            render(<InvestorRegisterOptions/>, container);
+            render(<CreditProviderRegisterOptions/>, container);
         });
 
         expect(container).toBeDefined();

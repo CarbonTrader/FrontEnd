@@ -1,5 +1,5 @@
 import {render, screen} from "@testing-library/react";
-import TransactionRow from "./TransactionsRow";
+import TransactionRow from "../components/globalTransactions/TransactionsRow";
 
 const transaction = {
     hash: 'hash',

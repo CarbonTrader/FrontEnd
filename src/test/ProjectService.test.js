@@ -6,7 +6,7 @@ import {
     getOnSaleProvidersCredits,
     getProjects,
     getProviderEmail
-} from "./projectService";
+} from "../services/projectService";
 
 jest.mock("axios");
 

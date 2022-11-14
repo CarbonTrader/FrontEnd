@@ -1,6 +1,6 @@
 import {fireEvent, render, screen} from "@testing-library/react";
-import MarketRow from "./MarketRow";
-import * as UserService from "../../services/userService";
+import MarketRow from "../components/projects/MarketRow";
+import * as UserService from "../services/userService";
 
 const transaction = {
     owner: 'test@email.com',

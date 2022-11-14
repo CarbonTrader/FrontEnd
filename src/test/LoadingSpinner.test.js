@@ -1,5 +1,5 @@
 import {render} from "@testing-library/react";
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "../components/shared/loading-spinner/LoadingSpinner";
 import {act} from "react-dom/test-utils";
 import {unmountComponentAtNode} from "react-dom";
 

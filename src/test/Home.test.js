@@ -1,8 +1,8 @@
 import React from "react";
-import Home from "./Home";
-import UserContext from "../../context/UserContext";
-import "../../setupTests";
-import AppContext from "../../context/AppContext";
+import Home from "../pages/home/Home";
+import UserContext from "../context/UserContext";
+import "../setupTests";
+import AppContext from "../context/AppContext";
 import { render, screen } from "@testing-library/react";
 
 const renderComponent = ({ tabName }) => {
@@ -25,23 +25,23 @@ const renderComponent = ({ tabName }) => {
   );
 };
 
-jest.mock("../../components/shared/header/Header", () => {
+jest.mock("../components/shared/header/Header.jsx", () => {
   return () => <h1>Header</h1>;
 });
 
-jest.mock("../../containers/projects/ProjectList", () => {
+jest.mock("../containers/projects/ProjectList", () => {
   return () => <h1>Listado de proyectos</h1>;
 });
 
-jest.mock("../../containers/globalTransactions/GlobalTransactions", () => {
+jest.mock("../containers/globalTransactions/GlobalTransactions", () => {
   return () => <h1>Listado de transacciones</h1>;
 });
 
-jest.mock("../../containers/profile/UserProfile", () => {
+jest.mock("../containers/profile/UserProfile", () => {
   return () => <h1>Perfil</h1>;
 });
 
-jest.mock("../../containers/projects/MarketCredits", () => {
+jest.mock("../containers/projects/MarketCredits", () => {
   return () => <h1>Marked Credits</h1>;
 });
 

@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import useGetProjects from "./useGetProjects";
+import useGetProjects from "../hooks/useGetProjects";
 
 describe("useGetProjects", () => {
   it("should call getProjects", () => {

@@ -1,6 +1,6 @@
 import axios from "axios";
 import {BASE_API_URL} from "../environment";
-import {getGlobalTransactions} from "./transactionService";
+import {getGlobalTransactions} from "../services/transactionService";
 
 jest.mock("axios");
 

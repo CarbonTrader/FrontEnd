@@ -41,7 +41,6 @@ const Checkout = () => {
       if (numa <= numb) {
         transaction.cont = numa;
         getUser(localStorage.getItem("cp_email")).then((res) => {
-          console.log(res);
           set_pub(res.data.wallet.public_key);
           set_priv(res.data.wallet.private_key);
           manyExchange(

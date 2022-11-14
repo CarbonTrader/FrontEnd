@@ -1,7 +1,7 @@
 import {fireEvent, render, screen} from "@testing-library/react";
-import CreditItem from "./creditItem";
-import * as CreditService from "../../services/CreditService";
-import * as UserService from "../../services/userService";
+import CreditItem from "../components/profile/creditItem";
+import * as CreditService from "../services/CreditService";
+import * as UserService from "../services/userService";
 
 const projectResult = {
     response: {

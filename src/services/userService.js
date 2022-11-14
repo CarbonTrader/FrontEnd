@@ -17,7 +17,6 @@ const logInWithEmailAndPassword = async (email, password) => {
 
 const getUserKeys = async (email) => {
   try {
-    console.log(email);
     return await axios.get(`${BASE_API_URL}/users/keys/${email}`);
   } catch (err) {
     console.error(err);
@@ -143,7 +142,6 @@ const deleteUser = async (email) => {
 
 const manyExchange = async (transaction, privateKeySender, publicKeySender) => {
   try {
-    console.log(transaction);
     await axios.post(`${BASE_API_URL}/transaction/many/exchange`, {
       amount: transaction.cont,
       recipient_email: localStorage.getItem("email"),

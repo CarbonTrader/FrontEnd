@@ -13,7 +13,6 @@ const CreditItem = (props) => {
   };
   const sale_currentCredit = () => {
     getProject(props.name).then((response) => {
-      console.log(response);
       saleCredits(
         localStorage.getItem("email"),
         props.name,
@@ -26,8 +25,6 @@ const CreditItem = (props) => {
   };
   const handleClick = () => {
     getCreditProviderEmail(props.name).then((res) => {
-      //transaction.sender_email = res;
-      //console.log(transaction);
       retire(transaction).then((response) => {
         alert("credito retirado con exito");
         window.location.reload();

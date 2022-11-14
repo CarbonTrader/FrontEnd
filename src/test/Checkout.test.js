@@ -1,8 +1,8 @@
 import {render, screen} from "@testing-library/react";
 import {BrowserRouter} from "react-router-dom";
-import Checkout from "./Checkout";
-import AppContext from "../../context/AppContext";
-import * as ProjectService from "../../services/projectService";
+import Checkout from "../components/projects/Checkout";
+import AppContext from "../context/AppContext";
+import * as ProjectService from "../services/projectService";
 
 const appState = {
     state: {

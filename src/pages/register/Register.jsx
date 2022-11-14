@@ -32,10 +32,8 @@ const Register = () => {
       role
     ).then((res) => {
       if (res.data.status_code === undefined) {
-        console.log(res);
         logInWithEmailAndPassword(user.email, user.password).then(
           (response) => {
-            console.log(response);
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("role", res.data.role);
             localStorage.setItem("name", res.data.name);

@@ -1,6 +1,6 @@
 import axios from "axios";
 import {BASE_API_URL} from "../environment";
-import {getCreditProviderEmail, getProject} from "./CreditService";
+import {getCreditProviderEmail, getProject} from "../services/CreditService";
 
 jest.mock("axios");
 

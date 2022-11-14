@@ -5,7 +5,6 @@ import "../styles/pages/home/MobileHeader.scss";
 const MobileHeader = () => {
   const { state, changeHeaderType, changeCurrentHomeTab } =
     useContext(AppContext);
-  //const [toggle, setToggle] = useState(false);
   return (
     <section className="headerMobileContainer">
       <ul>

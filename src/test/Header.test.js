@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import AppContext from "../../../context/AppContext";
-import Header from "./Header";
+import AppContext from "../context/AppContext";
+import Header from "../components/shared/header/Header";
 
 const renderComponent = () => {
   const appState = {

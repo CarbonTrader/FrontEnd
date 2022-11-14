@@ -83,7 +83,6 @@ const useInitialState = () => {
   const changeToCheckout = () => {
     setState({
       ...state,
-      //  project: p,
       firstSection: "check",
     });
   };

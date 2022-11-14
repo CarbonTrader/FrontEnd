@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import UserContext from "../../context/UserContext";
+import UserContext from "../context/UserContext";
 import { BrowserRouter } from "react-router-dom";
-import Register from "./Register";
-import * as UserService from "../../services/userService";
-import AppContext from "../../context/AppContext";
+import Register from "../pages/register/Register";
+import * as UserService from "../services/userService";
+import AppContext from "../context/AppContext";
 
 const renderComponent = () => {
   const appState = {

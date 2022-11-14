@@ -1,5 +1,5 @@
 import { act, renderHook } from "@testing-library/react";
-import useInitialState from "./useInitialState";
+import useInitialState from "../hooks/useInitialState";
 
 describe("useInitialState", () => {
   it("should call changeCurrentItem", () => {
